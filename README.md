@@ -44,27 +44,57 @@ AXION은 사용자의 문제를 이해하고 더 나은 서비스 경험으로 �
 
 ## 포트폴리오 구조
 
-| 1 Depth | 2 Depth | 주요 콘텐츠 |
-|---|---|---|
-| 홈 | 상단 소개 | 핵심 포지셔닝, 대표 프로젝트 CTA, About 이동 |
-| 홈 | 프로젝트 | 대표 프로젝트 카드, 카테고리 태그, 프로젝트 상세 링크 |
-| 홈 | 소개 미리보기 | Product Designer 소개, 핵심 역량, About 이동 |
-| 홈 | 협업 및 연락 | 협업 경험, 채용·협업 CTA, 외부 채널 연결 |
-| 소개 | 상세 소개 | 경력, 역할, 전문 분야, 업무 방식과 사용 도구 |
-| 프로젝트 | 전체 프로젝트 | 전체 목록, 필터, 프로젝트 카드 그리드 |
-| 프로젝트 | 카테고리 필터 | 사내·개인·외주·회사 프로젝트 분류 |
-| 프로젝트 상세 | 개요 및 프로세스 | 기획 배경, 핵심 목표, Workflow, AI Agent, IA |
-| 프로젝트 상세 | 디자인 및 결과 | 주요 화면, 디자인 시스템, 구축 결과와 학습 |
-| 공통 요소 | 내비게이션·푸터 | 로고, Home·About·Projects, 테마 전환, 사이트 정보 |
+<table width="100%">
+  <colgroup>
+    <col width="20%">
+    <col width="25%">
+    <col width="55%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>1 Depth</th>
+      <th>2 Depth</th>
+      <th>주요 콘텐츠</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>홈</td><td>상단 소개</td><td>핵심 포지셔닝, 대표 프로젝트 CTA, About 이동</td></tr>
+    <tr><td>홈</td><td>프로젝트</td><td>대표 프로젝트 카드, 카테고리 태그, 프로젝트 상세 링크</td></tr>
+    <tr><td>홈</td><td>소개 미리보기</td><td>Product Designer 소개, 핵심 역량, About 이동</td></tr>
+    <tr><td>홈</td><td>협업 및 연락</td><td>협업 경험, 채용·협업 CTA, 외부 채널 연결</td></tr>
+    <tr><td>소개</td><td>상세 소개</td><td>경력, 역할, 전문 분야, 업무 방식과 사용 도구</td></tr>
+    <tr><td>프로젝트</td><td>전체 프로젝트</td><td>전체 목록, 필터, 프로젝트 카드 그리드</td></tr>
+    <tr><td>프로젝트</td><td>카테고리 필터</td><td>사내·개인·외주·회사 프로젝트 분류</td></tr>
+    <tr><td>프로젝트 상세</td><td>개요 및 프로세스</td><td>기획 배경, 핵심 목표, Workflow, AI Agent, IA</td></tr>
+    <tr><td>프로젝트 상세</td><td>디자인 및 결과</td><td>주요 화면, 디자인 시스템, 구축 결과와 학습</td></tr>
+    <tr><td>공통 요소</td><td>내비게이션·푸터</td><td>로고, Home·About·Projects, 테마 전환, 사이트 정보</td></tr>
+  </tbody>
+</table>
 
 ## 반응형 콘텐츠 전략
 
 AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞춰 **콘텐츠 깊이까지 조정하는 반응형 포트폴리오**를 지향합니다.
 
-| 구분 | 기준 | 콘텐츠 구성 | 전달 목표 |
-|---|---|---|---|
-| Mobile | 390px / Viewport `< 1024px` | 기획 배경·문제 정의 → 주요 결과물 → 축약형 디자인 시스템 | 개선 결과와 핵심 역량을 빠르게 전달 |
-| Desktop | 1200px / Viewport `≥ 1024px` | 문제 정의 → 기획 방향 → IA → 주요 화면 → 개선 비교 → 디자인 시스템 | 판단 근거와 해결 과정을 충분히 전달 |
+<table width="100%">
+  <colgroup>
+    <col width="12%">
+    <col width="23%">
+    <col width="40%">
+    <col width="25%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>구분</th>
+      <th>기준</th>
+      <th>콘텐츠 구성</th>
+      <th>전달 목표</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Mobile</td><td>390px / Viewport <code>&lt; 1024px</code></td><td>기획 배경·문제 정의 → 주요 결과물 → 축약형 디자인 시스템</td><td>개선 결과와 핵심 역량을 빠르게 전달</td></tr>
+    <tr><td>Desktop</td><td>1200px / Viewport <code>≥ 1024px</code></td><td>문제 정의 → 기획 방향 → IA → 주요 화면 → 개선 비교 → 디자인 시스템</td><td>판단 근거와 해결 과정을 충분히 전달</td></tr>
+  </tbody>
+</table>
 
 - **Light / Dark Theme:** 모바일·데스크톱 모두 제공
 - **프로젝트 탐색:** 전체·사내·개인·외주·회사 프로젝트로 분류
@@ -97,13 +127,27 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
 
 ## AI 에이전트 협업 구조
 
-| 영역 | 도구 | 역할 |
-|---|---|---|
-| 기획 문서 관리 | Notion / Markdown | 기획안·PRD·개발 가이드 통합 관리 및 단일 문서 저장소 운영 |
-| 서비스 기획 | Claude | 문제 정의, PRD·IA·사용자 흐름 구조화, 요구사항 및 UX 문구 검토 |
-| UX/UI 디자인 | Figma | 반응형 화면, 디자인 시스템·컴포넌트 설계 및 디자인 QA |
-| 제품 개발 | Codex & Figma MCP | React·Next.js 구현, 토큰·컴포넌트 연동, 테스트 및 정합성 QA |
-| 버전 관리 | Git / GitHub | 브랜치, 커밋, Pull Request와 소스 코드 이력 관리 |
+<table width="100%">
+  <colgroup>
+    <col width="20%">
+    <col width="25%">
+    <col width="55%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>영역</th>
+      <th>도구</th>
+      <th>역할</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>기획 문서 관리</td><td>Notion / Markdown</td><td>기획안·PRD·개발 가이드 통합 관리 및 단일 문서 저장소 운영</td></tr>
+    <tr><td>서비스 기획</td><td>Claude</td><td>문제 정의, PRD·IA·사용자 흐름 구조화, 요구사항 및 UX 문구 검토</td></tr>
+    <tr><td>UX/UI 디자인</td><td>Figma</td><td>반응형 화면, 디자인 시스템·컴포넌트 설계 및 디자인 QA</td></tr>
+    <tr><td>제품 개발</td><td>Codex &amp; Figma MCP</td><td>React·Next.js 구현, 토큰·컴포넌트 연동, 테스트 및 정합성 QA</td></tr>
+    <tr><td>버전 관리</td><td>Git / GitHub</td><td>브랜치, 커밋, Pull Request와 소스 코드 이력 관리</td></tr>
+  </tbody>
+</table>
 
 ## AI 하네스
 
@@ -158,14 +202,28 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
 
 **현재 버전: `v0.1.1 — 문서 현지화 및 디자인 링크 반영`**
 
-| 버전 | 단계 | 주요 범위 |
-|---|---|---|
-| `v0.1.1` | 문서 개선 | README 한글화, Figma 디자인 결과물 링크, 버전 기록 보완 |
-| `v0.1.0` | 기획·디자인 명세 | PRD, IA, 반응형 화면, Portfolio Design System, AX Workflow |
-| `v0.2.0` | 개발 기반 | Next.js 환경, 디자인 토큰, 공통 레이아웃 |
-| `v0.3.0` | 핵심 화면 | 홈, 소개, 프로젝트 탐색·상세 화면 |
-| `v0.4.0` | 품질 개선 | Light/Dark Theme, 반응형, 접근성, 성능, UI QA |
-| `v1.0.0` | 제출 버전 | 배포, 콘텐츠 검수, 채용 제출용 최종 안정화 |
+<table width="100%">
+  <colgroup>
+    <col width="15%">
+    <col width="25%">
+    <col width="60%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>버전</th>
+      <th>단계</th>
+      <th>주요 범위</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>v0.1.1</code></td><td>문서 개선</td><td>README 한글화, Figma 디자인 결과물 링크, 버전 기록 보완</td></tr>
+    <tr><td><code>v0.1.0</code></td><td>기획·디자인 명세</td><td>PRD, IA, 반응형 화면, Portfolio Design System, AX Workflow</td></tr>
+    <tr><td><code>v0.2.0</code></td><td>개발 기반</td><td>Next.js 환경, 디자인 토큰, 공통 레이아웃</td></tr>
+    <tr><td><code>v0.3.0</code></td><td>핵심 화면</td><td>홈, 소개, 프로젝트 탐색·상세 화면</td></tr>
+    <tr><td><code>v0.4.0</code></td><td>품질 개선</td><td>Light/Dark Theme, 반응형, 접근성, 성능, UI QA</td></tr>
+    <tr><td><code>v1.0.0</code></td><td>제출 버전</td><td>배포, 콘텐츠 검수, 채용 제출용 최종 안정화</td></tr>
+  </tbody>
+</table>
 
 상세 변경 내역은 [`CHANGELOG.md`](./CHANGELOG.md)에서 관리합니다.
 
