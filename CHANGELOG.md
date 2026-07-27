@@ -1,4 +1,4 @@
-# Changelog
+# 변경 기록
 
 AXION Portfolio의 주요 변경 내역을 기록합니다.
 
@@ -8,9 +8,9 @@ AXION Portfolio의 주요 변경 내역을 기록합니다.
 - **Minor:** 새로운 화면·기능·문서 범위 추가
 - **Patch:** 콘텐츠, 스타일, 접근성 및 QA 개선
 
-## [Unreleased]
+## [예정]
 
-### Planned
+### 계획
 
 - Next.js·TypeScript·Tailwind CSS 개발 환경 구축
 - Figma 디자인 토큰과 코드 토큰 연결
@@ -20,9 +20,17 @@ AXION Portfolio의 주요 변경 내역을 기록합니다.
 - 반응형·접근성·기능·UI 정합성 QA
 - 배포 및 채용 제출용 콘텐츠 검수
 
+## [0.1.1] - 2026-07-27
+
+### 변경
+
+- README의 영어 섹션 타이틀을 한글로 통일
+- Figma의 AXION 디자인 결과물 링크 추가
+- 현재 버전과 버전별 주요 범위 갱신
+
 ## [0.1.0] - 2026-07-27
 
-### Added
+### 추가
 
 - AXION GitHub 비공개 저장소 생성
 - 프로젝트 README 및 Next.js 기준 `.gitignore` 구성
@@ -33,7 +41,7 @@ AXION Portfolio의 주요 변경 내역을 기록합니다.
 - AX Product Workflow 및 AI Agent 협업 구조 정의
 - AI Harness 실행 흐름 및 QA 재반영 구조 설계
 
-### Defined
+### 정의
 
 - 모바일 결과 중심·데스크톱 과정 중심의 반응형 콘텐츠 전략
 - Foundation, Component, Developer Handoff 기반 디자인 시스템 구조

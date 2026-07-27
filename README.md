@@ -1,8 +1,8 @@
-# AXION Portfolio
+# AXION 포트폴리오
 
 > 서비스 기획, UX/UI 디자인, 디자인 시스템과 AI 기반 제품 개발 과정을 하나의 경험으로 연결한 채용 제출용 포트폴리오 웹사이트입니다.
 
-## Project Overview
+## 프로젝트 개요
 
 AXION은 서비스 기획부터 UX/UI 디자인, 디자인 시스템, 프론트엔드 구현과 QA까지 연결되는 **AX Product Design & Development Workflow**를 검증하는 개인 프로젝트입니다.
 
@@ -19,13 +19,13 @@ AXION은 서비스 기획부터 UX/UI 디자인, 디자인 시스템, 프론트�
 
 현재 포트폴리오의 데스크톱·모바일 Light / Dark 화면과 Portfolio Design System을 Figma에서 확인할 수 있습니다.
 
-## Product Positioning
+## 포트폴리오 포지셔닝
 
 AXION은 사용자의 문제를 이해하고 더 나은 서비스 경험으로 연결하는 **AX 기획자 & UX 디자이너 김성호의 실무 포트폴리오**입니다.
 
 서비스 기획과 프로덕트 디자인을 중심으로 금융, 핀테크, 블록체인, 세무·회계, M&A, 안전 인프라, 브랜딩 프로젝트를 수행한 경험과 AI Agent를 활용한 업무 프로세스를 함께 보여줍니다.
 
-### Core Competencies
+### 핵심 역량
 
 - 서비스 분석, 문제 정의, 목표 및 검증 기준 수립
 - PRD, IA, 사용자 흐름과 요구사항 구조화
@@ -34,7 +34,7 @@ AXION은 사용자의 문제를 이해하고 더 나은 서비스 경험으로 �
 - Figma·Confluence·Slack 기반 PM·개발 협업
 - AI Agent를 활용한 기획·디자인·개발·QA 자동화
 
-## Portfolio Structure
+## 포트폴리오 구조
 
 | 1 Depth | 2 Depth | 주요 콘텐츠 |
 |---|---|---|
@@ -49,7 +49,7 @@ AXION은 사용자의 문제를 이해하고 더 나은 서비스 경험으로 �
 | 프로젝트 상세 | 디자인 및 결과 | 주요 화면, 디자인 시스템, 구축 결과와 학습 |
 | 공통 요소 | 내비게이션·푸터 | 로고, Home·About·Projects, 테마 전환, 사이트 정보 |
 
-## Responsive Content Strategy
+## 반응형 콘텐츠 전략
 
 AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞춰 **콘텐츠 깊이까지 조정하는 반응형 포트폴리오**를 지향합니다.
 
@@ -62,7 +62,7 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
 - **프로젝트 탐색:** 전체·사내·개인·외주·회사 프로젝트로 분류
 - **검토 경험:** 채용담당자의 빠른 탐색과 실무진의 깊은 검토를 함께 지원
 
-## AX Product Workflow
+## AX 제품 구축 흐름
 
 기획부터 설계·개발·QA·피드백까지 하나의 실행 흐름으로 연결합니다.
 
@@ -87,7 +87,7 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
    - 접근성·기능·반응형 QA
    - 검증 결과를 프로젝트 데이터와 디자인 규칙에 재반영
 
-## AI Agent Collaboration
+## AI 에이전트 협업 구조
 
 | 영역 | 도구 | 역할 |
 |---|---|---|
@@ -97,7 +97,7 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
 | 제품 개발 | Codex & Figma MCP | React·Next.js 구현, 토큰·컴포넌트 연동, 테스트 및 정합성 QA |
 | 버전 관리 | Git / GitHub | 브랜치, 커밋, Pull Request와 소스 코드 이력 관리 |
 
-## AI Harness
+## AI 하네스
 
 프로젝트 데이터, 디자인 규칙, 구현 결과와 검증 기준을 하나의 실행 체계로 연결해 반복 가능한 제작 환경을 구축합니다.
 
@@ -111,18 +111,18 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
   → 검증 결과를 프로젝트 데이터와 디자인 규칙에 재반영
 ```
 
-## Portfolio Design System
+## 포트폴리오 디자인 시스템
 
 디자인 시스템은 프로젝트별 고유 자산을 유지하면서 포트폴리오 인터페이스를 하나의 토큰과 공통 컴포넌트로 연결합니다.
 
-### Foundations
+### 기반 요소
 
 - **Color:** 프로젝트 고유 색상과 포트폴리오 의미 기반 색상을 분리
 - **Typography:** Pretendard 기반 콘텐츠 역할별 위계
 - **Dimensions:** 4px 기반 Spacing, Radius, Elevation
 - **Responsive:** 모바일·데스크톱의 레이아웃과 콘텐츠 깊이 기준
 
-### Components
+### 공통 컴포넌트
 
 - Actions
 - Navigation
@@ -131,14 +131,14 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
 - Page Patterns
 - Light / Dark Theme Patterns
 
-### Guidelines
+### 운영 가이드
 
 - 코드 토큰 기반 구현
 - 모바일·데스크톱 콘텐츠 우선순위 관리
 - 공통 컴포넌트 재사용 규칙
 - 개발 전달 및 UI 정합성 검증 기준
 
-## Development Stack
+## 개발 기술
 
 - TypeScript
 - React
@@ -146,12 +146,13 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
 - Tailwind CSS
 - Git / GitHub
 
-## Version
+## 버전
 
-**Current Version: `v0.1.0 — Planning & Design Specification`**
+**현재 버전: `v0.1.1 — 문서 현지화 및 디자인 링크 반영`**
 
 | 버전 | 단계 | 주요 범위 |
 |---|---|---|
+| `v0.1.1` | 문서 개선 | README 한글화, Figma 디자인 결과물 링크, 버전 기록 보완 |
 | `v0.1.0` | 기획·디자인 명세 | PRD, IA, 반응형 화면, Portfolio Design System, AX Workflow |
 | `v0.2.0` | 개발 기반 | Next.js 환경, 디자인 토큰, 공통 레이아웃 |
 | `v0.3.0` | 핵심 화면 | 홈, 소개, 프로젝트 탐색·상세 화면 |
@@ -160,7 +161,7 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
 
 상세 변경 내역은 [`CHANGELOG.md`](./CHANGELOG.md)에서 관리합니다.
 
-## Quality Standards
+## 품질 기준
 
 - Figma 디자인 시스템과 코드 토큰의 일관성
 - 데스크톱·모바일 반응형 콘텐츠 전략 준수
@@ -169,7 +170,7 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
 - 화면별 기능·반응형·UI 정합성 QA
 - 작업 단위별 브랜치·커밋·Pull Request 관리
 
-## Project Status
+## 진행 현황
 
 - [x] GitHub 저장소 및 버전 관리 환경 구축
 - [x] 서비스 기획서·PRD·IA 정리
@@ -182,10 +183,10 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
 - [ ] 반응형·접근성·기능·UI QA
 - [ ] 배포 및 채용 제출용 최종 검수
 
-## Confidentiality
+## 비공개 정보 보호
 
 이 저장소는 채용 제출용 개인 포트폴리오 개발을 목적으로 관리합니다. 실무 프로젝트의 화면과 내용은 포트폴리오 목적에 맞게 재구성되며, 기업의 비공개 정보·개인정보·운영 데이터는 포함하지 않습니다.
 
-## Copyright
+## 저작권
 
 © 2026 AXION. All Rights Reserved. Designed & Developed by Kim Seong Ho.
