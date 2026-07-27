@@ -13,6 +13,12 @@ AXION은 서비스 기획부터 UX/UI 디자인, 디자인 시스템, 프론트�
 - **진행 형태:** 서비스 기획·UX 디자인·개발을 수행하는 1인 프로젝트
 - **타깃 독자:** 채용담당자, 현직 PM, Product Designer, UX/UI Designer
 
+## 디자인 결과물
+
+- [AXION 프로젝트](https://www.figma.com/design/cF038LTfcgHGdUTvFp67li/AXION_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=822-11419&t=qMNXXc6BR0xSKcdG-1)
+
+현재 포트폴리오의 데스크톱·모바일 Light / Dark 화면과 Portfolio Design System을 Figma에서 확인할 수 있습니다.
+
 ## Product Positioning
 
 AXION은 사용자의 문제를 이해하고 더 나은 서비스 경험으로 연결하는 **AX 기획자 & UX 디자이너 김성호의 실무 포트폴리오**입니다.
