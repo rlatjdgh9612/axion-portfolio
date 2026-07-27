@@ -15,6 +15,12 @@ AXION은 서비스 기획과 UX/UI Design 프로젝트를 체계적으로 정리
 - **진행 형태:** 서비스 기획·UX 디자인·개발을 수행하는 1인 프로젝트
 - **타깃 독자:** 채용담당자, 현직 PM, Product Designer, UX/UI Designer
 
+## 프로젝트 기획 문서
+
+- [AXION 프로덕트 분석 문서](./docs/01-product-analysis.md)
+- [AXION 프로젝트 기획안](./docs/02-project-plan.md)
+- [AXION 프로젝트 기획 PRD](./docs/03-project-prd.md)
+
 ## 디자인 결과물
 
 - [AXION 프로젝트](https://www.figma.com/design/cF038LTfcgHGdUTvFp67li/AXION_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=822-11419&t=qMNXXc6BR0xSKcdG-1)
