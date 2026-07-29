@@ -15,6 +15,8 @@ AXION은 서비스 기획과 UX/UI Design 프로젝트를 체계적으로 정리
 
 ## 프로젝트 기획 문서
 
+AXION의 문제 정의와 서비스 방향을 도출한 프로덕트 분석부터 프로젝트 기획안, 구현 기준을 정리한 PRD까지 확인할 수 있습니다.
+
 - [AXION 프로덕트 분석 문서](./docs/01-product-analysis.md)
 - [AXION 프로젝트 기획안](./docs/02-project-plan.md)
 - [AXION 프로젝트 기획 PRD](./docs/03-project-prd.md)
