@@ -262,3 +262,5 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
 ## 저작권
 
 © 2026 AXION. All Rights Reserved. Designed & Developed by Kim Seong Ho.
+
+포트폴리오 이미지와 고객사 작업물의 무단 사용을 엄격히 금지합니다.
