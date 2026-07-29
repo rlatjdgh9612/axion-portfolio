@@ -26,7 +26,7 @@ AXION은 서비스 기획과 UX/UI Design 프로젝트를 체계적으로 정리
 - [AXION 프로젝트](https://www.figma.com/design/cF038LTfcgHGdUTvFp67li/AXION_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=822-11419&t=qMNXXc6BR0xSKcdG-1)
 - [AXION 기획·디자인·개발 포트폴리오 PDF](./portfolio/AXION_Portfolio.pdf)
 
-현재 포트폴리오의 데스크톱·모바일 Light / Dark 화면과 Portfolio Design System을 Figma에서 확인할 수 있습니다.
+현재 포트폴리오의 데스크톱·모바일 Light / Dark 결과물을 Figma에서 확인할 수 있으며, pdf 결과물도 다운로드 받으실수 있습니다
 
 ## 웹사이트 결과물
 
