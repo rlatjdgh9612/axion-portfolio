@@ -24,6 +24,7 @@ AXION은 서비스 기획과 UX/UI Design 프로젝트를 체계적으로 정리
 ## 디자인 결과물
 
 - [AXION 프로젝트](https://www.figma.com/design/cF038LTfcgHGdUTvFp67li/AXION_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=822-11419&t=qMNXXc6BR0xSKcdG-1)
+- [AXION 기획·디자인·개발 포트폴리오 PDF](./portfolio/AXION_Portfolio.pdf)
 
 현재 포트폴리오의 데스크톱·모바일 Light / Dark 화면과 Portfolio Design System을 Figma에서 확인할 수 있습니다.
 
@@ -200,7 +201,7 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
 
 ## 버전
 
-**현재 버전: `v0.1.1 — 문서 현지화 및 디자인 링크 반영`**
+**현재 버전: `v0.1.2 — 제출용 PDF 포트폴리오 반영`**
 
 <table width="100%">
   <colgroup>
@@ -216,6 +217,7 @@ AXION은 화면 크기만 바꾸는 반응형이 아니라, 검토 상황에 맞
     </tr>
   </thead>
   <tbody>
+    <tr><td><code>v0.1.2</code></td><td>포트폴리오 문서</td><td>채용 제출용 AXION 기획·디자인·개발 포트폴리오 PDF 및 README 열람 링크 추가</td></tr>
     <tr><td><code>v0.1.1</code></td><td>문서 개선</td><td>README 한글화, Figma 디자인 결과물 링크, 버전 기록 보완</td></tr>
     <tr><td><code>v0.1.0</code></td><td>기획·디자인 명세</td><td>PRD, IA, 반응형 화면, Portfolio Design System, AX Workflow</td></tr>
     <tr><td><code>v0.2.0</code></td><td>개발 기반</td><td>Next.js 환경, 디자인 토큰, 공통 레이아웃</td></tr>
