@@ -8,7 +8,11 @@ import { categories, projects } from "@/data/projects";
 
 export function ProjectsView({ category }: { category: string }) {
   const reduced = useReducedMotion();
-  const visible = category === "all" ? projects : projects.filter((project) => project.category === category);
+  const visible = (category === "all" ? projects : projects.filter((project) => project.category === category)).map((project) =>
+    category === "company" && project.slug === "investhive"
+      ? { ...project, tags: ["B2C", "UXUI 디자인", "WEB Dashboard"] }
+      : project
+  );
   return (
     <><PageHero variant="projects" /><section className="projects-index container">
       <div className="projects-heading"><h2>프로젝트</h2><p>사용자와 비즈니스의 문제를 해결하기 위해 기획하고 설계한 프로젝트를 소개합니다</p></div>
