@@ -60,6 +60,7 @@ html[data-theme="dark"] .wordmark img { filter: grayscale(1) brightness(0) inver
 .icon-button svg { width: 21px; height: 21px; }
 .menu-button { width: 68px; height: 48px; border-radius: 30px; padding: 0; }
 .menu-button img { width: 22px; height: 22px; }
+html[data-theme="dark"] .menu-button img { filter: invert(1); }
 .menu-close { width: 68px; height: 48px; border-radius: 30px; font-size: 27px; font-weight: 300; }
 .icon-button:hover, .menu-button:hover, .menu-close:hover { background: var(--surface-strong); transform: scale(1.02); }
 .menu-overlay { position: fixed; inset: 0; z-index: 60; background: var(--bg); animation: menu-in .25s ease both; overflow: auto; }
@@ -81,7 +82,7 @@ html[data-theme="dark"] .wordmark img { filter: grayscale(1) brightness(0) inver
 .home-hero { height: 575px; padding: 72px 0; }
 .hero-copy { display: flex; flex-direction: column; gap: 16px; }
 .hero-greeting { margin: 0; font-size: 26px; line-height: 1.2; font-weight: 700; }
-.hero-copy h1 { max-width: 1056px; margin: 0; font-size: 74px; line-height: 1; letter-spacing: 0.01em; font-weight: 700; word-break: keep-all; }
+.hero-copy h1 { max-width: 1056px; margin: 0; font-size: 74px; line-height: normal; letter-spacing: 0; font-weight: 700; word-break: keep-all; }
 .hero-copy h1 span, .home-about-copy h2 span { display: block; white-space: nowrap; }
 .hero-copy h1 em { color: #aeb2ba; font-style: normal; }
 .hero-copy > strong { display: block; margin: 0; color: #aeb2ba; font-size: 50px; line-height: 1; letter-spacing: 0; }
@@ -109,6 +110,14 @@ html[data-theme="dark"] .wordmark img { filter: grayscale(1) brightness(0) inver
 .about-process.container { width: min(calc(100% - 144px), 1056px); }
 .projects-heading h2 { margin: 0 0 14px; font-size: 40px; line-height: 48px; letter-spacing: -.02em; }
 .projects-heading p { margin: 0; color: var(--muted); font-size: 18px; line-height: 29px; }
+@media (min-width: 641px) {
+  body:has(.projects-index) .page-hero-copy h1 {
+    font-size: 74px;
+    line-height: normal;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+}
 .section-heading { min-height: 96px; display: flex; justify-content: space-between; align-items: end; margin-bottom: 40px; }
 .section-heading h2, .about-section h2, .detail-section h2, .related h2 { margin-bottom: 14px; font-size: 40px; line-height: 48px; letter-spacing: -.02em; }
 .section-heading p, .section-description { color: var(--muted); margin: 0; font-size: 18px; line-height: 29px; }
@@ -141,6 +150,9 @@ html[data-theme="dark"] .wordmark img { filter: grayscale(1) brightness(0) inver
 .device-mockup { position: relative; width: 72%; height: 70%; padding: 7%; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 7px; box-shadow: 0 22px 34px rgba(0,0,0,.16); transition: transform .24s ease; overflow: hidden; }
 .project-card:hover .device-mockup { transform: scale(1.035); }
 .project-card-image { width: 100%; height: 100%; object-fit: cover; transition: transform .24s ease; }
+.project-card-image-dark { display: none; }
+html[data-theme="dark"] .project-card-image-light { display: none; }
+html[data-theme="dark"] .project-card-image-dark { display: block; }
 .project-card:hover .project-card-image { transform: scale(1.025); }
 .device-mobile { width: 31%; height: 78%; border-radius: 15px; }
 .device-responsive { width: 72%; transform: perspective(700px) rotateX(2deg) rotateY(-5deg); }
@@ -276,6 +288,64 @@ html[data-theme="dark"] body:has(.home-hero) .site-footer {
 html[data-theme="dark"] body:has(.home-hero) .site-footer .button,
 html[data-theme="dark"] body:has(.home-hero) .site-footer .button-primary,
 html[data-theme="dark"] body:has(.home-hero) .site-footer .button-secondary {
+  border-color: #8b8d92;
+  background: transparent;
+  color: #f7f7f8;
+}
+
+/* 프로젝트 목록: Figma의 제목 위계와 다크모드 푸터 표면을 유지합니다. */
+body:has(.projects-index) .projects-heading h2,
+body:has(.projects-index) .project-card h3 {
+  font-weight: 700;
+}
+
+body:has(.home-hero) .tag-list span,
+body:has(.projects-index) .tag-list span {
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+  body:has(.home-hero) .tag-list,
+  body:has(.projects-index) .tag-list {
+    flex-wrap: nowrap;
+  }
+}
+
+body:has(.projects-index) .site-footer .button,
+body:has(.projects-index) .site-footer .button-primary,
+body:has(.projects-index) .site-footer .button-secondary {
+  border-color: currentColor;
+  background: transparent;
+  color: inherit;
+}
+
+html[data-theme="dark"] body:has(.projects-index) .site-footer {
+  background: #1e1e1e;
+  color: #f7f7f8;
+}
+
+html[data-theme="dark"] body:has(.projects-index) .project-visual {
+  background: #262626;
+}
+
+html[data-theme="dark"] body:has(.projects-index) .tag-list span {
+  border-color: #74777d;
+  background: transparent;
+  color: #f7f7f8;
+}
+
+html[data-theme="dark"] body:has(.projects-index) .filter-nav a[aria-current="page"] {
+  border-color: #5d6878;
+  background: #5d6878;
+  color: #f7f7f8;
+}
+
+html[data-theme="dark"] body:has(.projects-index) .site-footer .button,
+html[data-theme="dark"] body:has(.projects-index) .site-footer .button-primary,
+html[data-theme="dark"] body:has(.projects-index) .site-footer .button-secondary {
   border-color: #8b8d92;
   background: transparent;
   color: #f7f7f8;
@@ -518,81 +588,7 @@ html[data-theme="dark"] body:has(.home-hero) .site-footer .button-secondary {
   .related { padding: 82px 0 110px; }
 }
 
-/* About 데스크톱 타이포그래피 동기화 — 레이아웃은 유지 */
-@media (min-width: 641px) {
-  body:has(.about-profile) .page-hero,
-  body:has(.about-profile) .about-profile,
-  body:has(.about-profile) .about-process {
-    font-family: "Pretendard", sans-serif;
-  }
-
-  body:has(.about-profile) .page-hero-copy h1 {
-    font-size: 60px;
-    line-height: 72px;
-    letter-spacing: -0.025em;
-    font-weight: 700;
-  }
-
-  body:has(.about-profile) .page-hero-copy > strong {
-    font-size: 40px;
-    line-height: 48px;
-    font-weight: 700;
-  }
-
-  body:has(.about-profile) .page-hero-bottom > p {
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: 400;
-  }
-
-  body:has(.about-profile) .about-figma-heading h1 {
-    font-size: 48px;
-    line-height: 60px;
-    letter-spacing: -0.025em;
-    font-weight: 700;
-  }
-
-  body:has(.about-profile) .about-figma-copy h2 {
-    font-size: 28px;
-    line-height: 36px;
-    letter-spacing: -0.015em;
-    font-weight: 700;
-  }
-
-  body:has(.about-profile) .about-figma-copy p,
-  body:has(.about-profile) .about-figma-copy ul {
-    color: #7b7b7b;
-    font-size: 16px;
-    line-height: 26px;
-    font-weight: 400;
-  }
-
-  body:has(.about-profile) .about-skill-list span {
-    font-size: 12px;
-    line-height: 18px;
-    font-weight: 400;
-  }
-
-  body:has(.about-profile) .about-process > div:first-child h2 {
-    margin-bottom: 12px;
-    font-size: 48px;
-    line-height: 60px;
-    letter-spacing: -0.025em;
-    font-weight: 700;
-  }
-
-  body:has(.about-profile) .about-process > div:first-child p {
-    font-size: 16px;
-    line-height: 26px;
-    font-weight: 400;
-  }
-
-  body:has(.about-profile) .contact-inner h2 {
-    font-weight: 700 !important;
-  }
-}
-
-/* About 페이지 전용 표면/상태 보정 — 레이아웃과 타이포그래피는 유지 */
+/* About 전 뷰포트 표면/상태 보정 */
 body:has(.about-profile) .about-profile,
 body:has(.about-profile) .about-process,
 body:has(.about-profile) .process-list,
@@ -644,6 +640,244 @@ html[data-theme="dark"] body:has(.about-profile) .about-profile-image {
 html[data-theme="dark"] body:has(.about-profile) .site-footer {
   background: #1e1e1e;
   color: #f7f7f8;
+}
+
+/* About 데스크톱 Figma 동기화 */
+@media (min-width: 641px) {
+  body:has(.about-profile) .page-hero,
+  body:has(.about-profile) .about-profile,
+  body:has(.about-profile) .about-process {
+    font-family: "Pretendard", sans-serif;
+  }
+
+  body:has(.about-profile) .page-hero-copy h1 {
+    font-size: 74px;
+    line-height: normal;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
+  body:has(.about-profile) .page-hero-copy > strong {
+    font-size: 50px;
+    line-height: normal;
+    font-weight: 700;
+  }
+
+  body:has(.about-profile) .page-hero-bottom {
+    margin-top: 56px;
+  }
+
+  body:has(.about-profile) .page-hero-bottom > p {
+    font-size: 18px;
+    line-height: 29px;
+    font-weight: 400;
+  }
+
+  body:has(.about-profile) .about-figma-heading h1 {
+    font-size: 60px;
+    line-height: 72px;
+    font-weight: 700;
+  }
+
+  body:has(.about-profile) .about-figma-copy h2 {
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 700;
+  }
+
+  body:has(.about-profile) .about-figma-copy p,
+  body:has(.about-profile) .about-figma-copy ul {
+    color: #7b7b7b;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  body:has(.about-profile) .about-figma-copy p {
+    line-height: 1.5;
+  }
+
+  body:has(.about-profile) .about-figma-copy ul {
+    padding-left: 0;
+    list-style: none;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+
+  body:has(.about-profile) .about-figma-copy li + li {
+    margin-top: 0;
+  }
+
+  body:has(.about-profile) .about-figma-copy li::before {
+    content: "• ";
+  }
+
+  body:has(.about-profile) .about-skill-list span {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  body:has(.about-profile) .about-process {
+    padding-bottom: 72px;
+  }
+
+  body:has(.about-profile) .about-process > div:first-child h2 {
+    margin-bottom: 24px;
+    font-size: 60px;
+    line-height: 72px;
+    font-weight: 700;
+  }
+
+  body:has(.about-profile) .about-process > div:first-child p {
+    font-size: 20px;
+    line-height: normal;
+    font-weight: 400;
+  }
+
+  body:has(.about-profile) .process-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-top: 60px;
+  }
+
+  body:has(.about-profile) .process-row {
+    min-height: 144px;
+    grid-template-columns: 236px 1fr;
+    align-items: start;
+    gap: 78px;
+  }
+
+  body:has(.about-profile) .process-index strong,
+  body:has(.about-profile) .process-index h3 {
+    font-size: 30px;
+    line-height: normal;
+    font-weight: 700;
+  }
+
+  body:has(.about-profile) .process-index strong {
+    margin-bottom: 10px;
+  }
+
+  body:has(.about-profile) .process-index h3 {
+    margin-bottom: 8px;
+  }
+
+  body:has(.about-profile) .process-index span {
+    font-size: 20px;
+    line-height: normal;
+    font-weight: 700;
+  }
+
+  body:has(.about-profile) .process-description h4 {
+    font-size: 26px;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+
+  /* Figma에서 세 번째 프로세스 제목만 한 단계 작은 크기를 사용합니다. */
+  body:has(.about-profile) .process-row:nth-child(3) .process-description h4 {
+    font-size: 23px;
+  }
+
+  body:has(.about-profile) .process-description ul {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  body:has(.about-profile) .process-description li + li {
+    margin-top: 0;
+  }
+
+  body:has(.about-profile) .contact-inner h2 {
+    font-weight: 700;
+  }
+
+  body:has(.about-profile) .about-profile,
+  body:has(.about-profile) .about-process,
+  body:has(.about-profile) .process-list,
+  body:has(.about-profile) .process-row {
+    border: 0;
+  }
+
+  html:not([data-theme="dark"]) body:has(.about-profile) .page-hero,
+  html:not([data-theme="dark"]) body:has(.about-profile) .about-profile,
+  html:not([data-theme="dark"]) body:has(.about-profile) .about-process,
+  html:not([data-theme="dark"]) body:has(.about-profile) .contact-section {
+    background: #fff;
+  }
+
+  body:has(.about-profile) .site-footer .button,
+  body:has(.about-profile) .site-footer .button-primary,
+  body:has(.about-profile) .site-footer .button-secondary {
+    border-color: currentColor;
+    background: transparent;
+    color: inherit;
+  }
+
+  html[data-theme="dark"] body:has(.about-profile) {
+    background: #121212;
+    color: #fff;
+  }
+
+  html[data-theme="dark"] body:has(.about-profile) .site-header {
+    background: rgba(18, 18, 18, .88);
+  }
+
+  html[data-theme="dark"] body:has(.about-profile) .page-hero,
+  html[data-theme="dark"] body:has(.about-profile) .about-profile,
+  html[data-theme="dark"] body:has(.about-profile) .about-process,
+  html[data-theme="dark"] body:has(.about-profile) .contact-section {
+    background: #121212;
+  }
+
+  html[data-theme="dark"] body:has(.about-profile) .page-hero-copy h1,
+  html[data-theme="dark"] body:has(.about-profile) .about-figma-heading h1,
+  html[data-theme="dark"] body:has(.about-profile) .about-figma-copy h2,
+  html[data-theme="dark"] body:has(.about-profile) .about-process h2,
+  html[data-theme="dark"] body:has(.about-profile) .process-index h3,
+  html[data-theme="dark"] body:has(.about-profile) .process-description h4,
+  html[data-theme="dark"] body:has(.about-profile) .contact-inner h2 {
+    color: #fff;
+  }
+
+  html[data-theme="dark"] body:has(.about-profile) .page-hero-copy > strong,
+  html[data-theme="dark"] body:has(.about-profile) .page-hero-copy h1 em,
+  html[data-theme="dark"] body:has(.about-profile) .page-hero-bottom > p,
+  html[data-theme="dark"] body:has(.about-profile) .about-figma-copy p,
+  html[data-theme="dark"] body:has(.about-profile) .about-figma-copy ul,
+  html[data-theme="dark"] body:has(.about-profile) .about-process > div:first-child p,
+  html[data-theme="dark"] body:has(.about-profile) .process-index strong,
+  html[data-theme="dark"] body:has(.about-profile) .process-index span,
+  html[data-theme="dark"] body:has(.about-profile) .process-description ul,
+  html[data-theme="dark"] body:has(.about-profile) .contact-inner > span,
+  html[data-theme="dark"] body:has(.about-profile) .contact-inner p {
+    color: #9ca3af;
+  }
+
+  html[data-theme="dark"] body:has(.about-profile) .page-hero-actions .button-primary,
+  html[data-theme="dark"] body:has(.about-profile) .contact-links a:first-child {
+    border-color: #4b5563;
+    background: #4b5563;
+    color: #fff;
+  }
+
+  html[data-theme="dark"] body:has(.about-profile) .page-hero-actions .button-secondary,
+  html[data-theme="dark"] body:has(.about-profile) .contact-links a:last-child,
+  html[data-theme="dark"] body:has(.about-profile) .about-skill-list span {
+    border-color: #9ca3af;
+    background: transparent;
+    color: #fff;
+  }
+
+  html[data-theme="dark"] body:has(.about-profile) .about-profile-image {
+    background: #262626;
+  }
+
+  html[data-theme="dark"] body:has(.about-profile) .site-footer {
+    background: #1e1e1e;
+    color: #f7f7f8;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
