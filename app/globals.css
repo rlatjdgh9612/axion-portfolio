@@ -232,6 +232,32 @@ body:has(.home-hero) .contact-inner > span,
 body:has(.home-hero) .contact-inner h2 {
   font-weight: 700;
 }
+
+/* 프로젝트 목록 CTA도 메인 페이지와 동일한 표면·타이포 위계를 유지합니다. */
+html:not([data-theme="dark"]) body:has(.projects-index) .contact-section {
+  background: #fff;
+}
+
+body:has(.projects-index) .contact-inner > span,
+body:has(.projects-index) .contact-inner h2 {
+  font-weight: 700;
+}
+
+html[data-theme="dark"] body:has(.projects-index) .contact-section {
+  background: #111;
+}
+
+html[data-theme="dark"] body:has(.projects-index) .contact-links a:first-child {
+  border-color: #5d6878;
+  background: #5d6878;
+  color: #fff;
+}
+
+html[data-theme="dark"] body:has(.projects-index) .contact-links a:last-child {
+  border-color: #74777d;
+  background: transparent;
+  color: #f7f7f8;
+}
 html:not([data-theme="dark"]) body:has(.home-hero) .hero-actions .button-primary,
 html:not([data-theme="dark"]) body:has(.home-hero) .contact-links a:first-child {
   border-color: #02002c;

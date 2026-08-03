@@ -148,3 +148,31 @@ test("project categories expose the expected card counts", async ({ page }) => {
     await expect(page.locator(".contact-section")).toBeVisible();
   }
 });
+
+test("project CTA matches the shared light and dark visual treatment", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+
+  await preparePage(page, "light");
+  await page.goto("/projects/all", { waitUntil: "networkidle" });
+  const lightStyles = await page.locator(".contact-section").evaluate((section) => {
+    const heading = section.querySelector("h2");
+    const eyebrow = section.querySelector(":scope > .contact-inner > span");
+    return {
+      background: getComputedStyle(section).backgroundColor,
+      headingWeight: heading ? getComputedStyle(heading).fontWeight : null,
+      eyebrowWeight: eyebrow ? getComputedStyle(eyebrow).fontWeight : null,
+    };
+  });
+  expect(lightStyles).toEqual({
+    background: "rgb(255, 255, 255)",
+    headingWeight: "700",
+    eyebrowWeight: "700",
+  });
+
+  await page.getByRole("button", { name: "다크 모드로 전환" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  const darkStyles = await page.locator(".contact-section").evaluate((section) => ({
+    background: getComputedStyle(section).backgroundColor,
+  }));
+  expect(darkStyles.background).toBe("rgb(17, 17, 17)");
+});
