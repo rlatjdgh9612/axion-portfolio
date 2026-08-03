@@ -1,13 +1,21 @@
 {
   "name": "axion-portfolio",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "NEXT_DIST_DIR=.next-dev next dev",
+    "build": "NEXT_DIST_DIR=.next-build next build",
+    "start": "NEXT_DIST_DIR=.next-build next start",
+    "build:qa": "NEXT_DIST_DIR=.next-qa next build",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "qa:static": "npm run lint && npm run typecheck",
+    "qa:runtime": "playwright test",
+    "qa": "npm run qa:static && npm run build:qa && npm run qa:runtime",
+    "version:check": "node scripts/check-version.mjs",
+    "git:sync-check": "node scripts/check-git-sync.mjs",
+    "qa:publish": "npm run qa && npm run version:check",
+    "qa:published": "npm run version:check && npm run git:sync-check"
   },
   "dependencies": {
     "motion": "^12.23.12",
@@ -16,6 +24,7 @@
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@types/node": "^22.17.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",

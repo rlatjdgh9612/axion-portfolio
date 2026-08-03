@@ -20,6 +20,7 @@ AXION의 문제 정의와 서비스 방향을 도출한 프로덕트 분석부�
 - [AXION 프로덕트 분석 문서](./docs/01-product-analysis.md)
 - [AXION 프로젝트 기획안](./docs/02-project-plan.md)
 - [AXION 프로젝트 기획 PRD](./docs/03-project-prd.md)
+- [AXION QA·오류 수정 자동화](./docs/04-qa-automation.md)
 
 ## 디자인 결과물
 
@@ -220,7 +221,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 
 기획·디자인·개발 진행 단계를 버전 단위로 기록하고 주요 변경 범위를 변경 이력과 함께 관리합니다.
 
-**현재 버전: `v0.5.0 — 반응형 UI 고도화`**
+**현재 버전: `v0.6.0 — QA·오류 수정 자동화`**
 
 <table width="100%">
   <colgroup>
@@ -236,6 +237,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
     </tr>
   </thead>
   <tbody>
+    <tr><td><code>v0.6.0</code></td><td>QA·오류 수정 자동화</td><td>격리 빌드, Playwright 반응형·테마 QA, 버전·Git 동기화 검사 및 GitHub Actions Quality Gate 구축</td></tr>
     <tr><td><code>v0.5.0</code></td><td>반응형 UI 고도화</td><td>Folded 데스크톱 레이아웃, 공통 CTA, 프로젝트 카드, 고객사 로고 및 소개 프로필 이미지 정합성 개선</td></tr>
     <tr><td><code>v0.4.0</code></td><td>UI 정합성·안정화</td><td>Figma 기준 Light/Dark UI 보완, 프로젝트 데이터·분류 수정, 카드 이미지 교체, 런타임·이미지 오류 수정 및 QA</td></tr>
     <tr><td><code>v0.3.0</code></td><td>핵심 화면</td><td>홈, 소개, 프로젝트 탐색·상세 화면 및 카테고리 라우팅 구현</td></tr>
@@ -248,6 +250,32 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 </table>
 
 상세 변경 내역은 [`CHANGELOG.md`](./CHANGELOG.md)에서 관리합니다.
+
+### v0.6.0 주요 반영 내역
+
+#### 자동 QA 및 오류 수정 흐름
+
+- 개발·일반 빌드·QA 빌드의 Next.js 출력 폴더를 분리해 실행 중인 개발 화면의 `.next` 캐시 충돌 방지
+- ESLint, TypeScript, 프로덕션 빌드와 Playwright 런타임 검사를 `npm run qa`로 통합
+- Desktop 1440px, Folded Desktop 768px, Mobile 390px에서 홈·소개·프로젝트·상세 경로를 자동 검사
+- Light / Dark Theme, 콘솔·페이지 오류, 실패한 이미지·CSS·JS·폰트 요청, 이미지 깨짐과 가로 넘침 검사
+- package·README·CHANGELOG 버전 일치와 push 후 로컬·upstream SHA 동기화 검사 추가
+- `main` push와 Pull Request에서 동일한 QA를 실행하는 GitHub Actions Quality Gate 추가
+- 작업 완료·자동 수정·GitHub 게시·최종 보고 기준을 저장소 `AGENTS.md`에 상시 규칙으로 기록
+- 개발·수정 작업은 별도 제외 요청이 없으면 QA 통과 후 자동 커밋·푸시하고 원격 상태까지 확인
+
+#### QA 명령어
+
+| 명령어 | 검사 범위 |
+|---|---|
+| `npm run qa:static` | ESLint·TypeScript |
+| `npm run build:qa` | `.next-qa` 격리 프로덕션 빌드 |
+| `npm run qa:runtime` | Playwright 반응형·테마·리소스 런타임 QA |
+| `npm run qa` | 정적 검사·격리 빌드·런타임 QA 전체 |
+| `npm run qa:publish` | GitHub 게시 전 전체 QA·버전 일치 검사 |
+| `npm run qa:published` | 게시 후 작업 트리·upstream SHA 동기화 검사 |
+
+상세 운영 기준은 [`docs/04-qa-automation.md`](./docs/04-qa-automation.md)에서 확인할 수 있습니다.
 
 ### v0.5.0 주요 반영 내역
 
@@ -315,6 +343,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 - 키보드 탐색, 명도 대비, 시맨틱 마크업 등 접근성 점검
 - 화면별 기능·반응형·UI 정합성 QA
 - 작업 단위별 브랜치·커밋·Pull Request 관리
+- 모든 변경 작업의 `npm run qa` 통과 및 GitHub Actions Quality Gate 확인
 
 ## 진행 현황
 

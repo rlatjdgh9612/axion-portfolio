@@ -3,6 +3,9 @@ node_modules/
 
 # next.js
 .next/
+.next-dev/
+.next-build/
+.next-qa/
 out/
 
 # production
@@ -30,3 +33,7 @@ pnpm-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# qa artifacts
+playwright-report/
+test-results/

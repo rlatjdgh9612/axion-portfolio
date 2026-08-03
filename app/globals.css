@@ -1033,6 +1033,18 @@ html[data-theme="dark"] body:has(.about-profile) .site-footer {
     white-space: nowrap;
   }
 
+  body:has(.detail-hero-shell) .contact-links {
+    width: 100%;
+  }
+
+  body:has(.detail-hero-shell) .contact-links a {
+    min-width: 0;
+    width: min(394px, calc(50% - 8px));
+    padding-inline: 20px;
+    font-size: clamp(16px, 2.1vw, 20px);
+    white-space: nowrap;
+  }
+
   body:not(:has(.detail-hero-shell)) .site-footer {
     height: auto;
     min-height: 420px;

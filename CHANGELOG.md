@@ -16,6 +16,33 @@ AXION Portfolio의 주요 변경 내역을 기록합니다.
 - 반응형·접근성 최종 QA
 - 배포 및 채용 제출용 콘텐츠 검수
 
+## [0.6.0] - 2026-08-03
+
+### 추가
+
+- Desktop·Folded Desktop·Mobile과 Light / Dark Theme를 검사하는 Playwright 런타임 QA
+- 브라우저 콘솔·페이지 오류, 실패한 리소스, 이미지 깨짐, 가로 넘침과 프로젝트 카드 수 검사
+- package·README·CHANGELOG 버전 일치 검사와 Git upstream SHA 동기화 검사
+- `main` push와 Pull Request에 적용되는 GitHub Actions Quality Gate
+- 저장소 `AGENTS.md`와 QA 자동화 운영 문서
+
+### 변경
+
+- 개발 서버, 일반 빌드, QA 빌드가 각각 `.next-dev`, `.next-build`, `.next-qa`를 사용하도록 출력 경로 분리
+- 개발·수정 완료 기준을 `구현 → 전체 QA → 제한된 오류 수정 → 재검증 → 결과 보고`로 통일
+- GitHub 게시 전·후 검사와 Actions 상태 확인을 표준 게시 절차에 포함
+
+### 수정
+
+- 실행 중인 개발 서버와 프로덕션 빌드가 `.next`를 공유해 화면 스타일이 사라지거나 모듈 오류가 발생할 수 있던 구조 수정
+- `127.0.0.1` 인앱 브라우저 접근 시 발생하던 Next.js 개발 Origin 경고 설정 보완
+
+### 검증
+
+- ESLint, TypeScript, 격리된 Next.js 프로덕션 빌드
+- 16개 경로의 1440·768·390px 런타임 검사
+- 핵심 페이지 Light / Dark Theme 및 전역 메뉴 동작 검사
+
 ## [0.5.0] - 2026-08-03
 
 ### 변경
