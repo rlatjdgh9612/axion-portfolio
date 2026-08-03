@@ -15,6 +15,25 @@ AXION Portfolio의 주요 변경 내역을 기록합니다.
 - 반응형·접근성 최종 QA
 - 배포 및 채용 제출용 콘텐츠 검수
 
+## [0.9.2] - 2026-08-03
+
+### 변경
+
+- Figma `08.Project_AXION_Desktop` 프레임의 콘텐츠를 이미지 조각이 아닌 실제 HTML·CSS 컴포넌트로 재구축
+- 기획 배경, AI Agent, AI Harness, IA, 주요 화면, 디자인 시스템을 원본 프레임의 구조·타이포그래피·간격·컬러 기준으로 정합화
+- AI Harness 분기 흐름, 단계별 실행 카드, 컬러 이름·HEX 정보와 반응형 그리드 사양을 복원
+- Mobile에서도 AXION 상세 사례 연구 전체 흐름을 유지하고 Light / Dark Theme에 동일한 구조 적용
+
+### 수정
+
+- 전체 Figma 프레임을 잘라 표시하던 사례 연구 이미지 자산과 렌더러 제거
+- 모바일에서 AI Agent·Harness·IA·디자인 시스템이 숨겨지던 반응형 CSS 수정
+
+### 검증
+
+- AXION 상세 페이지의 네이티브 6개 섹션, 5개 Harness 단계, 10개 컬러 토큰 표시 검사
+- Desktop·Folded Desktop·Mobile 및 Light / Dark Theme의 가로 넘침·런타임·이미지 로딩 오류 검사
+
 ## [0.9.1] - 2026-08-03
 
 ### 수정
