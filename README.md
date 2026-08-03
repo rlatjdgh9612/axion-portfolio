@@ -9,7 +9,7 @@ AXION은 서비스 기획과 UX/UI Design 프로젝트를 체계적으로 정리
 - **프로젝트 유형:** 개인 프로젝트 / AI·AX / UX/UI 디자인 / Web
 - **프로젝트 기간:** 2026.07 ~ 진행 중
 - **담당 범위:** 서비스 기획·UX/UI 디자인 100%, AI 기반 프론트엔드 개발 100%
-- **사용 도구:** Figma, Figma MCP, Codex, Claude, Notion, Git, GitHub
+- **사용 도구:** Figma, Figma MCP, Codex, Claude, Notion, Git, GitHub, Gihtub Action
 - **진행 형태:** 서비스 기획·UX 디자인·개발을 수행하는 1인 프로젝트
 - **타깃 독자:** 채용담당자, 현직 PM, Product Designer, UX/UI Designer
 
