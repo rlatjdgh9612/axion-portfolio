@@ -454,6 +454,13 @@ html[data-theme="dark"] body:has(.projects-index) .site-footer .button-secondary
 .project-meta div { min-height: 98px; display: flex; flex-direction: column; gap: 14px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
 .project-meta span { color: var(--muted); font-size: 16px; line-height: 24px; }
 .project-meta strong { font-size: 18px; line-height: 29px; font-weight: 600; }
+.figma-case-study { width: 100%; overflow: hidden; background: #fff; }
+.figma-case-section { width: 100%; overflow: hidden; background: #fff; }
+.figma-case-section > div { width: 100%; }
+.figma-case-section img { display: block; width: 100%; height: auto; max-width: none; transition: filter .25s ease; }
+html[data-theme="dark"] .figma-case-study,
+html[data-theme="dark"] .figma-case-section { background: #111; }
+html[data-theme="dark"] .figma-case-section img { filter: invert(.94) hue-rotate(180deg) brightness(.96) contrast(1.04); }
 .detail-section { padding: 120px 0; border-top: 1px solid var(--line); }
 .detail-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
 .detail-cards article { padding: 38px; background: var(--surface-strong); border-radius: 14px; }

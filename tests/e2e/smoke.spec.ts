@@ -25,6 +25,18 @@ const viewports = [
   { name: "mobile", width: 390, height: 844 },
 ] as const;
 
+const detailPaths = routes.filter((path) => path.startsWith("/projects/detail/"));
+const projectCaseStudySections: Record<string, number> = {
+  "/projects/detail/vazoom": 5,
+  "/projects/detail/investhive": 6,
+  "/projects/detail/jcompany": 6,
+  "/projects/detail/investwith": 6,
+  "/projects/detail/korea-search-fund": 6,
+  "/projects/detail/humblemong": 6,
+  "/projects/detail/prior": 6,
+  "/projects/detail/moneyguard": 6,
+};
+
 const criticalResourceTypes = new Set(["document", "stylesheet", "script", "image", "font"]);
 
 async function preparePage(page: Page, theme: "light" | "dark" = "light") {
@@ -110,7 +122,7 @@ for (const viewport of viewports) {
       });
     }
 
-    for (const path of ["/", "/about", "/projects/all", "/projects/detail/axion"] as const) {
+    for (const path of ["/", "/about", "/projects/all", ...detailPaths]) {
       test(`${path} supports dark theme`, async ({ page }) => {
         const { runtimeErrors, failedRequests } = await preparePage(page, "dark");
         await assertHealthyPage(page, path);
@@ -164,6 +176,20 @@ test("AXION detail exposes the complete Figma case study", async ({ page }) => {
 
   expect(runtimeErrors).toEqual([]);
   expect(failedRequests).toEqual([]);
+});
+
+test("remaining project details expose every Figma case-study section", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+
+  for (const [path, count] of Object.entries(projectCaseStudySections)) {
+    const { runtimeErrors, failedRequests } = await preparePage(page);
+    await page.goto(path, { waitUntil: "networkidle" });
+    await expect(page.locator(".figma-case-section")).toHaveCount(count);
+    await expect(page.locator(".project-meta-section")).toBeVisible();
+    await expect(page.locator(".contact-section")).toBeVisible();
+    expect(runtimeErrors, `${path} case-study errors`).toEqual([]);
+    expect(failedRequests, `${path} case-study failed requests`).toEqual([]);
+  }
 });
 
 test("project CTA matches the shared light and dark visual treatment", async ({ page }) => {
