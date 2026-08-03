@@ -221,7 +221,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 
 기획·디자인·개발 진행 단계를 버전 단위로 기록하고 주요 변경 범위를 변경 이력과 함께 관리합니다.
 
-**현재 버전: `v0.9.2 — AXION 상세 Figma 네이티브 구현`**
+**현재 버전: `v0.9.3 — AXION 상세 영역별 정합성 재구축`**
 
 <table width="100%">
   <colgroup>
@@ -239,6 +239,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
     </tr>
   </thead>
   <tbody>
+    <tr><td><code>v0.9.3</code></td><td>2026-08-03</td><td>AXION 상세 영역별 정합성 재구축</td><td>첨부된 08.Project_AXION_Desktop 기준으로 상단 메타, 기획 배경, AI Agent, Harness 흐름도·5단계, 병합형 IA 표, 주요 화면, 로고·타이포그래피·그리드·컬러 시스템을 재구성하고 Light / Dark·Folded·Mobile QA 보강</td></tr>
     <tr><td><code>v0.9.2</code></td><td>2026-08-03</td><td>AXION 상세 Figma 네이티브 구현</td><td>Figma 08.Project_AXION_Desktop 프레임을 실제 HTML·CSS 컴포넌트로 재구축하고 AI Agent·Harness·IA·주요 화면·디자인 시스템 및 반응형·다크 모드 정합화</td></tr>
     <tr><td><code>v0.9.1</code></td><td>2026-08-03</td><td>AXION 상세 UI 정합성 보완</td><td>Figma 08.Project_AXION_Desktop 원본 기준 상단 소개·대표 이미지·메타 정보와 6개 상세 섹션의 폰트, 컬러, 높이, 주요 화면 배열 및 디자인 시스템 UI 정합화</td></tr>
     <tr><td><code>v0.9.0</code></td><td>2026-08-03</td><td>전체 프로젝트 상세 페이지 완성</td><td>Figma 09~16 프로젝트 프레임 기준 8개 상세 페이지의 기획 배경, 방향, IA, 주요 화면, 개선 비교와 디자인 시스템을 Light / Dark 및 Folded 반응형으로 반영</td></tr>

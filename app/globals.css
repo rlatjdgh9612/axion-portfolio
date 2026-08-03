@@ -752,6 +752,15 @@ html[data-theme="dark"] .axion-case-study-root .eyebrow { color: #d7d9df; }
   .axion-case-study-root .axion-system { padding-top: 88px; padding-bottom: 88px; }
 }
 
+@media (max-width: 640px) {
+  .site-header .wordmark,
+  .site-header .wordmark img,
+  .menu-top .wordmark,
+  .menu-top .wordmark img { width: 100px; height: 23.333px; }
+  .site-footer .wordmark,
+  .site-footer .wordmark img { width: 100px; height: 23px; }
+}
+
 /* About 전 뷰포트 표면/상태 보정 */
 body:has(.about-profile) .about-profile,
 body:has(.about-profile) .about-process,
@@ -1452,4 +1461,230 @@ html[data-theme="dark"] body:has(.about-profile) .site-footer {
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* AXION case study: 08.Project_AXION_Desktop 정밀 보정 */
+.axion-case-study-root {
+  --axion-card: #f8f8f8;
+  --axion-ia-group: #f0f2f9;
+  --axion-navy: #02002c;
+}
+
+.axion-case-study-root .detail-section {
+  width: min(calc(100% - 144px), 1056px);
+  padding: 104px 0;
+}
+
+.axion-case-study-root .eyebrow {
+  margin-bottom: 12px;
+  color: #02002c;
+  font-size: 24px;
+  line-height: 31px;
+  font-weight: 700;
+}
+
+.axion-case-study-root .detail-section > div > h2 {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 800;
+}
+
+.axion-case-study-root .section-description {
+  max-width: 960px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 29px;
+}
+
+.axion-case-study-root .detail-cards-plain {
+  gap: 40px;
+  margin-top: 52px;
+}
+
+.axion-case-study-root .detail-cards-plain article {
+  min-height: 236px;
+  padding: 0 0 44px;
+  border-bottom: 1px solid var(--line);
+}
+
+.axion-case-study-root .detail-cards-plain h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+.axion-case-study-root .detail-cards-plain ul,
+.axion-case-study-root .agent-grid ul,
+.axion-case-study-root .development-grid ul,
+.axion-case-study-root .harness-stages ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.axion-case-study-root .detail-cards-plain li {
+  font-size: 16px;
+  line-height: 29px;
+}
+
+.axion-case-study-root .detail-subtitle {
+  margin: 52px 0 24px;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+.axion-case-study-root .development-title { margin-top: 64px; }
+
+.axion-case-study-root .agent-grid,
+.axion-case-study-root .development-grid {
+  gap: 24px;
+  margin-top: 0;
+}
+
+.axion-case-study-root .agent-grid article,
+.axion-case-study-root .development-grid article {
+  min-height: 218px;
+  padding: 32px;
+  border-radius: 16px;
+  background: var(--axion-card);
+}
+
+.axion-case-study-root .development-grid article { min-height: 247px; }
+.axion-case-study-root .agent-grid article > span,
+.axion-case-study-root .development-grid article > span { color: #02002c; font-size: 13px; font-weight: 800; }
+.axion-case-study-root .agent-grid h3,
+.axion-case-study-root .development-grid h3 { margin: 14px 0 18px; font-size: 22px; line-height: 29px; }
+.axion-case-study-root .agent-grid li,
+.axion-case-study-root .development-grid li { font-size: 15px; line-height: 26px; }
+
+.axion-case-study-root .harness { margin-top: 56px; }
+.axion-case-study-root .harness-diagram {
+  min-height: 360px;
+  display: grid;
+  grid-template-columns: 1fr 42px 1fr 42px 1.15fr 42px 1.12fr 42px 1.25fr;
+  align-items: center;
+  padding: 58px 68px;
+  border-radius: 16px;
+  background: var(--axion-card);
+}
+
+.axion-case-study-root .harness-node,
+.axion-case-study-root .harness-branch span {
+  min-height: 60px;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--bg);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.axion-case-study-root .harness-connector { position: relative; height: 2px; background: var(--axion-navy); }
+.axion-case-study-root .harness-connector::after { content: ""; position: absolute; right: -1px; top: 50%; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid var(--axion-navy); transform: translateY(-50%); }
+.axion-case-study-root .harness-branch { position: relative; display: grid; gap: 60px; padding-block: 8px; }
+.axion-case-study-root .harness-branch::before,
+.axion-case-study-root .harness-branch::after { content: ""; position: absolute; top: 50%; width: 16px; height: calc(100% - 68px); border-top: 2px solid var(--axion-navy); border-bottom: 2px solid var(--axion-navy); transform: translateY(-50%); }
+.axion-case-study-root .harness-branch::before { left: -16px; border-left: 2px solid var(--axion-navy); }
+.axion-case-study-root .harness-branch::after { right: -16px; border-right: 2px solid var(--axion-navy); }
+.axion-case-study-root .harness-stages { gap: 16px; margin-top: 28px; }
+.axion-case-study-root .harness-stages article { min-height: 186px; padding: 24px 20px; border-radius: 12px; background: var(--axion-card); }
+.axion-case-study-root .harness-stages article > span { color: #02002c; font-size: 13px; font-weight: 800; }
+.axion-case-study-root .harness-stages h3 { margin: 16px 0 18px; font-size: 18px; line-height: 24px; }
+.axion-case-study-root .harness-stages li { color: var(--muted); font-size: 13px; line-height: 21px; }
+.axion-case-study-root .harness-feedback-arrow { display: block; width: 0; height: 0; margin: 36px auto 0; border-left: 16px solid transparent; border-right: 16px solid transparent; border-top: 18px solid var(--axion-navy); }
+.axion-case-study-root .feedback-loop { min-height: 72px; margin-top: 30px; border-radius: 12px; font-size: 18px; line-height: 29px; }
+
+.axion-case-study-root .axion-ia-wrap { margin-top: 56px; overflow: hidden; border-radius: 10px; }
+.axion-case-study-root .axion-ia { width: 100%; border-collapse: collapse; table-layout: fixed; background: var(--axion-card); }
+.axion-case-study-root .axion-ia th,
+.axion-case-study-root .axion-ia td { padding: 18px 20px; border: 0; text-align: left; vertical-align: middle; font-size: 14px; line-height: 22px; }
+.axion-case-study-root .axion-ia thead th { color: #fff; background: #02002c; font-weight: 700; }
+.axion-case-study-root .axion-ia thead th:nth-child(1) { width: 14%; }
+.axion-case-study-root .axion-ia thead th:nth-child(2) { width: 18%; }
+.axion-case-study-root .axion-ia tbody th { background: var(--axion-ia-group); font-weight: 700; }
+.axion-case-study-root .axion-ia tbody td:last-child { color: var(--muted); }
+
+.axion-case-study-root .axion-screens .detail-subtitle { margin-top: 60px; }
+.axion-case-study-root .axion-screen-grid { margin-top: 0; row-gap: 64px; }
+.axion-case-study-root .axion-screen-card h3 { font-size: 24px; line-height: 31px; }
+.axion-case-study-root .axion-screen-card > p { min-height: 48px; font-size: 16px; line-height: 24px; }
+
+.axion-case-study-root .axion-system { padding-top: 104px; padding-bottom: 120px; }
+.axion-case-study-root .system-block { margin-top: 72px; }
+.axion-case-study-root .system-block > h3 { font-size: 40px; line-height: 48px; }
+.axion-case-study-root .system-block > p { margin-bottom: 60px; font-size: 18px; line-height: 29px; }
+.axion-case-study-root .logo-system { gap: 24px; }
+.axion-case-study-root .logo-system > div { min-height: 186px; }
+.axion-case-study-root .system-note { padding: 40px; }
+
+.axion-case-study-root .grid-samples { gap: 60px; }
+.axion-case-study-root .grid-samples article { padding: 0; border: 0; }
+.axion-case-study-root .grid-spec-card > h4 { margin: 0 0 24px; font-size: 24px; line-height: 31px; }
+.axion-case-study-root .grid-bars { width: 100%; height: 200px; padding: 0; overflow: hidden; border-radius: 10px; background: var(--axion-card); }
+.axion-case-study-root .grid-bars.desktop { grid-template-columns: repeat(12, 1fr); gap: 24px; padding-inline: 64px; }
+.axion-case-study-root .grid-bars.mobile { max-width: none; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-inline: 64px; }
+.axion-case-study-root .grid-bars i { background: #e3e4ff; }
+.axion-case-study-root .grid-specs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; margin-top: 24px; }
+.axion-case-study-root .grid-specs div { display: flex; flex-direction: column; gap: 8px; }
+.axion-case-study-root .grid-specs span { color: var(--muted); font-size: 14px; }
+.axion-case-study-root .grid-specs strong { font-size: 18px; }
+
+.axion-case-study-root .color-grid { gap: 16px; }
+.axion-case-study-root .color-grid.brand { grid-template-columns: repeat(4, 1fr); }
+.axion-case-study-root .color-grid.neutrals { grid-template-columns: repeat(4, 1fr); row-gap: 28px; }
+.axion-case-study-root .color-swatch { min-height: 150px; overflow: visible; border: 0; border-radius: 0; background: transparent; }
+.axion-case-study-root .color-swatch i { min-height: 112px; border: 1px solid var(--line); border-radius: 12px; }
+.axion-case-study-root .color-swatch strong { position: static; display: block; margin-top: 12px; color: var(--text); font-size: 15px; }
+.axion-case-study-root .color-swatch span { padding: 4px 0 0; color: var(--muted); font-size: 13px; }
+
+html[data-theme="dark"] .axion-case-study-root {
+  --axion-card: #262626;
+  --axion-ia-group: #20242d;
+}
+html[data-theme="dark"] .axion-case-study-root .eyebrow,
+html[data-theme="dark"] .axion-case-study-root .agent-grid article > span,
+html[data-theme="dark"] .axion-case-study-root .development-grid article > span,
+html[data-theme="dark"] .axion-case-study-root .harness-stages article > span { color: #d7d9df; }
+html[data-theme="dark"] .axion-case-study-root .harness-node,
+html[data-theme="dark"] .axion-case-study-root .harness-branch span { background: #151515; }
+html[data-theme="dark"] .axion-case-study-root .harness-connector,
+html[data-theme="dark"] .axion-case-study-root .harness-branch::before,
+html[data-theme="dark"] .axion-case-study-root .harness-branch::after { border-color: #d7d9df; background: #d7d9df; }
+html[data-theme="dark"] .axion-case-study-root .harness-connector::after { border-left-color: #d7d9df; }
+html[data-theme="dark"] .axion-case-study-root .harness-feedback-arrow { border-top-color: #d7d9df; }
+
+@media (max-width: 900px) {
+  .axion-case-study-root .harness-diagram { grid-template-columns: 1fr; gap: 12px; padding: 32px; }
+  .axion-case-study-root .harness-connector { width: 2px; height: 22px; margin: 0 auto; }
+  .axion-case-study-root .harness-connector::after { right: 50%; top: auto; bottom: -1px; border-top: 7px solid #02002c; border-right: 5px solid transparent; border-left: 5px solid transparent; transform: translateX(50%); }
+  html[data-theme="dark"] .axion-case-study-root .harness-connector::after { border-left-color: transparent; border-top-color: #d7d9df; }
+  .axion-case-study-root .harness-branch { gap: 12px; padding: 0; }
+  .axion-case-study-root .harness-branch::before,
+  .axion-case-study-root .harness-branch::after { display: none; }
+  .axion-case-study-root .grid-specs { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .axion-case-study-root .detail-section { width: calc(100% - 48px); padding: 80px 0; }
+  .axion-case-study-root .eyebrow { font-size: 16px; line-height: 24px; }
+  .axion-case-study-root .detail-section > div > h2 { font-size: 30px; line-height: 38px; }
+  .axion-case-study-root .section-description { font-size: 15px; line-height: 24px; }
+  .axion-case-study-root .detail-cards-plain article { min-height: 0; }
+  .axion-case-study-root .agent-grid,
+  .axion-case-study-root .development-grid,
+  .axion-case-study-root .harness-stages { grid-template-columns: 1fr; }
+  .axion-case-study-root .harness-diagram { padding: 24px; }
+  .axion-case-study-root .axion-ia-wrap { overflow-x: auto; }
+  .axion-case-study-root .axion-ia { min-width: 720px; }
+  .axion-case-study-root .axion-screen-grid { grid-template-columns: 1fr; }
+  .axion-case-study-root .logo-system { grid-template-columns: 1fr; }
+  .axion-case-study-root .grid-bars.desktop,
+  .axion-case-study-root .grid-bars.mobile { padding-inline: 24px; gap: 10px; }
+  .axion-case-study-root .grid-specs { grid-template-columns: repeat(2, 1fr); }
+  .axion-case-study-root .color-grid.brand,
+  .axion-case-study-root .color-grid.neutrals { grid-template-columns: repeat(2, 1fr); }
 }

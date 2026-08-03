@@ -50,6 +50,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           width={1056}
           height={640}
           sizes="(max-width: 640px) calc(100vw - 48px), 1056px"
+          style={{ width: "100%", height: "100%" }}
           priority
         />
         {isAxion && <span className="detail-image-label">AI 포트폴리오</span>}

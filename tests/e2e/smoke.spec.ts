@@ -168,11 +168,33 @@ test("AXION detail exposes the complete coded Figma case study", async ({ page }
 
   await expect(page.locator(".detail-hero h1")).toHaveText("AXION");
   await expect(page.locator(".detail-image-label")).toHaveText("AI 포트폴리오");
+  await expect(page.locator(".project-meta")).toContainText("Figma, Figma MCP, Codex, Claude, Notion");
+  await expect(page.locator(".project-meta")).toContainText("1인 프로젝트");
   await expect(page.locator(".axion-screen-card")).toHaveCount(4);
+  await expect(page.locator(".harness-stages article")).toHaveCount(5);
+  await expect(page.locator(".axion-ia tbody tr")).toHaveCount(13);
+  await expect(page.locator(".grid-specs > div")).toHaveCount(12);
+  await expect(page.locator(".color-swatch")).toHaveCount(10);
+  await expect(page.locator(".color-swatch").filter({ hasText: "brand/navy" })).toHaveCount(1);
+  await expect(page.locator(".color-swatch").filter({ hasText: "#02002C" })).toHaveCount(1);
   for (const heading of ["프로젝트 기획배경 & 핵심목표", "AI Agent 구조", "AI Harness 구축", "정보구조도(I.A)", "주요화면", "디자인시스템"]) {
     await expect(page.getByRole("heading", { name: heading, exact: true })).toHaveCount(1);
   }
 
+  expect(runtimeErrors).toEqual([]);
+  expect(failedRequests).toEqual([]);
+});
+
+test("AXION detail stays responsive across desktop, folded, and mobile", async ({ page }) => {
+  const { runtimeErrors, failedRequests } = await preparePage(page);
+  for (const viewport of [{ width: 1440, height: 1000 }, { width: 768, height: 900 }, { width: 390, height: 844 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/projects/detail/axion", { waitUntil: "networkidle" });
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow, `${viewport.width}px viewport overflow`).toBe(0);
+    await expect(page.locator(".harness-diagram")).toBeVisible();
+    await expect(page.locator(".axion-ia-wrap")).toBeVisible();
+  }
   expect(runtimeErrors).toEqual([]);
   expect(failedRequests).toEqual([]);
 });
