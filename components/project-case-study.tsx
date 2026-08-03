@@ -8,6 +8,14 @@ type CaseSection = {
 };
 
 const caseStudies: Record<string, CaseSection[]> = {
+  axion: [
+    { title: "프로젝트 기획배경과 핵심목표", width: 1200, height: 588 },
+    { title: "AI Agent 구조", width: 1200, height: 1252 },
+    { title: "AI Harness 구축", width: 1200, height: 1116 },
+    { title: "정보구조도", width: 1200, height: 1082 },
+    { title: "주요 화면", width: 1200, height: 3751 },
+    { title: "디자인 시스템", width: 1200, height: 4586 },
+  ],
   vazoom: [
     { title: "서비스 기획배경과 핵심과제", width: 1200, height: 857 },
     { title: "사용자 인터뷰", width: 1200, height: 2153 },

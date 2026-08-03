@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowIcon } from "@/components/icons";
 import { AxionWorkflow } from "@/components/axion-workflow";
-import { AxionCaseStudy } from "@/components/axion-case-study";
 import { ProjectCaseStudy } from "@/components/project-case-study";
 import { ContactSection } from "@/components/footer";
 import { Reveal } from "@/components/ui";
@@ -14,6 +13,19 @@ export function generateStaticParams() { return projects.map(({ slug }) => ({ sl
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   return { title: projects.find((item) => item.slug === slug)?.title ?? "프로젝트" };
+}
+
+function AxionFigmaIntro() {
+  return (
+    <div className="axion-figma-intro" aria-label="AXION 프로젝트 개요">
+      <section className="axion-figma-intro-header">
+        <Image src="/assets/detail/case-studies/axion/intro.png" alt="AXION 프로젝트 제목, 태그와 소개" width={1200} height={516} sizes="(max-width: 1199px) 100vw, 1200px" priority />
+        <Link className="axion-figma-back-link" href="/projects/all"><span className="sr-only">프로젝트 목록으로 돌아가기</span></Link>
+      </section>
+      <Image src="/assets/detail/case-studies/axion/hero.png" alt="AXION 포트폴리오 대표 화면" width={1200} height={640} sizes="(max-width: 1199px) 100vw, 1200px" priority />
+      <Image src="/assets/detail/case-studies/axion/meta.png" alt="AXION 프로젝트 기간, 담당 업무, 사용 도구와 팀 구성" width={1200} height={394} sizes="(max-width: 1199px) 100vw, 1200px" priority />
+    </div>
+  );
 }
 
 // Legacy compact renderer retained temporarily for comparison with the completed Figma case study.
@@ -32,5 +44,5 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
-  return <><section className="detail-hero-shell"><div className="detail-hero container"><Link className="back-link" href="/projects/all"><ArrowIcon direction="left"/> Back</Link><Reveal><h2>{project.subtitle}</h2><h1>{project.title}</h1><div className="tag-list"><span>{project.categoryLabel}</span>{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><p>{project.slug === "axion" ? "AXION은 AX Product Design & Development를 구축한 개인 프로젝트입니다" : project.summary}</p></Reveal></div></section><section className="detail-main-image container"><Image src={`/assets/detail/${project.slug}-hero.png`} alt={`${project.title} 프로젝트 대표 화면`} width={1056} height={640} sizes="(max-width: 640px) calc(100vw - 48px), 1056px" priority />{project.slug === "axion" && <span className="detail-image-label">AI 포트폴리오</span>}</section><section className="project-meta-section"><div className="project-meta container"><div><span>프로젝트 기간</span><strong>{project.period}</strong></div><div><span>담당 업무</span><strong>{project.role}</strong></div><div><span>사용 툴</span><strong>{project.slug === "axion" ? "Figma, Figma MCP, Codex, Claude, Notion" : project.tools}</strong></div><div><span>팀</span><strong>{project.slug === "axion" ? <>서비스 기획 & UX 디자인 & 개발자 (1명)<br/>(1인 프로젝트)</> : project.team}</strong></div></div></section>{project.slug === "axion" ? <AxionCaseStudy/> : <ProjectCaseStudy slug={project.slug} title={project.title}/>}<ContactSection/></>;
+  return <>{project.slug === "axion" ? <AxionFigmaIntro/> : <><section className="detail-hero-shell"><div className="detail-hero container"><Link className="back-link" href="/projects/all"><ArrowIcon direction="left"/> Back</Link><Reveal><h2>{project.subtitle}</h2><h1>{project.title}</h1><div className="tag-list"><span>{project.categoryLabel}</span>{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><p>{project.summary}</p></Reveal></div></section><section className="detail-main-image container"><Image src={`/assets/detail/${project.slug}-hero.png`} alt={`${project.title} 프로젝트 대표 화면`} width={1056} height={640} sizes="(max-width: 640px) calc(100vw - 48px), 1056px" priority /></section><section className="project-meta-section"><div className="project-meta container"><div><span>프로젝트 기간</span><strong>{project.period}</strong></div><div><span>담당 업무</span><strong>{project.role}</strong></div><div><span>사용 툴</span><strong>{project.tools}</strong></div><div><span>팀</span><strong>{project.team}</strong></div></div></section></>}<ProjectCaseStudy slug={project.slug} title={project.title}/><ContactSection/></>;
 }

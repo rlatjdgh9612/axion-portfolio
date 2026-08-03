@@ -166,13 +166,12 @@ test("AXION detail exposes the complete Figma case study", async ({ page }) => {
   const { runtimeErrors, failedRequests } = await preparePage(page);
   await page.goto("/projects/detail/axion", { waitUntil: "networkidle" });
 
-  for (const heading of ["프로젝트 기획배경 & 핵심목표", "AI Agent 구조", "AI Harness 구축", "정보구조도(I.A)", "주요화면", "디자인시스템"]) {
-    await expect(page.getByRole("heading", { name: heading, exact: true })).toBeVisible();
+  await expect(page.locator(".axion-figma-intro img")).toHaveCount(3);
+  await expect(page.locator(".axion-figma-back-link")).toHaveAttribute("href", "/projects/all");
+  await expect(page.locator(".figma-case-section")).toHaveCount(6);
+  for (const heading of ["프로젝트 기획배경과 핵심목표", "AI Agent 구조", "AI Harness 구축", "정보구조도", "주요 화면", "디자인 시스템"]) {
+    await expect(page.getByRole("heading", { name: heading, exact: true })).toHaveCount(1);
   }
-  await expect(page.locator(".axion-screen-card")).toHaveCount(4);
-  await expect(page.locator(".axion-screen-composite img")).toHaveCount(24);
-  await expect(page.locator(".logo-system > div")).toHaveCount(3);
-  await expect(page.locator(".type-scale")).toHaveCount(2);
 
   expect(runtimeErrors).toEqual([]);
   expect(failedRequests).toEqual([]);
