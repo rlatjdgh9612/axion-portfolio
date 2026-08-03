@@ -1,6 +1,6 @@
 {
   "name": "axion-portfolio",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "private": true,
   "scripts": {
     "dev": "NEXT_DIST_DIR=.next-dev next dev",
@@ -9,7 +9,8 @@
     "build:qa": "NEXT_DIST_DIR=.next-qa next build",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "qa:static": "npm run lint && npm run typecheck",
+    "qa:sanitize": "node scripts/sanitize-next-artifacts.mjs",
+    "qa:static": "npm run qa:sanitize && npm run lint && npm run typecheck",
     "qa:runtime": "playwright test",
     "qa": "npm run qa:static && npm run build:qa && npm run qa:runtime",
     "version:check": "node scripts/check-version.mjs",

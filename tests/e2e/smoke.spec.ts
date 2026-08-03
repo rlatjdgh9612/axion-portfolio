@@ -145,5 +145,6 @@ test("project categories expose the expected card counts", async ({ page }) => {
   for (const [path, count] of Object.entries(expectedCounts)) {
     await page.goto(path, { waitUntil: "networkidle" });
     await expect(page.locator(".project-card")).toHaveCount(count);
+    await expect(page.locator(".contact-section")).toBeVisible();
   }
 });

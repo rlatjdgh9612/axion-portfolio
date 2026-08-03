@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { ContactSection } from "@/components/footer";
 import { ProjectsView } from "@/components/projects-view";
 import { categories, categoryTitle } from "@/data/projects";
 
@@ -12,5 +13,5 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 export default async function ProjectsPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
   if (!categories.some((item) => item.slug === category)) notFound();
-  return <ProjectsView category={category}/>;
+  return <><ProjectsView category={category}/><ContactSection/></>;
 }

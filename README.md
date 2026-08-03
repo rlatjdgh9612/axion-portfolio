@@ -221,7 +221,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 
 기획·디자인·개발 진행 단계를 버전 단위로 기록하고 주요 변경 범위를 변경 이력과 함께 관리합니다.
 
-**현재 버전: `v0.6.0 — QA·오류 수정 자동화`**
+**현재 버전: `v0.6.1 — 프로젝트 CTA 복구`**
 
 <table width="100%">
   <colgroup>
@@ -237,6 +237,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
     </tr>
   </thead>
   <tbody>
+    <tr><td><code>v0.6.1</code></td><td>프로젝트 CTA 복구</td><td>프로젝트 카테고리 페이지 하단에 홈·소개와 동일한 채용·협업 연락 CTA 복구 및 자동 회귀 검사 추가</td></tr>
     <tr><td><code>v0.6.0</code></td><td>QA·오류 수정 자동화</td><td>격리 빌드, Playwright 반응형·테마 QA, 버전·Git 동기화 검사 및 GitHub Actions Quality Gate 구축</td></tr>
     <tr><td><code>v0.5.0</code></td><td>반응형 UI 고도화</td><td>Folded 데스크톱 레이아웃, 공통 CTA, 프로젝트 카드, 고객사 로고 및 소개 프로필 이미지 정합성 개선</td></tr>
     <tr><td><code>v0.4.0</code></td><td>UI 정합성·안정화</td><td>Figma 기준 Light/Dark UI 보완, 프로젝트 데이터·분류 수정, 카드 이미지 교체, 런타임·이미지 오류 수정 및 QA</td></tr>
@@ -250,6 +251,12 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 </table>
 
 상세 변경 내역은 [`CHANGELOG.md`](./CHANGELOG.md)에서 관리합니다.
+
+### v0.6.1 주요 반영 내역
+
+- 전체·인턴·외주·회사·개인 프로젝트 페이지 하단에 홈·소개 페이지와 동일한 공통 연락 CTA 반영
+- 이메일·전화 CTA, 문구, Light / Dark Theme와 반응형 스타일을 기존 `ContactSection` 컴포넌트로 통일
+- 프로젝트 카테고리 5개 경로에서 연락 CTA 노출 여부를 Playwright 회귀 검사에 추가
 
 ### v0.6.0 주요 반영 내역
 
@@ -268,6 +275,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 
 | 명령어 | 검사 범위 |
 |---|---|
+| `npm run qa:sanitize` | `.next-*/types` 동일 해시 번호 복제본의 임시 보존 이동 |
 | `npm run qa:static` | ESLint·TypeScript |
 | `npm run build:qa` | `.next-qa` 격리 프로덕션 빌드 |
 | `npm run qa:runtime` | Playwright 반응형·테마·리소스 런타임 QA |

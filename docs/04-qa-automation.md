@@ -23,6 +23,7 @@
 
 | 명령어 | 용도 |
 |---|---|
+| `npm run qa:sanitize` | `.next-*/types`에 생긴 동일 해시 번호 복제본만 임시 보존 이동 |
 | `npm run qa:static` | ESLint와 TypeScript 검사 |
 | `npm run build:qa` | `.next-qa`를 사용하는 격리 프로덕션 빌드 |
 | `npm run qa:runtime` | 빌드 결과를 실행해 Playwright 브라우저 QA |
@@ -51,10 +52,11 @@
 ## 실패 처리
 
 1. Playwright 실패 시 `playwright-report/`와 `test-results/`에서 스크린샷·trace·video를 확인합니다.
-2. `.next-qa`의 ENOENT·export 오류처럼 전용 빌드 캐시가 원인이면 해당 폴더만 임시 위치로 이동해 보존한 뒤 깨끗한 빌드를 1회 재실행합니다.
-3. 원인을 수정하고 `npm run qa` 전체를 다시 실행합니다.
-4. 자동 수정은 최대 2회까지만 반복합니다.
-5. 해결되지 않으면 실패한 경로·뷰포트·영향과 다음 조치를 사용자에게 보고합니다.
+2. `.next-*/types` 내부에 macOS 동기화 번호 복제본이 생기면 `npm run qa:sanitize`로 동일 해시 파일만 임시 보존 이동합니다.
+3. `.next-qa`의 ENOENT·export 오류처럼 전용 빌드 캐시가 원인이면 해당 폴더만 임시 위치로 이동해 보존한 뒤 깨끗한 빌드를 1회 재실행합니다.
+4. 원인을 수정하고 `npm run qa` 전체를 다시 실행합니다.
+5. 자동 수정은 최대 2회까지만 반복합니다.
+6. 해결되지 않으면 실패한 경로·뷰포트·영향과 다음 조치를 사용자에게 보고합니다.
 
 ## GitHub Quality Gate
 
