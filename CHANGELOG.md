@@ -16,6 +16,26 @@ AXION Portfolio의 주요 변경 내역을 기록합니다.
 - 반응형·접근성 최종 QA
 - 배포 및 채용 제출용 콘텐츠 검수
 
+## [0.8.0] - 2026-08-03
+
+### 추가
+
+- Figma `08.Project_AXION_Desktop` 기준 AXION 상세 페이지 전체 사례 연구 콘텐츠
+- 홈·프로젝트 탐색 화면의 Light / Dark Mode 4종 원본 미리보기
+- AXION 로고, Desktop·Mobile 타이포그래피, 반응형 그리드와 의미 기반 컬러 시스템
+- 프로젝트 IA 전체 항목과 AI Agent·AI Harness 실행 구조
+
+### 변경
+
+- AXION 프로젝트 개요, 기간, 담당 업무, 사용 도구와 팀 정보를 최종 Figma 문구로 정합화
+- AXION 상세 페이지는 Figma 흐름과 동일하게 사례 연구 → 연락 CTA → 푸터 순서로 구성
+- README 버전 이력을 4열 표로 개편하고 각 버전의 반영일 추가
+
+### 검증
+
+- AXION 상세 페이지 Desktop·Folded Desktop·Mobile 및 Light / Dark Theme UI QA
+- Figma 원본 화면 자산 로컬 저장·이미지 로딩·가로 넘침·콘솔 오류 검사
+
 ## [0.7.0] - 2026-08-03
 
 ### 추가

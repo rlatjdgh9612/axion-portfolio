@@ -110,7 +110,7 @@ for (const viewport of viewports) {
       });
     }
 
-    for (const path of ["/", "/about", "/projects/all"] as const) {
+    for (const path of ["/", "/about", "/projects/all", "/projects/detail/axion"] as const) {
       test(`${path} supports dark theme`, async ({ page }) => {
         const { runtimeErrors, failedRequests } = await preparePage(page, "dark");
         await assertHealthyPage(page, path);
@@ -147,6 +147,23 @@ test("project categories expose the expected card counts", async ({ page }) => {
     await expect(page.locator(".project-card")).toHaveCount(count);
     await expect(page.locator(".contact-section")).toBeVisible();
   }
+});
+
+test("AXION detail exposes the complete Figma case study", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  const { runtimeErrors, failedRequests } = await preparePage(page);
+  await page.goto("/projects/detail/axion", { waitUntil: "networkidle" });
+
+  for (const heading of ["프로젝트 기획배경 & 핵심목표", "AI Agent 구조", "AI Harness 구축", "정보구조도(I.A)", "주요화면", "디자인시스템"]) {
+    await expect(page.getByRole("heading", { name: heading, exact: true })).toBeVisible();
+  }
+  await expect(page.locator(".axion-screen-card")).toHaveCount(4);
+  await expect(page.locator(".axion-screen-composite img")).toHaveCount(24);
+  await expect(page.locator(".logo-system > div")).toHaveCount(3);
+  await expect(page.locator(".type-scale")).toHaveCount(2);
+
+  expect(runtimeErrors).toEqual([]);
+  expect(failedRequests).toEqual([]);
 });
 
 test("project CTA matches the shared light and dark visual treatment", async ({ page }) => {

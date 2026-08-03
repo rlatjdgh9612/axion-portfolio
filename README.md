@@ -221,34 +221,37 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 
 기획·디자인·개발 진행 단계를 버전 단위로 기록하고 주요 변경 범위를 변경 이력과 함께 관리합니다.
 
-**현재 버전: `v0.7.0 — 개발 서버 오류 감지·자동 복구`**
+**현재 버전: `v0.8.0 — AXION 프로젝트 상세 페이지 완성`**
 
 <table width="100%">
   <colgroup>
-    <col width="15%">
-    <col width="25%">
-    <col width="60%">
+    <col width="12%">
+    <col width="14%">
+    <col width="22%">
+    <col width="52%">
   </colgroup>
   <thead>
     <tr>
       <th>버전</th>
+      <th>반영일</th>
       <th>단계</th>
       <th>주요 범위</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td><code>v0.7.0</code></td><td>개발 서버 자동 복구</td><td>중복 서버 실행 차단, 핵심 페이지 상태 감시, vendor chunk 오류 감지와 `.next-dev` 캐시 보존 이동·자동 재시작 적용</td></tr>
-    <tr><td><code>v0.6.2</code></td><td>프로젝트 CTA 스타일 보완</td><td>프로젝트 CTA의 흰색 배경·Bold 타이포그래피 및 Light / Dark Theme 대비를 메인 페이지 기준으로 통일</td></tr>
-    <tr><td><code>v0.6.1</code></td><td>프로젝트 CTA 복구</td><td>프로젝트 카테고리 페이지 하단에 홈·소개와 동일한 채용·협업 연락 CTA 복구 및 자동 회귀 검사 추가</td></tr>
-    <tr><td><code>v0.6.0</code></td><td>QA·오류 수정 자동화</td><td>격리 빌드, Playwright 반응형·테마 QA, 버전·Git 동기화 검사 및 GitHub Actions Quality Gate 구축</td></tr>
-    <tr><td><code>v0.5.0</code></td><td>반응형 UI 고도화</td><td>Folded 데스크톱 레이아웃, 공통 CTA, 프로젝트 카드, 고객사 로고 및 소개 프로필 이미지 정합성 개선</td></tr>
-    <tr><td><code>v0.4.0</code></td><td>UI 정합성·안정화</td><td>Figma 기준 Light/Dark UI 보완, 프로젝트 데이터·분류 수정, 카드 이미지 교체, 런타임·이미지 오류 수정 및 QA</td></tr>
-    <tr><td><code>v0.3.0</code></td><td>핵심 화면</td><td>홈, 소개, 프로젝트 탐색·상세 화면 및 카테고리 라우팅 구현</td></tr>
-    <tr><td><code>v0.2.0</code></td><td>개발 기반</td><td>Next.js 환경, 디자인 토큰, 공통 레이아웃 및 재사용 컴포넌트 구현</td></tr>
-    <tr><td><code>v0.1.2</code></td><td>포트폴리오 문서</td><td>채용 제출용 AXION 기획·디자인·개발 포트폴리오 PDF 및 README 열람 링크 추가</td></tr>
-    <tr><td><code>v0.1.1</code></td><td>문서 개선</td><td>README 한글화, Figma 디자인 결과물 링크, 버전 기록 보완</td></tr>
-    <tr><td><code>v0.1.0</code></td><td>기획·디자인 명세</td><td>PRD, IA, 반응형 화면, Portfolio Design System, AX Workflow</td></tr>
-    <tr><td><code>v1.0.0</code></td><td>제출 버전</td><td>배포, 콘텐츠 검수, 채용 제출용 최종 안정화</td></tr>
+    <tr><td><code>v0.8.0</code></td><td>2026-08-03</td><td>AXION 상세 페이지 완성</td><td>Figma의 Light / Dark 상세 시안을 기준으로 기획 배경, AI Agent, AI Harness, IA, 주요 화면 4종과 디자인 시스템 전체 반영</td></tr>
+    <tr><td><code>v0.7.0</code></td><td>2026-08-03</td><td>개발 서버 자동 복구</td><td>중복 서버 실행 차단, 핵심 페이지 상태 감시, vendor chunk 오류 감지와 `.next-dev` 캐시 보존 이동·자동 재시작 적용</td></tr>
+    <tr><td><code>v0.6.2</code></td><td>2026-08-03</td><td>프로젝트 CTA 스타일 보완</td><td>프로젝트 CTA의 흰색 배경·Bold 타이포그래피 및 Light / Dark Theme 대비를 메인 페이지 기준으로 통일</td></tr>
+    <tr><td><code>v0.6.1</code></td><td>2026-08-03</td><td>프로젝트 CTA 복구</td><td>프로젝트 카테고리 페이지 하단에 홈·소개와 동일한 채용·협업 연락 CTA 복구 및 자동 회귀 검사 추가</td></tr>
+    <tr><td><code>v0.6.0</code></td><td>2026-08-03</td><td>QA·오류 수정 자동화</td><td>격리 빌드, Playwright 반응형·테마 QA, 버전·Git 동기화 검사 및 GitHub Actions Quality Gate 구축</td></tr>
+    <tr><td><code>v0.5.0</code></td><td>2026-08-03</td><td>반응형 UI 고도화</td><td>Folded 데스크톱 레이아웃, 공통 CTA, 프로젝트 카드, 고객사 로고 및 소개 프로필 이미지 정합성 개선</td></tr>
+    <tr><td><code>v0.4.0</code></td><td>2026-08-02</td><td>UI 정합성·안정화</td><td>Figma 기준 Light/Dark UI 보완, 프로젝트 데이터·분류 수정, 카드 이미지 교체, 런타임·이미지 오류 수정 및 QA</td></tr>
+    <tr><td><code>v0.3.0</code></td><td>2026-08-02</td><td>핵심 화면</td><td>홈, 소개, 프로젝트 탐색·상세 화면 및 카테고리 라우팅 구현</td></tr>
+    <tr><td><code>v0.2.0</code></td><td>2026-08-02</td><td>개발 기반</td><td>Next.js 환경, 디자인 토큰, 공통 레이아웃 및 재사용 컴포넌트 구현</td></tr>
+    <tr><td><code>v0.1.2</code></td><td>2026-07-29</td><td>포트폴리오 문서</td><td>채용 제출용 AXION 기획·디자인·개발 포트폴리오 PDF 및 README 열람 링크 추가</td></tr>
+    <tr><td><code>v0.1.1</code></td><td>2026-07-27</td><td>문서 개선</td><td>README 한글화, Figma 디자인 결과물 링크, 버전 기록 보완</td></tr>
+    <tr><td><code>v0.1.0</code></td><td>2026-07-27</td><td>기획·디자인 명세</td><td>PRD, IA, 반응형 화면, Portfolio Design System, AX Workflow</td></tr>
+    <tr><td><code>v1.0.0</code></td><td>예정</td><td>제출 버전</td><td>배포, 콘텐츠 검수, 채용 제출용 최종 안정화</td></tr>
   </tbody>
 </table>
 
