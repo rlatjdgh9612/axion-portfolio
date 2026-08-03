@@ -221,7 +221,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 
 기획·디자인·개발 진행 단계를 버전 단위로 기록하고 주요 변경 범위를 변경 이력과 함께 관리합니다.
 
-**현재 버전: `v0.6.2 — 프로젝트 CTA 스타일 정합성 보완`**
+**현재 버전: `v0.7.0 — 개발 서버 오류 감지·자동 복구`**
 
 <table width="100%">
   <colgroup>
@@ -237,6 +237,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
     </tr>
   </thead>
   <tbody>
+    <tr><td><code>v0.7.0</code></td><td>개발 서버 자동 복구</td><td>중복 서버 실행 차단, 핵심 페이지 상태 감시, vendor chunk 오류 감지와 `.next-dev` 캐시 보존 이동·자동 재시작 적용</td></tr>
     <tr><td><code>v0.6.2</code></td><td>프로젝트 CTA 스타일 보완</td><td>프로젝트 CTA의 흰색 배경·Bold 타이포그래피 및 Light / Dark Theme 대비를 메인 페이지 기준으로 통일</td></tr>
     <tr><td><code>v0.6.1</code></td><td>프로젝트 CTA 복구</td><td>프로젝트 카테고리 페이지 하단에 홈·소개와 동일한 채용·협업 연락 CTA 복구 및 자동 회귀 검사 추가</td></tr>
     <tr><td><code>v0.6.0</code></td><td>QA·오류 수정 자동화</td><td>격리 빌드, Playwright 반응형·테마 QA, 버전·Git 동기화 검사 및 GitHub Actions Quality Gate 구축</td></tr>
@@ -252,6 +253,14 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 </table>
 
 상세 변경 내역은 [`CHANGELOG.md`](./CHANGELOG.md)에서 관리합니다.
+
+### v0.7.0 주요 반영 내역
+
+- `npm run dev`를 단일 실행 잠금과 상태 감시가 적용된 안전 개발 서버로 교체
+- 동일 저장소의 Next.js 개발 서버가 `.next-dev`를 동시에 사용하는 상황 차단
+- 홈·소개·프로젝트 페이지의 HTTP 500과 vendor chunk·webpack runtime 누락 오류 자동 감지
+- 손상 캐시를 삭제하지 않고 시스템 임시 폴더로 보존 이동한 뒤 최대 2회 자동 재시작
+- 즉시 복구가 필요한 경우 `npm run dev:recover`, 진단이 필요한 경우에만 자동 감독이 없는 `npm run dev:raw` 제공
 
 ### v0.6.2 주요 반영 내역
 
@@ -282,6 +291,10 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 
 | 명령어 | 검사 범위 |
 |---|---|
+| `npm run dev` | 중복 실행 차단·핵심 페이지 상태 감시·`.next-dev` 오류 자동 복구 개발 서버 |
+| `npm run dev:raw` | 자동 감독 없는 Next.js 개발 서버(진단용) |
+| `npm run dev:recover` | 실행 중인 안전 개발 서버에 캐시 보존 이동·재시작 요청 |
+| `npm run dev:supervisor-check` | 개발 서버 감독 스크립트 구문 검사 |
 | `npm run qa:sanitize` | `.next-*/types` 동일 해시 번호 복제본의 임시 보존 이동 |
 | `npm run qa:static` | ESLint·TypeScript |
 | `npm run build:qa` | `.next-qa` 격리 프로덕션 빌드 |
