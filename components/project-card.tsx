@@ -14,7 +14,7 @@ export function ProjectCard({ project, priority = false }: { project: Project; p
           <Image className="project-card-image project-card-image-dark" src={darkImage!} alt="" aria-hidden="true" width={516} height={400} sizes="(max-width: 640px) 342px, 516px" priority={priority} unoptimized />
         </> : null}
       </Link>
-      <p className="project-summary">{project.summary}</p>
+      <p className="project-summary">{project.cardSummary ?? project.summary}</p>
       <div className="tag-list"><span>{project.categoryLabel}</span>{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
     </article>
   );
