@@ -39,3 +39,6 @@ next-env.d.ts
 playwright-report/
 test-results/
 tests/visual/results/
+
+# local handoff documents
+docs/CLAUDE_HANDOFF_*.md
