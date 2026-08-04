@@ -238,3 +238,33 @@ projectCaseStudies.moneyguard = {
     ],
   },
 };
+
+projectCaseStudies.moneyguard.system = {
+  description: "머니가드서비스의 브랜드 일관성과 효율적인 서비스 구축을 위한 디자인 가이드라인 입니다",
+  logoConcept: "방패 심볼은 안전한 금융 거래와 자산 보호를, 내부 원화(₩) 기호는 핵심 서비스 가치를 직관적으로 전달합니다 그레이 그라데이션은 신뢰와 전문성을, Money Guard 워드마크는 브랜드 이미지를 표현합니다",
+  fonts: ["Pretendard", "Bold / SemiBold / Medium / Regular"],
+  typeScale: [
+    "Heading 1 | Pretendard / Bold | 48px | 100% | 금전거래에서 걱정 없는 세상을 만듭니다",
+    "Heading 2 | Pretendard / Bold | 40px | 100% | 지금 이런 문제를 겪고 계신가요?",
+    "Heading 3 | Pretendard / Bold | 32px | 100% | 머니가드 서비스를 소개합니다",
+    "Heading 4 | Pretendard / Bold | 24px | 100% | 안심 거래의 첫걸음, 차용증 생성",
+    "Heading 5 | Pretendard / SemiBold | 20px | 100% | 누구나 믿고 사용할 수 있도록",
+    "Heading 6 | Pretendard / Medium | 16px | 100% | 가장 가까운 서비스를 만들어 갑니다",
+  ],
+  grid: { viewport: "1920px", columns: 12, gutter: "24px", margin: "160px", content: "1600px" },
+  colors: [
+    { name: "Yellow 100", hex: "#FFFBD9" },
+    { name: "Yellow 300 (Main)", hex: "#FEE300" },
+    { name: "Yellow 400", hex: "#E5CC00" },
+    { name: "Yellow Dark", hex: "#988800" },
+    { name: "White", hex: "#FFFFFF" },
+    { name: "Gray 100", hex: "#F9F9F9" },
+    { name: "Gray 300", hex: "#EAEAEA" },
+    { name: "Gray 500", hex: "#ACACAC" },
+    { name: "Gray 700", hex: "#626262" },
+    { name: "Black", hex: "#000000" },
+    { name: "Success (Green)", hex: "#59C292" },
+    { name: "Warning (Coral)", hex: "#FF826B" },
+    { name: "Info (Blue)", hex: "#447FFF" },
+  ],
+};
