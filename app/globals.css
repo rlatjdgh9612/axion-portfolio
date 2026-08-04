@@ -1885,7 +1885,7 @@ html[data-theme="dark"] .axion-case-study-root .harness-feedback-arrow { border-
 html:not([data-theme="dark"]) body:has(.detail-hero-shell) .contact-section { background: #fff; }
 body:has(.detail-hero-shell) .contact-inner h2 { font-weight: 700; }
 body:has(.detail-hero-shell) .site-footer { background: #02002c; color: #fff; }
-body:has(.detail-hero-shell) .site-footer .button-primary { border-color: #fff; background: #fff; color: #02002c; }
+body:has(.detail-hero-shell) .site-footer .button-primary { border-color: #fff; background: transparent; color: #fff; }
 body:has(.detail-hero-shell) .site-footer .button-secondary { border-color: #fff; background: transparent; color: #fff; }
 
 @media (max-width: 900px) {
