@@ -749,7 +749,7 @@ html[data-theme="dark"] body:has(.projects-index) .site-footer .button-secondary
 .type-scale { margin-top: 30px; }
 .type-scale h4 { margin: 0; padding: 0 0 30px; border-bottom: 1px solid var(--line); font-size: 28px; }
 .type-row { min-height: 74px; padding: 24px 0; display: grid; grid-template-columns: 200px 160px 54px 54px 1fr; align-items: center; gap: 18px; border-bottom: 1px solid var(--line); }
-.type-row:first-of-type { padding-top: 0; }
+.type-row:first-of-type { padding-top: 30px; }
 .type-row > b { font-size: 16px; }
 .type-row > span { color: var(--muted); font-size: 13px; }
 .type-row > strong { justify-self: end; text-align: right; white-space: nowrap; }
