@@ -19,7 +19,8 @@
     "version:check": "node scripts/check-version.mjs",
     "git:sync-check": "node scripts/check-git-sync.mjs",
     "qa:publish": "npm run qa && npm run version:check",
-    "qa:published": "npm run version:check && npm run git:sync-check"
+    "qa:published": "npm run version:check && npm run git:sync-check",
+    "visual:project-details": "node scripts/visual-project-details.mjs"
   },
   "dependencies": {
     "motion": "^12.23.12",

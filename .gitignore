@@ -38,3 +38,4 @@ next-env.d.ts
 # qa artifacts
 playwright-report/
 test-results/
+tests/visual/results/

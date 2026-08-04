@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
 import { ArrowIcon } from "./icons";
 
 export const RESUME_PATH = "/downloads/kim-seongho-resume-2026.pdf";
@@ -11,8 +10,8 @@ export function ResumeLink({ className = "button button-secondary" }: { classNam
 }
 
 export function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const reduced = useReducedMotion();
-  return <motion.div className={className} initial={reduced ? false : { opacity: 0, y: 14 }} whileInView={reduced ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.16 }} transition={{ duration: 0.4, delay, ease: [0.22, 1, 0.36, 1] }}>{children}</motion.div>;
+  void delay;
+  return <div className={className}>{children}</div>;
 }
 
 export function PageIntro({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {

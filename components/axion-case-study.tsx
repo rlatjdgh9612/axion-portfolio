@@ -42,7 +42,7 @@ const desktopType = [
 
 const mobileType = [
   ["Display / Mobile", "Pretendard / Bold", "32px", "42px", "더 나은 경험을 디자인합니다", "m-display"],
-  ["Heading / Mobile", "Pretendard / Bold", "24px", "34px", "안녕하세요 김성호입니다", "m-heading"],
+  ["Heading / Mobile", "Pretendard / Bold", "24px", "31px", "안녕하세요 김성호입니다", "m-heading"],
   ["Action / Medium", "Pretendard / SemiBold", "16px", "24px", "프로젝트 보기", "m-action"],
   ["Body / Medium", "Pretendard / Regular", "16px", "24px", "내용을 이해하기 쉽게 전달합니다", "b-medium"],
   ["Body / Small", "Pretendard / Regular", "14px", "22px", "AI & AX 실무 역량", "m-small"],
@@ -111,12 +111,12 @@ export function AxionCaseStudy() {
       <div className="axion-screen-grid"><ScreenPreview title="Portfolio Home (Light Mode)" description="핵심 포지셔닝과 대표 프로젝트, 전환 동선을 한 흐름으로 연결한 메인 화면" parts={previewSets.homeLight}/><ScreenPreview title="Portfolio Home (Dark Mode)" description="핵심 포지셔닝과 대표 프로젝트, 전환 동선을 한 흐름으로 연결한 메인 화면" parts={previewSets.homeDark} dark/><ScreenPreview title="Project Discovery (Light Mode)" description="필터와 카드 구조를 통해 프로젝트 유형과 역할을 빠르게 탐색하는 화면" parts={previewSets.projectsLight}/><ScreenPreview title="Project Discovery (Dark Mode)" description="필터와 카드 구조를 통해 프로젝트 유형과 역할을 빠르게 탐색하는 화면" parts={previewSets.projectsDark} dark/></div>
     </Reveal></section>
 
-    <section className="detail-section container axion-system"><Reveal>
+    <section className="detail-section container axion-system"><div>
       <SectionHeading eyebrow="Design System" title="디자인시스템" description="AXION 플랫폼의 브랜드 일관성과 사용자 경험 향상을 위한 디자인 가이드라인입니다" />
       <div className="system-block"><h3>로고</h3><p>AXION의 브랜드 일관성을 위해 워드마크의 형태, 컬러, 최소 여백과 사용 기준을 정의한 로고 시스템입니다</p><div className="logo-system"><div><Image src="/assets/ui/logo-light.png" alt="AXION 공식 컬러 로고" width={210} height={49} style={{ width: 210, height: 49 }}/></div><div><Image src="/assets/detail/axion/logo-light.png" alt="AXION 흰색 로고" width={210} height={49} style={{ width: 210, height: 49 }}/></div><div><Image src="/assets/detail/axion/logo-light.png" alt="AXION 흰색 로고 검정 배경" width={210} height={49} style={{ width: 210, height: 49 }}/></div></div><article className="system-note"><h4>Logo Concept</h4><p>교차하는 사선은 실행과 확장을 상징하며, 네이비(02002C) / 그레이(AEB2BA)는 AXION의 기술적 신뢰를 표현합니다</p></article></div>
       <div className="system-block"><h3>타이포그래피</h3><p>한국어 가독성을 우선해 Pretendard를 사용하며, 콘텐츠 역할에 따라 명확한 위계를 구성했습니다</p><div className="type-hero"><strong>Aa</strong><div><b>Pretendard</b><span>Bold / SemiBold / Medium / Regular</span><span>가나다라마바사아자차카타파하</span><span>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><span>0123456789 (!@#$%^&amp;*)</span></div></div><TypeScale title="Typography Scale · Desktop" rows={desktopType}/><TypeScale title="Typography Scale · Mobile" rows={mobileType}/></div>
       <div className="system-block"><h3>그리드</h3><p>데스크톱과 모바일 환경에서 콘텐츠 영역과 반응형 그리드 규칙을 일관되게 적용합니다</p><div className="grid-samples"><GridSpec type="desktop" columns={12} gutter="24px" margin="72px" columnWidth="66px" contentArea="1056px"/><GridSpec type="mobile" columns={4} gutter="16px" margin="24px" columnWidth="73.5px" contentArea="342px"/></div></div>
       <div className="system-block"><h3>컬러</h3><p>AXION의 브랜드 일관성과 정보 위계를 위한 의미 기반 컬러 시스템입니다</p><h4>Brand &amp; Accent</h4><div className="color-grid brand"><ColorSwatch name="brand/navy" hex="#02002C" color="#02002c"/><ColorSwatch name="brand/slate" hex="#1E293B" color="#1e293b"/><ColorSwatch name="brand/gray" hex="#AEB2BA" color="#aeb2ba"/><ColorSwatch name="accent/focus" hex="#3C3CFA" color="#3c3cfa"/></div><h4>Neutrals</h4><div className="color-grid neutrals"><ColorSwatch name="neutral/white" hex="#FFFFFF" color="#ffffff"/><ColorSwatch name="neutral/50" hex="#F8F8F8" color="#f8f8f8"/><ColorSwatch name="neutral/100" hex="#F9FAFB" color="#f9fafb"/><ColorSwatch name="neutral/200" hex="#E5E7EB" color="#e5e7eb"/><ColorSwatch name="neutral/600" hex="#666666" color="#666666"/><ColorSwatch name="neutral/ink" hex="#030712" color="#030712"/></div></div>
-    </Reveal></section>
+    </div></section>
   </div>;
 }

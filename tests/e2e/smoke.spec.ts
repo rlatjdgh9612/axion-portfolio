@@ -172,7 +172,17 @@ test("AXION detail exposes the complete coded Figma case study", async ({ page }
   await expect(page.locator(".project-meta")).toContainText("1인 프로젝트");
   await expect(page.locator(".axion-screen-card")).toHaveCount(4);
   await expect(page.locator(".harness-stages article")).toHaveCount(5);
+  await expect(page.locator(".harness-stages article").filter({ hasText: "결과를 데이터·규칙에 반영" })).toHaveCount(1);
+  await expect(page.locator(".feedback-loop")).toHaveText("검증 결과를 프로젝트 데이터와 디자인 규칙에 재반영");
   await expect(page.locator(".axion-ia tbody tr")).toHaveCount(13);
+  await expect(page.locator(".type-row")).toHaveCount(12);
+  await expect(page.getByRole("heading", { name: "Typography Scale · Desktop", exact: true })).toHaveCount(1);
+  await expect(page.getByRole("heading", { name: "Typography Scale · Mobile", exact: true })).toHaveCount(1);
+  await expect(page.getByRole("heading", { name: "Logo Concept", exact: true })).toHaveCSS("font-weight", "800");
+  await expect(page.getByRole("heading", { name: "Desktop - 1200px", exact: true })).toHaveCSS("font-weight", "800");
+  await expect(page.getByRole("heading", { name: "Mobile - 390px", exact: true })).toHaveCSS("font-weight", "800");
+  await expect(page.getByRole("heading", { name: "Brand & Accent", exact: true })).toHaveCSS("font-weight", "800");
+  await expect(page.getByRole("heading", { name: "Neutrals", exact: true })).toHaveCSS("font-weight", "800");
   await expect(page.locator(".grid-specs > div")).toHaveCount(12);
   await expect(page.locator(".color-swatch")).toHaveCount(10);
   await expect(page.locator(".color-swatch").filter({ hasText: "brand/navy" })).toHaveCount(1);
@@ -199,13 +209,38 @@ test("AXION detail stays responsive across desktop, folded, and mobile", async (
   expect(failedRequests).toEqual([]);
 });
 
-test("remaining project details expose every Figma case-study section", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 1000 });
-
-  for (const [path, count] of Object.entries(projectCaseStudySections)) {
+test("remaining project details render structured case studies instead of full-page screenshots", async ({ page }) => {
+  for (const path of Object.keys(projectCaseStudySections)) {
     const { runtimeErrors, failedRequests } = await preparePage(page);
-    await page.goto(path, { waitUntil: "networkidle" });
-    await expect(page.locator(".figma-case-section")).toHaveCount(count);
+
+    for (const viewport of [{ width: 1440, height: 1000 }, { width: 768, height: 900 }, { width: 390, height: 844 }]) {
+      await page.setViewportSize(viewport);
+      await page.goto(path, { waitUntil: "networkidle" });
+
+      await expect(page.locator(".project-case-study-root")).toBeVisible();
+      await expect(page.locator('[data-case-section="overview"]')).toBeVisible();
+      await expect(page.locator('[data-case-section="direction"]')).toBeVisible();
+      await expect(page.locator('[data-case-section="ia"]')).toBeVisible();
+      await expect(page.locator('[data-case-section="screens"]')).toBeVisible();
+      if (!path.endsWith("/vazoom")) {
+        await expect(page.locator('[data-case-section="design-system"]')).toBeVisible();
+      }
+      await expect(page.locator('img[src*="/section-"]')).toHaveCount(0);
+      await expect(page.locator('.case-screen-card img').first()).toBeVisible();
+
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      expect(overflow, `${path} ${viewport.width}px viewport overflow`).toBe(0);
+    }
+
+    const galleryImages = page.locator('.case-screen-card img');
+    for (let index = 0; index < await galleryImages.count(); index += 1) {
+      await galleryImages.nth(index).scrollIntoViewIfNeeded();
+    }
+    await page.waitForLoadState("networkidle");
+    const brokenImages = await galleryImages.evaluateAll((images) =>
+      images.filter((image) => !(image as HTMLImageElement).complete || (image as HTMLImageElement).naturalWidth === 0).length
+    );
+    expect(brokenImages, `${path} broken screen images`).toBe(0);
     await expect(page.locator(".project-meta-section")).toBeVisible();
     await expect(page.locator(".contact-section")).toBeVisible();
     expect(runtimeErrors, `${path} case-study errors`).toEqual([]);
