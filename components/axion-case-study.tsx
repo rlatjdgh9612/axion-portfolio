@@ -43,10 +43,10 @@ const desktopType = [
 const mobileType = [
   ["Display / Mobile", "Pretendard / Bold", "32px", "42px", "더 나은 경험을 디자인합니다", "m-display"],
   ["Heading / Mobile", "Pretendard / Bold", "24px", "31px", "안녕하세요 김성호입니다", "m-heading"],
-  ["Action / Medium", "Pretendard / SemiBold", "16px", "24px", "프로젝트 보기", "m-action"],
-  ["Body / Medium", "Pretendard / Regular", "16px", "24px", "내용을 이해하기 쉽게 전달합니다", "b-medium"],
-  ["Body / Small", "Pretendard / Regular", "14px", "22px", "AI & AX 실무 역량", "m-small"],
-  ["Caption", "Pretendard / Medium", "11px", "17px", "©2026 AXION. All Rights Reserved.", "caption"],
+  ["Action / Medium", "Pretendard / SemiBold", "18px", "22px", "프로젝트 보기", "m-action"],
+  ["Body / Medium", "Pretendard / Regular", "16px", "24px", "서비스 기획부터 AI & AX Strategy까지", "b-medium"],
+  ["Body / Small", "Pretendard / Regular", "14px", "22px", "AI & AX STRATEGY", "m-small"],
+  ["Caption", "Pretendard / Regular", "12px", "17px", "©2026 AXION. All Rights Reserved", "caption"],
 ] as const;
 
 function ScreenPreview({ title, description, parts, dark = false }: { title: string; description: string; parts: readonly string[]; dark?: boolean }) {
