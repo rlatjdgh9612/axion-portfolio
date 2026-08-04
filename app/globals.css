@@ -451,7 +451,7 @@ html[data-theme="dark"] body:has(.projects-index) .site-footer .button-secondary
 .detail-image-label { position: absolute; left: 24px; bottom: 27px; display: inline-flex; align-items: center; justify-content: center; min-width: 170px; min-height: 56px; padding: 0 24px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); font-size: 22px; font-weight: 600; }
 .project-meta-section { min-height: 394px; padding: 76px 0; }
 .project-meta { width: min(calc(100% - 144px), 1056px); display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-inline: auto; }
-.project-meta div { min-height: 101px; display: flex; flex-direction: column; gap: 8px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.project-meta div { min-height: 101px; display: flex; flex-direction: column; gap: 8px; }
 .project-meta span { color: var(--muted); font-size: 24px; line-height: 29px; font-weight: 500; }
 .project-meta strong { font-size: 24px; line-height: 32px; font-weight: 600; }
 .project-case-study-root {
