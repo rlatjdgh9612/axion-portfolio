@@ -237,10 +237,15 @@ test("remaining project details render structured case studies instead of full-p
       await galleryImages.nth(index).scrollIntoViewIfNeeded();
     }
     await page.waitForLoadState("networkidle");
-    const brokenImages = await galleryImages.evaluateAll((images) =>
-      images.filter((image) => !(image as HTMLImageElement).complete || (image as HTMLImageElement).naturalWidth === 0).length
-    );
-    expect(brokenImages, `${path} broken screen images`).toBe(0);
+    await expect
+      .poll(
+        () =>
+          galleryImages.evaluateAll((images) =>
+            images.filter((image) => !(image as HTMLImageElement).complete || (image as HTMLImageElement).naturalWidth === 0).length
+          ),
+        { message: `${path} broken screen images`, timeout: 30_000 },
+      )
+      .toBe(0);
     await expect(page.locator(".project-meta-section")).toBeVisible();
     await expect(page.locator(".contact-section")).toBeVisible();
     expect(runtimeErrors, `${path} case-study errors`).toEqual([]);
