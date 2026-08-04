@@ -227,9 +227,14 @@ function DesignSystem({ system, title, slug }: { system: CaseStudySystem; title:
             </div>
           </div>
           <div className="case-type-scale">
-            {system.typeScale.map((scale, index) => (
-              <div key={scale}><b>{scale}</b><span style={{ fontSize: `${Math.max(14, 28 - index * 3)}px` }}>일관된 정보 위계를 위한 텍스트 스타일</span></div>
-            ))}
+              {system.typeScale.map((scale, index) => {
+                const parts = scale.split(" | ");
+                const sample = parts.length > 1 ? parts[parts.length - 1] : "일관된 정보 위계를 위한 텍스트 스타일";
+                const label = parts.length > 1 ? parts.slice(0, -1).join(" · ") : scale;
+                return (
+                  <div key={scale}><b>{label}</b><span style={{ fontSize: `${Math.max(14, 28 - index * 3)}px` }}>{sample}</span></div>
+                );
+              })}
           </div>
         </div>
 
