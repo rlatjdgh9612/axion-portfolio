@@ -448,12 +448,12 @@ html[data-theme="dark"] body:has(.projects-index) .site-footer .button-secondary
 .detail-main-image { height: 640px; padding: 0; overflow: hidden; background: var(--surface); }
 .detail-main-image img { width: 100%; height: 100%; object-fit: cover; }
 .detail-main-image { position: relative; }
-.detail-image-label { position: absolute; left: 24px; bottom: 27px; display: inline-flex; align-items: center; justify-content: center; min-width: 170px; min-height: 56px; padding: 0 24px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); font-size: 18px; font-weight: 600; }
+.detail-image-label { position: absolute; left: 24px; bottom: 27px; display: inline-flex; align-items: center; justify-content: center; min-width: 170px; min-height: 56px; padding: 0 24px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); font-size: 22px; font-weight: 600; }
 .project-meta-section { min-height: 394px; padding: 76px 0; }
-.project-meta { width: min(calc(100% - 144px), 1056px); display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px 24px; margin-inline: auto; }
-.project-meta div { min-height: 98px; display: flex; flex-direction: column; gap: 14px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
-.project-meta span { color: var(--muted); font-size: 16px; line-height: 24px; }
-.project-meta strong { font-size: 18px; line-height: 29px; font-weight: 600; }
+.project-meta { width: min(calc(100% - 144px), 1056px); display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-inline: auto; }
+.project-meta div { min-height: 101px; display: flex; flex-direction: column; gap: 8px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.project-meta span { color: var(--muted); font-size: 24px; line-height: 29px; font-weight: 500; }
+.project-meta strong { font-size: 24px; line-height: 32px; font-weight: 600; }
 .project-case-study-root {
   --case-accent: var(--brand);
   --case-on-accent: #fff;
@@ -1826,11 +1826,11 @@ html[data-theme="dark"] body:has(.about-profile) .site-footer {
 .axion-case-study-root .axion-ia-wrap { margin-top: 56px; overflow: hidden; border-radius: 10px; }
 .axion-case-study-root .axion-ia { width: 100%; border-collapse: collapse; table-layout: fixed; background: var(--axion-card); }
 .axion-case-study-root .axion-ia th,
-.axion-case-study-root .axion-ia td { padding: 18px 20px; border: 0; text-align: left; vertical-align: middle; font-size: 14px; line-height: 22px; }
-.axion-case-study-root .axion-ia thead th { color: #fff; background: #02002c; font-weight: 700; }
-.axion-case-study-root .axion-ia thead th:nth-child(1) { width: 14%; }
-.axion-case-study-root .axion-ia thead th:nth-child(2) { width: 18%; }
-.axion-case-study-root .axion-ia tbody th { background: var(--axion-ia-group); font-weight: 700; }
+.axion-case-study-root .axion-ia td { padding: 16px 20px; border: 0; text-align: left; vertical-align: middle; font-size: 14px; line-height: 22px; }
+.axion-case-study-root .axion-ia thead th { padding: 10px 20px; color: #fff; background: #02002c; font-weight: 700; }
+.axion-case-study-root .axion-ia thead th:nth-child(1) { width: 13.26%; }
+.axion-case-study-root .axion-ia thead th:nth-child(2) { width: 17.05%; }
+.axion-case-study-root .axion-ia tbody th { background: var(--axion-ia-group); font-weight: 700; vertical-align: top; }
 .axion-case-study-root .axion-ia tbody td:last-child { color: var(--muted); }
 
 .axion-case-study-root .axion-screens .detail-subtitle { margin-top: 60px; }
@@ -1950,12 +1950,12 @@ body:has(.axion-case-study-root) .project-meta div {
 
 body:has(.axion-case-study-root) .project-meta span {
   color: #aeb2ba;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 body:has(.axion-case-study-root) .project-meta strong {
   color: var(--text);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .axion-case-study-root .detail-subtitle,
