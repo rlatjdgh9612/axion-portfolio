@@ -106,7 +106,9 @@ const screenGroups: Record<string, ScreenGroup[]> = {
     { title: "서비스 개선 전후 비교", description: "핵심 업무 화면의 정보 구조와 사용 흐름을 비교했습니다.", indices: [7, 8] },
   ],
   moneyguard: [
-    { title: "WEB View Design", description: "서비스 소개부터 제휴 문의까지 이어지는 반응형 웹 화면입니다.", indices: [1, 2, 3, 4, 5, 6] },
+    { title: "랜딩 페이지", description: "B2B 의사결정권자의 첫 방문을 고려하여 Hero에서 핵심 가치를 즉시 전달하고, 스크롤 흐름으로 서비스 이해 → 신뢰 확보 → CTA 전환을 유도", indices: [1, 2] },
+    { title: "서비스 소개 페이지", description: "서비스 기능을 카드형 UI로 분리하여 비교 탐색이 용이하도록 설계하고, 실적 데이터를 시각화하여 경쟁사 대비 차별점을 직관적으로 전달", indices: [3, 4] },
+    { title: "제휴/문의 페이지", description: "문의 허들을 낮추기 위해 폼 필드를 최소화하고, 제휴 유형별 안내를 병기하여 적합한 문의 채널로 빠르게 도달하도록 설계", indices: [5, 6] },
     { title: "서비스 개선 전후 비교", description: "핵심 가치 전달과 전환 흐름을 개선 전후로 비교했습니다.", indices: [7, 8] },
   ],
 };
@@ -251,6 +253,9 @@ function DesignSystem({ system, title, slug }: { system: CaseStudySystem; title:
             <div><dt>Columns</dt><dd>{system.grid.columns}</dd></div>
             <div><dt>Gutter</dt><dd>{system.grid.gutter}</dd></div>
             <div><dt>Margin</dt><dd>{system.grid.margin}</dd></div>
+            {system.grid.columnWidth ? (
+              <div><dt>Column Width</dt><dd>{system.grid.columnWidth}</dd></div>
+            ) : null}
             <div><dt>Content Area</dt><dd>{system.grid.content}</dd></div>
           </dl>
         </div>
@@ -260,15 +265,34 @@ function DesignSystem({ system, title, slug }: { system: CaseStudySystem; title:
             <span>Color</span>
             <h3>컬러</h3>
           </div>
-          <div className="case-color-grid">
-            {system.colors.map((color) => (
-              <article key={`${color.name}-${color.hex}`}>
-                <i style={{ backgroundColor: color.hex }} />
-                <b>{color.name}</b>
-                <span>{color.hex}</span>
-              </article>
-            ))}
-          </div>
+          {system.colors.some((color) => color.group) ? (
+            Array.from(new Set(system.colors.map((color) => color.group ?? ""))).map((group) => (
+              <div key={group || "default"} className="case-color-group">
+                {group ? <h4>{group}</h4> : null}
+                <div className="case-color-grid">
+                  {system.colors
+                    .filter((color) => (color.group ?? "") === group)
+                    .map((color) => (
+                      <article key={`${color.name}-${color.hex}`}>
+                        <i style={{ backgroundColor: color.hex }} />
+                        <b>{color.name}</b>
+                        <span>{color.hex}</span>
+                      </article>
+                    ))}
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="case-color-grid">
+              {system.colors.map((color) => (
+                <article key={`${color.name}-${color.hex}`}>
+                  <i style={{ backgroundColor: color.hex }} />
+                  <b>{color.name}</b>
+                  <span>{color.hex}</span>
+                </article>
+              ))}
+            </div>
+          )}
         </div>
       </Reveal>
     </section>
