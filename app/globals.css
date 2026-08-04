@@ -1824,7 +1824,7 @@ html[data-theme="dark"] body:has(.about-profile) .site-footer {
 .axion-case-study-root .harness-feedback-arrow { display: block; width: 0; height: 0; margin: 36px auto 0; border-left: 16px solid transparent; border-right: 16px solid transparent; border-top: 18px solid var(--axion-navy); }
 .axion-case-study-root .feedback-loop { min-height: 72px; margin-top: 30px; border-radius: 12px; font-size: 18px; line-height: 29px; }
 
-.axion-case-study-root .axion-ia-wrap { margin-top: 56px; overflow: hidden; border-radius: 10px; }
+.axion-case-study-root .axion-ia-wrap { margin-top: 56px; overflow: hidden; border-radius: 8px 8px 0 0; }
 .axion-case-study-root .axion-ia { width: 100%; border-collapse: collapse; table-layout: fixed; background: var(--axion-card); }
 .axion-case-study-root .axion-ia th,
 .axion-case-study-root .axion-ia td { padding: 16px 20px; border: 0; text-align: left; vertical-align: middle; font-size: 14px; line-height: 22px; }
