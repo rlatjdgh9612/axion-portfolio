@@ -5,7 +5,6 @@ export type Project = {
   title: string;
   subtitle: string;
   summary: string;
-  cardSummary?: string;
   category: ProjectCategory;
   categoryLabel: string;
   tags: string[];
@@ -23,8 +22,7 @@ export const projects: Project[] = [
     slug: "axion",
     title: "AXION",
     subtitle: "AI-Native Product Design",
-    summary: "AXION은 AX Product Design & Development를 구축한 개인 프로젝트입니다",
-    cardSummary: "AX Product Design & Development를 구축한 개인 프로젝트입니다",
+    summary: "AX Product Design & Development를 구축한 개인 프로젝트입니다",
     category: "personal",
     categoryLabel: "개인 프로젝트",
     tags: ["AI/AX", "UX/UI 디자인", "WEB"],
