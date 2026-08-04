@@ -5,15 +5,15 @@ export type CaseStudySystem = {
   logoConcept: string;
   fonts: string[];
   typeScale: string[];
-  grid: { viewport: string; columns: number; gutter: string; margin: string; content: string };
-  colors: { name: string; hex: string }[];
+  grid: { viewport: string; columns: number; gutter: string; margin: string; content: string; columnWidth?: string };
+  colors: { name: string; hex: string; group?: string }[];
 };
 export type ProjectCaseStudyData = {
   accent: string;
   overview: { eyebrow: string; title: string; description: string; cards: CaseStudyCard[] };
   direction: { eyebrow: string; title: string; description: string; cards: CaseStudyCard[] };
   ia: { description: string; rows: CaseStudyRow[] };
-  screens: { title: string; description: string; count: number };
+  screens: { title: string; description: string; count: number; items?: { title: string; description: string }[] };
   improvements?: { title: string; description: string; cards: CaseStudyCard[] };
   comparison?: { before: string[]; after: string[] };
   system?: CaseStudySystem;
@@ -251,20 +251,30 @@ projectCaseStudies.moneyguard.system = {
     "Heading 5 | Pretendard / SemiBold | 20px | 100% | 누구나 믿고 사용할 수 있도록",
     "Heading 6 | Pretendard / Medium | 16px | 100% | 가장 가까운 서비스를 만들어 갑니다",
   ],
-  grid: { viewport: "1920px", columns: 12, gutter: "24px", margin: "160px", content: "1600px" },
+  grid: { viewport: "1920px", columns: 12, gutter: "24px", margin: "160px", columnWidth: "111px", content: "1600px" },
   colors: [
-    { name: "Yellow 100", hex: "#FFFBD9" },
-    { name: "Yellow 300 (Main)", hex: "#FEE300" },
-    { name: "Yellow 400", hex: "#E5CC00" },
-    { name: "Yellow Dark", hex: "#988800" },
-    { name: "White", hex: "#FFFFFF" },
-    { name: "Gray 100", hex: "#F9F9F9" },
-    { name: "Gray 300", hex: "#EAEAEA" },
-    { name: "Gray 500", hex: "#ACACAC" },
-    { name: "Gray 700", hex: "#626262" },
-    { name: "Black", hex: "#000000" },
-    { name: "Success (Green)", hex: "#59C292" },
-    { name: "Warning (Coral)", hex: "#FF826B" },
-    { name: "Info (Blue)", hex: "#447FFF" },
+    { name: "Yellow 100", hex: "#FFFBD9", group: "Primary" },
+    { name: "Yellow 300 (Main)", hex: "#FEE300", group: "Primary" },
+    { name: "Yellow 400", hex: "#E5CC00", group: "Primary" },
+    { name: "Yellow Dark", hex: "#988800", group: "Primary" },
+    { name: "White", hex: "#FFFFFF", group: "Neutrals" },
+    { name: "Gray 100", hex: "#F9F9F9", group: "Neutrals" },
+    { name: "Gray 300", hex: "#EAEAEA", group: "Neutrals" },
+    { name: "Gray 500", hex: "#ACACAC", group: "Neutrals" },
+    { name: "Gray 700", hex: "#626262", group: "Neutrals" },
+    { name: "Black", hex: "#000000", group: "Neutrals" },
+    { name: "Success (Green)", hex: "#59C292", group: "Semantic" },
+    { name: "Warning (Coral)", hex: "#FF826B", group: "Semantic" },
+    { name: "Info (Blue)", hex: "#447FFF", group: "Semantic" },
+  ],
+};
+
+projectCaseStudies.moneyguard.screens = {
+  ...projectCaseStudies.moneyguard.screens,
+  description: "경쟁사 분석과 페이지 구조 설계를 기반으로 서비스 신뢰도와 전환율을 높인 머니가드서비스 웹사이트를 새로 설계했습니다",
+  items: [
+    { title: "랜딩 페이지", description: "B2B 의사결정권자의 첫 방문을 고려하여 Hero에서 핵심 가치를 즉시 전달하고, 스크롤 흐름으로 서비스 이해 → 신뢰 확보 → CTA 전환을 유도" },
+    { title: "서비스 소개 페이지", description: "서비스 기능을 카드형 UI로 분리하여 비교 탐색이 용이하도록 설계하고, 실적 데이터를 시각화하여 경쟁사 대비 차별점을 직관적으로 전달" },
+    { title: "제휴/문의 페이지", description: "문의 허들을 낮추기 위해 폼 필드를 최소화하고, 제휴 유형별 안내를 병기하여 적합한 문의 채널로 빠르게 도달하도록 설계" },
   ],
 };
