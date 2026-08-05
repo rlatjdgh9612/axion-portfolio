@@ -71,13 +71,24 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       {isAxion ? (
         <section className="detail-figma-frame container">
           <Image
+            className="detail-figma-image detail-figma-image-light"
             src="/assets/detail/axion-detail-full.png"
             alt="AXION 프로젝트 상세 화면"
-            width={716}
-            height={8000}
+            width={2112}
+            height={26818}
             sizes="(max-width: 640px) calc(100vw - 48px), 1056px"
             style={{ width: "100%", height: "auto" }}
             priority
+          />
+          <Image
+            className="detail-figma-image detail-figma-image-dark"
+            src="/assets/detail/axion-detail-full-dark.png"
+            alt=""
+            aria-hidden="true"
+            width={2112}
+            height={26818}
+            sizes="(max-width: 640px) calc(100vw - 48px), 1056px"
+            style={{ width: "100%", height: "auto" }}
           />
         </section>
       ) : (
