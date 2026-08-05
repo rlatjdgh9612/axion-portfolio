@@ -225,35 +225,49 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 
 상세 내용은 [코드 리뷰 문서](./docs/05-code-review.md)에서 확인할 수 있습니다.
 
+### 심각도 기준
+
+<table width="100%">
+  <colgroup><col width="12%"><col width="52%"><col width="36%"></colgroup>
+  <thead><tr><th>라벨</th><th>의미</th><th>처리</th></tr></thead>
+  <tbody>
+    <tr><td><code>P1</code></td><td>방치 시 추가 장애를 유발함</td><td>다음 작업 전 처리</td></tr>
+    <tr><td><code>P2</code></td><td>유지보수 비용을 지속적으로 발생시킴</td><td>계획에 포함</td></tr>
+    <tr><td><code>Nit</code></td><td>개선하면 좋지만 급하지 않음</td><td>여유가 생기면</td></tr>
+  </tbody>
+</table>
+
 ### 점검 결과
 
 <table width="100%">
-  <colgroup><col width="10%"><col width="34%"><col width="18%"><col width="38%"></colgroup>
-  <thead><tr><th>구분</th><th>항목</th><th>규모</th><th>내용</th></tr></thead>
+  <colgroup><col width="8%"><col width="10%"><col width="46%"><col width="36%"></colgroup>
+  <thead><tr><th>#</th><th>라벨</th><th>항목</th><th>규모</th></tr></thead>
   <tbody>
-    <tr><td><code>A-1</code></td><td>고아 컴포넌트</td><td>162줄</td><td><code>axion-case-study.tsx</code>, <code>axion-workflow.tsx</code>가 어디에서도 참조되지 않음</td></tr>
-    <tr><td><code>A-2</code></td><td>도달 불가 코드</td><td>624줄</td><td><code>project-case-study.tsx</code>와 데이터가 항상 거짓인 분기에 위치해 실행되지 않음</td></tr>
-    <tr><td><code>A-3</code></td><td>미사용 타입 필드</td><td>1줄</td><td><code>screens.items</code>가 정의만 되고 읽히지 않음</td></tr>
-    <tr><td><code>B-1</code></td><td>죽은 CSS</td><td>204개 규칙</td><td>전체 613개 중 33%가 렌더링되지 않는 클래스를 대상으로 함</td></tr>
-    <tr><td><code>B-2</code></td><td><code>:has()</code> 스코프 결합</td><td>52개 규칙</td><td>컴포넌트 존재 여부에 스타일이 의존해 DOM 변경 시 스타일이 사라짐</td></tr>
-    <tr><td><code>B-3</code></td><td>CSS 파일 분리</td><td>2,027줄</td><td>전역 토큰·레이아웃·페이지 스코프가 한 파일에 집중 (우선순위 낮음)</td></tr>
+    <tr><td>1</td><td><code>P1</code></td><td><code>:has()</code> 스코프가 컴포넌트 존재 여부에 결합됨</td><td>52개 규칙</td></tr>
+    <tr><td>2</td><td><code>P2</code></td><td>참조는 있으나 실행되지 않는 코드</td><td>624줄</td></tr>
+    <tr><td>3</td><td><code>P2</code></td><td>어디에서도 참조되지 않는 컴포넌트</td><td>162줄</td></tr>
+    <tr><td>4</td><td><code>P2</code></td><td>대상이 사라진 CSS 규칙</td><td>204개 (전체의 33%)</td></tr>
+    <tr><td>5</td><td><code>Nit</code></td><td>정의만 되고 읽히지 않는 타입 필드</td><td>1줄</td></tr>
+    <tr><td>6</td><td><code>Nit</code></td><td><code>globals.css</code> 단일 파일 집중</td><td>2,027줄</td></tr>
   </tbody>
 </table>
 
 ### 조치 현황
 
 <table width="100%">
-  <colgroup><col width="10%"><col width="40%"><col width="16%"><col width="34%"></colgroup>
-  <thead><tr><th>순서</th><th>작업</th><th>상태</th><th>비고</th></tr></thead>
+  <colgroup><col width="8%"><col width="40%"><col width="12%"><col width="16%"><col width="24%"></colgroup>
+  <thead><tr><th>순서</th><th>작업</th><th>라벨</th><th>상태</th><th>회귀 위험</th></tr></thead>
   <tbody>
-    <tr><td>1</td><td>A-1 고아 컴포넌트 삭제</td><td>미진행</td><td>참조 0건 확인 완료</td></tr>
-    <tr><td>2</td><td>A-2 도달 불가 코드 삭제</td><td>미진행</td><td>이미지 방식 유지 확정 시 진행</td></tr>
-    <tr><td>3</td><td>A-3 미사용 타입 필드 제거</td><td>미진행</td><td>A-2와 함께 처리</td></tr>
-    <tr><td>4</td><td>B-1 죽은 CSS 제거</td><td>미진행</td><td>A 항목 완료 후 진행</td></tr>
-    <tr><td>5</td><td>B-2 <code>data-page</code> 속성 전환</td><td>미진행</td><td>페이지 단위 분할 진행 권장</td></tr>
-    <tr><td>6</td><td>B-3 CSS 파일 분리</td><td>보류</td><td>B-1 완료 후 재검토</td></tr>
+    <tr><td>1</td><td>고아 컴포넌트 2개 삭제</td><td><code>P2</code></td><td>미진행</td><td>없음 (참조 0건)</td></tr>
+    <tr><td>2</td><td>도달 불가 코드 삭제 + 분기 정리</td><td><code>P2</code></td><td>미진행</td><td>낮음</td></tr>
+    <tr><td>3</td><td>미사용 타입 필드 제거</td><td><code>Nit</code></td><td>미진행</td><td>없음</td></tr>
+    <tr><td>4</td><td>죽은 CSS 규칙 제거</td><td><code>P2</code></td><td>미진행</td><td>중간</td></tr>
+    <tr><td>5</td><td><code>:has()</code> → <code>data-page</code> 전환</td><td><code>P1</code></td><td>미진행</td><td>중간</td></tr>
+    <tr><td>6</td><td>CSS 파일 분리</td><td><code>Nit</code></td><td>보류</td><td>낮음</td></tr>
   </tbody>
 </table>
+
+`P1`이 가장 높은 심각도이지만 처리 순서는 5번입니다. 4번을 먼저 처리하면 대상이 52개에서 47개로 줄고, 죽은 규칙을 잘못 건드릴 위험도 사라집니다.
 
 각 단계 완료 후 `npm run qa`(Playwright 90개)로 회귀를 확인합니다.
 
