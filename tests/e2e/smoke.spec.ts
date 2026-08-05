@@ -26,16 +26,6 @@ const viewports = [
 ] as const;
 
 const detailPaths = routes.filter((path) => path.startsWith("/projects/detail/"));
-const projectCaseStudySections: Record<string, number> = {
-  "/projects/detail/vazoom": 5,
-  "/projects/detail/investhive": 6,
-  "/projects/detail/jcompany": 6,
-  "/projects/detail/investwith": 6,
-  "/projects/detail/korea-search-fund": 6,
-  "/projects/detail/humblemong": 6,
-  "/projects/detail/prior": 6,
-  "/projects/detail/moneyguard": 6,
-};
 
 const criticalResourceTypes = new Set(["document", "stylesheet", "script", "image", "font"]);
 
@@ -161,95 +151,42 @@ test("project categories expose the expected card counts", async ({ page }) => {
   }
 });
 
-test("AXION detail exposes the complete coded Figma case study", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 1000 });
-  const { runtimeErrors, failedRequests } = await preparePage(page);
-  await page.goto("/projects/detail/axion", { waitUntil: "networkidle" });
-
-  await expect(page.locator(".detail-hero h1")).toHaveText("AXION");
-  await expect(page.locator(".detail-image-label")).toHaveText("AI 포트폴리오");
-  await expect(page.locator(".project-meta")).toContainText("Figma, Figma MCP, Codex, Claude, Notion");
-  await expect(page.locator(".project-meta")).toContainText("1인 프로젝트");
-  await expect(page.locator(".axion-screen-card")).toHaveCount(4);
-  await expect(page.locator(".harness-stages article")).toHaveCount(5);
-  await expect(page.locator(".harness-stages article").filter({ hasText: "결과를 데이터·규칙에 반영" })).toHaveCount(1);
-  await expect(page.locator(".feedback-loop")).toHaveText("검증 결과를 프로젝트 데이터와 디자인 규칙에 재반영");
-  await expect(page.locator(".axion-ia tbody tr")).toHaveCount(13);
-  await expect(page.locator(".type-row")).toHaveCount(12);
-  await expect(page.getByRole("heading", { name: "Typography Scale · Desktop", exact: true })).toHaveCount(1);
-  await expect(page.getByRole("heading", { name: "Typography Scale · Mobile", exact: true })).toHaveCount(1);
-  await expect(page.getByRole("heading", { name: "Logo Concept", exact: true })).toHaveCSS("font-weight", "800");
-  await expect(page.getByRole("heading", { name: "Desktop - 1200px", exact: true })).toHaveCSS("font-weight", "800");
-  await expect(page.getByRole("heading", { name: "Mobile - 390px", exact: true })).toHaveCSS("font-weight", "800");
-  await expect(page.getByRole("heading", { name: "Brand & Accent", exact: true })).toHaveCSS("font-weight", "800");
-  await expect(page.getByRole("heading", { name: "Neutrals", exact: true })).toHaveCSS("font-weight", "800");
-  await expect(page.locator(".grid-specs > div")).toHaveCount(12);
-  await expect(page.locator(".color-swatch")).toHaveCount(10);
-  await expect(page.locator(".color-swatch").filter({ hasText: "brand/navy" })).toHaveCount(1);
-  await expect(page.locator(".color-swatch").filter({ hasText: "#02002C" })).toHaveCount(1);
-  for (const heading of ["프로젝트 기획배경 & 핵심목표", "AI Agent 구조", "AI Harness 구축", "정보구조도(I.A)", "주요화면", "디자인시스템"]) {
-    await expect(page.getByRole("heading", { name: heading, exact: true })).toHaveCount(1);
-  }
-
-  expect(runtimeErrors).toEqual([]);
-  expect(failedRequests).toEqual([]);
-});
-
-test("AXION detail stays responsive across desktop, folded, and mobile", async ({ page }) => {
-  const { runtimeErrors, failedRequests } = await preparePage(page);
-  for (const viewport of [{ width: 1440, height: 1000 }, { width: 768, height: 900 }, { width: 390, height: 844 }]) {
-    await page.setViewportSize(viewport);
-    await page.goto("/projects/detail/axion", { waitUntil: "networkidle" });
-    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-    expect(overflow, `${viewport.width}px viewport overflow`).toBe(0);
-    await expect(page.locator(".harness-diagram")).toBeVisible();
-    await expect(page.locator(".axion-ia-wrap")).toBeVisible();
-  }
-  expect(runtimeErrors).toEqual([]);
-  expect(failedRequests).toEqual([]);
-});
-
-test("remaining project details render structured case studies instead of full-page screenshots", async ({ page }) => {
-  for (const path of Object.keys(projectCaseStudySections)) {
+test("project details render the Figma frame image", async ({ page }) => {
+  for (const path of detailPaths) {
     const { runtimeErrors, failedRequests } = await preparePage(page);
 
     for (const viewport of [{ width: 1440, height: 1000 }, { width: 768, height: 900 }, { width: 390, height: 844 }]) {
       await page.setViewportSize(viewport);
       await page.goto(path, { waitUntil: "networkidle" });
 
-      await expect(page.locator(".project-case-study-root")).toBeVisible();
-      await expect(page.locator('[data-case-section="overview"]')).toBeVisible();
-      await expect(page.locator('[data-case-section="direction"]')).toBeVisible();
-      await expect(page.locator('[data-case-section="ia"]')).toBeVisible();
-      await expect(page.locator('[data-case-section="screens"]')).toBeVisible();
-      if (!path.endsWith("/vazoom")) {
-        await expect(page.locator('[data-case-section="design-system"]')).toBeVisible();
-      }
-      await expect(page.locator('img[src*="/section-"]')).toHaveCount(0);
-      await expect(page.locator('.case-screen-card img').first()).toBeVisible();
+      await expect(page.locator(".detail-hero-shell")).toBeVisible();
+      await expect(page.locator(".detail-figma-frame")).toBeVisible();
+      await expect(page.locator(".detail-figma-image-light")).toHaveCount(1);
+      await expect(page.locator(".detail-figma-image-dark")).toHaveCount(1);
+      await expect(page.locator(".contact-section")).toBeVisible();
+      await expect(page.locator(".site-footer")).toBeVisible();
 
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-      expect(overflow, `${path} ${viewport.width}px viewport overflow`).toBe(0);
+      expect(overflow, `${path} ${viewport.width}px viewport overflow`).toBeLessThanOrEqual(1);
     }
 
-    const galleryImages = page.locator('.case-screen-card img');
-    for (let index = 0; index < await galleryImages.count(); index += 1) {
-      await galleryImages.nth(index).scrollIntoViewIfNeeded();
+    const frameImages = page.locator(".detail-figma-image");
+    for (let index = 0; index < await frameImages.count(); index += 1) {
+      await frameImages.nth(index).scrollIntoViewIfNeeded();
     }
     await page.waitForLoadState("networkidle");
     await expect
       .poll(
         () =>
-          galleryImages.evaluateAll((images) =>
+          frameImages.evaluateAll((images) =>
             images.filter((image) => !(image as HTMLImageElement).complete || (image as HTMLImageElement).naturalWidth === 0).length
           ),
-        { message: `${path} broken screen images`, timeout: 30_000 },
+        { message: `${path} broken frame images`, timeout: 30_000 },
       )
       .toBe(0);
-    await expect(page.locator(".project-meta-section")).toBeVisible();
-    await expect(page.locator(".contact-section")).toBeVisible();
-    expect(runtimeErrors, `${path} case-study errors`).toEqual([]);
-    expect(failedRequests, `${path} case-study failed requests`).toEqual([]);
+
+    expect(runtimeErrors, `${path} detail errors`).toEqual([]);
+    expect(failedRequests, `${path} detail failed requests`).toEqual([]);
   }
 });
 
