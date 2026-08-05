@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AxionCaseStudy } from "@/components/axion-case-study";
 import { ContactSection } from "@/components/footer";
 import { ArrowIcon } from "@/components/icons";
 import { ProjectCaseStudy } from "@/components/project-case-study";
@@ -43,6 +42,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
+      {isAxion ? null : (
+        <>
       <section className="detail-main-image container">
         <Image
           src={`/assets/detail/${project.slug}-hero.png`}
@@ -64,10 +65,24 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <div><span>팀</span><strong>{project.team}</strong></div>
         </div>
       </section>
+        </>
+      )}
 
-      {isAxion
-        ? <AxionCaseStudy />
-        : <ProjectCaseStudy slug={project.slug} title={project.title} />}
+      {isAxion ? (
+        <section className="detail-figma-frame container">
+          <Image
+            src="/assets/detail/axion/axion-detail-full.png"
+            alt="AXION 프로젝트 상세 화면"
+            width={716}
+            height={8000}
+            sizes="(max-width: 640px) calc(100vw - 48px), 1056px"
+            style={{ width: "100%", height: "auto" }}
+            priority
+          />
+        </section>
+      ) : (
+        <ProjectCaseStudy slug={project.slug} title={project.title} />
+      )}
       <ContactSection />
     </>
   );
