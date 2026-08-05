@@ -170,7 +170,7 @@ test("project details render the Figma frame image", async ({ page }) => {
       expect(overflow, `${path} ${viewport.width}px viewport overflow`).toBeLessThanOrEqual(1);
     }
 
-    const frameImages = page.locator(".detail-figma-image");
+    const frameImages = page.locator(".detail-figma-image-light");
     for (let index = 0; index < await frameImages.count(); index += 1) {
       await frameImages.nth(index).scrollIntoViewIfNeeded();
     }
