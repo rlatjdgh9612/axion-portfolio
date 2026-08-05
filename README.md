@@ -1,5 +1,7 @@
 # AXION 프로젝트 (포트폴리오)
 
+[![Quality Gate](https://github.com/rlatjdgh9612/axion-portfolio/actions/workflows/quality.yml/badge.svg?branch=main)](https://github.com/rlatjdgh9612/axion-portfolio/actions/workflows/quality.yml)
+
 > 서비스 기획, UX/UI 디자인, AI 기반의 제품 개발 과정을 하나의 경험으로 연결한 채용/협업 프로젝트들을 모아온 포트폴리오 웹사이트
 
 ## 프로젝트 개요
