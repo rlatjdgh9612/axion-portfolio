@@ -22,6 +22,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   if (!project) notFound();
 
   const isAxion = project.slug === "axion";
+  const figmaFrameSlugs = ["axion", "vazoom"];
+  const useFigmaFrame = figmaFrameSlugs.includes(project.slug);
 
   return (
     <>
@@ -42,7 +44,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      {isAxion ? null : (
+      {useFigmaFrame ? null : (
         <>
       <section className="detail-main-image container">
         <Image
@@ -68,12 +70,12 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </>
       )}
 
-      {isAxion ? (
+      {useFigmaFrame ? (
         <section className="detail-figma-frame container">
           <Image
             className="detail-figma-image detail-figma-image-light"
-            src="/assets/detail/axion-detail-full.png"
-            alt="AXION 프로젝트 상세 화면"
+            src={`/assets/detail/${project.slug}-detail-full.png`}
+            alt={`${project.title} 프로젝트 상세 화면`}
             width={2112}
             height={26818}
             sizes="(max-width: 640px) calc(100vw - 48px), 1056px"
@@ -82,7 +84,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           />
           <Image
             className="detail-figma-image detail-figma-image-dark"
-            src="/assets/detail/axion-detail-full-dark.png"
+            src={`/assets/detail/${project.slug}-detail-full-dark.png`}
             alt=""
             aria-hidden="true"
             width={2112}
