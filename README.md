@@ -258,16 +258,16 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
   <colgroup><col width="8%"><col width="40%"><col width="12%"><col width="16%"><col width="24%"></colgroup>
   <thead><tr><th>순서</th><th>작업</th><th>라벨</th><th>상태</th><th>회귀 위험</th></tr></thead>
   <tbody>
-    <tr><td>1</td><td>고아 컴포넌트 2개 삭제</td><td><code>P2</code></td><td>미진행</td><td>없음 (참조 0건)</td></tr>
-    <tr><td>2</td><td>도달 불가 코드 삭제 + 분기 정리</td><td><code>P2</code></td><td>미진행</td><td>낮음</td></tr>
-    <tr><td>3</td><td>미사용 타입 필드 제거</td><td><code>Nit</code></td><td>미진행</td><td>없음</td></tr>
-    <tr><td>4</td><td>죽은 CSS 규칙 제거</td><td><code>P2</code></td><td>미진행</td><td>중간</td></tr>
+    <tr><td>1</td><td>고아 컴포넌트 2개 삭제</td><td><code>P2</code></td><td>완료</td><td>162줄 제거</td></tr>
+    <tr><td>2</td><td>도달 불가 코드 삭제 + 분기 정리</td><td><code>P2</code></td><td>완료</td><td>624줄 제거, 분기 단순화</td></tr>
+    <tr><td>3</td><td>미사용 타입 필드 제거</td><td><code>Nit</code></td><td>완료</td><td>파일 삭제로 함께 해소</td></tr>
+    <tr><td>4</td><td>죽은 CSS 규칙 제거</td><td><code>P2</code></td><td>부분 완료</td><td>113개 규칙 제거, 약 248개 잔여</td></tr>
     <tr><td>5</td><td><code>:has()</code> → <code>data-page</code> 전환</td><td><code>P1</code></td><td>미진행</td><td>중간</td></tr>
     <tr><td>6</td><td>CSS 파일 분리</td><td><code>Nit</code></td><td>보류</td><td>낮음</td></tr>
   </tbody>
 </table>
 
-`P1`이 가장 높은 심각도이지만 처리 순서는 5번입니다. 4번을 먼저 처리하면 대상이 52개에서 47개로 줄고, 죽은 규칙을 잘못 건드릴 위험도 사라집니다.
+4번은 삭제된 컴포넌트에 대응하는 113개 규칙만 우선 제거했습니다. 나머지 약 248개는 자동 집계상 미사용으로 잡히지만, 검증 과정에서 메뉴 오버레이와 404 페이지 클래스처럼 런타임에만 나타나는 항목이 포함되어 있어 일괄 삭제를 보류했습니다. 이 부분은 `purgecss` 등 safelist를 지원하는 도구로 처리하는 편이 안전합니다.
 
 각 단계 완료 후 `npm run qa`(Playwright 90개)로 회귀를 확인합니다.
 
@@ -275,7 +275,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 
 기획·디자인·개발 진행 단계를 버전 단위로 기록하고 주요 변경 범위를 변경 이력과 함께 관리합니다.
 
-**현재 버전: `v0.10.0 — 프로젝트 상세 Figma 프레임 이미지 전환`**
+**현재 버전: `v0.11.0 — 미사용 코드·CSS 정리 및 코드 리뷰 문서화`**
 
 <table width="100%">
   <colgroup>
@@ -293,6 +293,7 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
     </tr>
   </thead>
   <tbody>
+    <tr><td><code>v0.11.0</code></td><td>2026-08-05</td><td>미사용 코드·CSS 정리 및 코드 리뷰 문서화</td><td>Figma 프레임 이미지 전환 이후 남은 상세 페이지 구 구현(<code>axion-case-study</code>, <code>axion-workflow</code>, <code>project-case-study</code>, 케이스 스터디 데이터) 1,120줄과 대상이 사라진 CSS 113개 규칙(334줄)을 제거하고, 상세 경로 분기를 단순화. 심각도 라벨(<code>P1</code>/<code>P2</code>/<code>Nit</code>) 기반 코드 리뷰 문서와 CI 상태 배지를 추가</td></tr>
     <tr><td><code>v0.10.0</code></td><td>2026-08-05</td><td>프로젝트 상세 Figma 프레임 이미지 전환</td><td>9개 프로젝트 상세를 Figma 프레임 이미지(Light / Dark) 기반으로 전환하고 프로젝트 카드 이미지를 교체, 상세 페이지 Back 버튼·타이틀 스타일과 다크 모드 CTA·푸터 색상을 Figma 기준으로 정합, E2E 검사를 프레임 이미지 기준으로 재작성</td></tr>
     <tr><td><code>v0.9.3</code></td><td>2026-08-03</td><td>AXION 상세 영역별 정합성 재구축</td><td>첨부된 08.Project_AXION_Desktop 기준으로 상단 메타, 기획 배경, AI Agent, Harness 흐름도·5단계, 병합형 IA 표, 주요 화면, 로고·타이포그래피·그리드·컬러 시스템을 재구성하고 Light / Dark·Folded·Mobile QA 보강</td></tr>
     <tr><td><code>v0.9.2</code></td><td>2026-08-03</td><td>AXION 상세 Figma 네이티브 구현</td><td>Figma 08.Project_AXION_Desktop 프레임을 실제 HTML·CSS 컴포넌트로 재구축하고 AI Agent·Harness·IA·주요 화면·디자인 시스템 및 반응형·다크 모드 정합화</td></tr>
