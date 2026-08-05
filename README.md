@@ -219,6 +219,42 @@ Figma 디자인을 반응형 웹으로 구현하고 버전별로 관리하기 �
 - Tailwind CSS
 - Git / GitHub
 
+## 코드 리뷰
+
+`v0.10.0` 기준으로 미사용 코드와 CSS 구조를 점검했습니다. 기능 결함은 발견되지 않았으며, 지적 사항은 모두 유지보수성에 관한 것입니다.
+
+### 점검 결과
+
+<table width="100%">
+  <colgroup><col width="10%"><col width="34%"><col width="18%"><col width="38%"></colgroup>
+  <thead><tr><th>구분</th><th>항목</th><th>규모</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td><code>A-1</code></td><td>고아 컴포넌트</td><td>162줄</td><td><code>axion-case-study.tsx</code>, <code>axion-workflow.tsx</code>가 어디에서도 참조되지 않음</td></tr>
+    <tr><td><code>A-2</code></td><td>도달 불가 코드</td><td>624줄</td><td><code>project-case-study.tsx</code>와 데이터가 항상 거짓인 분기에 위치해 실행되지 않음</td></tr>
+    <tr><td><code>A-3</code></td><td>미사용 타입 필드</td><td>1줄</td><td><code>screens.items</code>가 정의만 되고 읽히지 않음</td></tr>
+    <tr><td><code>B-1</code></td><td>죽은 CSS</td><td>204개 규칙</td><td>전체 613개 중 33%가 렌더링되지 않는 클래스를 대상으로 함</td></tr>
+    <tr><td><code>B-2</code></td><td><code>:has()</code> 스코프 결합</td><td>52개 규칙</td><td>컴포넌트 존재 여부에 스타일이 의존해 DOM 변경 시 스타일이 사라짐</td></tr>
+    <tr><td><code>B-3</code></td><td>CSS 파일 분리</td><td>2,027줄</td><td>전역 토큰·레이아웃·페이지 스코프가 한 파일에 집중 (우선순위 낮음)</td></tr>
+  </tbody>
+</table>
+
+### 조치 현황
+
+<table width="100%">
+  <colgroup><col width="10%"><col width="40%"><col width="16%"><col width="34%"></colgroup>
+  <thead><tr><th>순서</th><th>작업</th><th>상태</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>A-1 고아 컴포넌트 삭제</td><td>미진행</td><td>참조 0건 확인 완료</td></tr>
+    <tr><td>2</td><td>A-2 도달 불가 코드 삭제</td><td>미진행</td><td>이미지 방식 유지 확정 시 진행</td></tr>
+    <tr><td>3</td><td>A-3 미사용 타입 필드 제거</td><td>미진행</td><td>A-2와 함께 처리</td></tr>
+    <tr><td>4</td><td>B-1 죽은 CSS 제거</td><td>미진행</td><td>A 항목 완료 후 진행</td></tr>
+    <tr><td>5</td><td>B-2 <code>data-page</code> 속성 전환</td><td>미진행</td><td>페이지 단위 분할 진행 권장</td></tr>
+    <tr><td>6</td><td>B-3 CSS 파일 분리</td><td>보류</td><td>B-1 완료 후 재검토</td></tr>
+  </tbody>
+</table>
+
+각 단계 완료 후 `npm run qa`(Playwright 90개)로 회귀를 확인합니다.
+
 ## 버전
 
 기획·디자인·개발 진행 단계를 버전 단위로 기록하고 주요 변경 범위를 변경 이력과 함께 관리합니다.
