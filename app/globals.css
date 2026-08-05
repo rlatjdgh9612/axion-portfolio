@@ -2021,6 +2021,6 @@ html[data-theme="dark"] body:has(.axion-case-study-root) .project-meta span {
 
 /* Figma dark frame colors for project detail pages */
 html[data-theme="dark"] body:has(.detail-hero-shell) .contact-section { background: #121212; }
-html[data-theme="dark"] body:has(.detail-hero-shell) .contact-links .button-primary { border-color: #4b5563; background: #4b5563; color: #fff; }
-html[data-theme="dark"] body:has(.detail-hero-shell) .contact-links .button-secondary { border-color: #4b5563; background: transparent; color: #fff; }
+html[data-theme="dark"] body:has(.detail-hero-shell) .contact-links > a:first-child { border-color: #4b5563; background: #4b5563; color: #fff; }
+html[data-theme="dark"] body:has(.detail-hero-shell) .contact-links > a:last-child { border-color: #4b5563; background: transparent; color: #fff; }
 html[data-theme="dark"] body:has(.detail-hero-shell) .site-footer { background: #1e1e1e; color: #fff; }
