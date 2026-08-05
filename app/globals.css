@@ -153,6 +153,11 @@ body:not(:has(.detail-hero-shell)) .project-visual { height: auto; aspect-ratio:
 .project-card:hover .device-mockup { transform: scale(1.035); }
 .project-card-image { width: 100%; height: 100%; object-fit: cover; transition: transform .24s ease; }
 .project-card-image-dark { display: none; }
+.detail-figma-frame { margin-top: 56px; }
+.detail-figma-image { display: block; width: 100%; height: auto; }
+.detail-figma-image-dark { display: none; }
+html[data-theme="dark"] .detail-figma-image-light { display: none; }
+html[data-theme="dark"] .detail-figma-image-dark { display: block; }
 html[data-theme="dark"] .project-card-image-light { display: none; }
 html[data-theme="dark"] .project-card-image-dark { display: block; }
 .project-card:hover .project-card-image { transform: scale(1.025); }
