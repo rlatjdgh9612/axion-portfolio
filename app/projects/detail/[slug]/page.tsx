@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactSection } from "@/components/footer";
 import { ArrowIcon } from "@/components/icons";
-import { ProjectCaseStudy } from "@/components/project-case-study";
 import { Reveal } from "@/components/ui";
 import { projects } from "@/data/projects";
 
@@ -21,9 +20,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
 
-  const isAxion = project.slug === "axion";
-  const figmaFrameSlugs = ["axion", "vazoom", "investhive", "jcompany", "investwith", "korea-search-fund", "humblemong", "prior", "moneyguard"];
-  const useFigmaFrame = figmaFrameSlugs.includes(project.slug);
   const darkFrameOverrides: Record<string, string> = {
     jcompany: "/assets/detail/jcompany-detail-full-dark2.png",
     investwith: "/assets/detail/investwith-detail-full-dark2.png",
@@ -51,33 +47,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      {useFigmaFrame ? null : (
-        <>
-      <section className="detail-main-image container">
-        <Image
-          src={`/assets/detail/${project.slug}-hero.png`}
-          alt={`${project.title} 프로젝트 대표 화면`}
-          width={1056}
-          height={640}
-          sizes="(max-width: 640px) calc(100vw - 48px), 1056px"
-          style={{ width: "100%", height: "100%" }}
-          priority
-        />
-        {isAxion && <span className="detail-image-label">AI 포트폴리오</span>}
-      </section>
 
-      <section className="project-meta-section">
-        <div className="project-meta container">
-          <div><span>프로젝트 기간</span><strong>{project.period}</strong></div>
-          <div><span>담당 업무</span><strong>{project.role}</strong></div>
-          <div><span>사용 툴</span><strong>{project.tools}</strong></div>
-          <div><span>팀</span><strong>{project.team}</strong></div>
-        </div>
-      </section>
-        </>
-      )}
-
-      {useFigmaFrame ? (
         <section className="detail-figma-frame container">
           <Image
             className="detail-figma-image detail-figma-image-light"
@@ -100,9 +70,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             style={{ width: "100%", height: "auto" }}
           />
         </section>
-      ) : (
-        <ProjectCaseStudy slug={project.slug} title={project.title} />
-      )}
       <ContactSection />
     </>
   );
