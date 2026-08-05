@@ -22,7 +22,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   if (!project) notFound();
 
   const isAxion = project.slug === "axion";
-  const figmaFrameSlugs = ["axion", "vazoom"];
+  const figmaFrameSlugs = ["axion", "vazoom", "investhive"];
   const useFigmaFrame = figmaFrameSlugs.includes(project.slug);
 
   return (
