@@ -22,7 +22,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   if (!project) notFound();
 
   const isAxion = project.slug === "axion";
-  const figmaFrameSlugs = ["axion", "vazoom", "investhive", "jcompany", "investwith", "korea-search-fund", "humblemong", "prior"];
+  const figmaFrameSlugs = ["axion", "vazoom", "investhive", "jcompany", "investwith", "korea-search-fund", "humblemong", "prior", "moneyguard"];
   const useFigmaFrame = figmaFrameSlugs.includes(project.slug);
   const darkFrameOverrides: Record<string, string> = {
     jcompany: "/assets/detail/jcompany-detail-full-dark2.png",
