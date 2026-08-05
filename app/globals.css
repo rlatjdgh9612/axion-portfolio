@@ -1929,7 +1929,7 @@ body:has(.detail-hero-shell) .site-footer .button-secondary { border-color: #fff
 }
 
 /* AXION 상세 화면의 Figma 표시 위계 보정 */
-body:has(.axion-case-study-root) .back-link {
+body:has(.detail-hero-shell) .back-link {
   min-width: 112px;
   min-height: 48px;
   justify-content: center;
@@ -1940,7 +1940,7 @@ body:has(.axion-case-study-root) .back-link {
   font-weight: 700;
 }
 
-body:has(.axion-case-study-root) .detail-hero h1 {
+body:has(.detail-hero-shell) .detail-hero h1 {
   font-weight: 800;
 }
 
@@ -2011,7 +2011,7 @@ html[data-theme="dark"] body:has(.axion-case-study-root) .project-meta span {
 }
 
 @media (max-width: 640px) {
-  body:has(.axion-case-study-root) .back-link {
+  body:has(.detail-hero-shell) .back-link {
     min-width: 98px;
     min-height: 42px;
     margin-bottom: 38px;
