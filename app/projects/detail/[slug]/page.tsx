@@ -22,12 +22,13 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   if (!project) notFound();
 
   const isAxion = project.slug === "axion";
-  const figmaFrameSlugs = ["axion", "vazoom", "investhive", "jcompany", "investwith", "korea-search-fund"];
+  const figmaFrameSlugs = ["axion", "vazoom", "investhive", "jcompany", "investwith", "korea-search-fund", "humblemong"];
   const useFigmaFrame = figmaFrameSlugs.includes(project.slug);
   const darkFrameOverrides: Record<string, string> = {
     jcompany: "/assets/detail/jcompany-detail-full-dark2.png",
     investwith: "/assets/detail/investwith-detail-full-dark2.png",
     "korea-search-fund": "/assets/detail/korea-search-fund-detail-full-dark2.png",
+    humblemong: "/assets/detail/humblemong-detail-full-dark2.png",
   };
   const darkFrameSrc = darkFrameOverrides[project.slug] ?? `/assets/detail/${project.slug}-detail-full-dark.png`;
 
