@@ -24,6 +24,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const isAxion = project.slug === "axion";
   const figmaFrameSlugs = ["axion", "vazoom", "investhive", "jcompany", "investwith", "korea-search-fund"];
   const useFigmaFrame = figmaFrameSlugs.includes(project.slug);
+  const darkFrameOverrides: Record<string, string> = { jcompany: "/assets/detail/jcompany-detail-full-dark2.png" };
+  const darkFrameSrc = darkFrameOverrides[project.slug] ?? `/assets/detail/${project.slug}-detail-full-dark.png`;
 
   return (
     <>
@@ -84,7 +86,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           />
           <Image
             className="detail-figma-image detail-figma-image-dark"
-            src={`/assets/detail/${project.slug}-detail-full-dark.png`}
+            src={darkFrameSrc}
             alt=""
             aria-hidden="true"
             width={2112}
