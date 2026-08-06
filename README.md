@@ -6,7 +6,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6)
 ![Version](https://img.shields.io/badge/version-v0.11.0-blue)
 
-> 서비스 기획부터 UX/UI 디자인, AI 기반 제품 개발까지 하나의 흐름으로 연결한 기획자 & 프로덕트 디자이너 포트폴리오
+> 서비스 기획부터 UX/UI 디자인, AI 기반 제품 개발까지 하나의 흐름으로 연결한 기획자 & 프로덕트 디자이너 포트폴리오 웹사이트 입니다.
 
 금융, 핀테크, 블록체인, 세무·회계, M&A, 안전 인프라, 브랜딩 분야에서 수행한 **9개 프로젝트**를 문제 정의부터 결과까지 한자리에 정리했습니다.
 
@@ -39,10 +39,10 @@
 | 항목 | 내용 |
 | --- | --- |
 | 유형 | 개인 프로젝트 / AI·AX / UX/UI 디자인 / Web |
-| 기간 | 2026.07 ~ 진행 중 |
+| 기간 | 2026.07 ~ 진행 중(8월 초 마무리 예정) |
 | 담당 범위 | 서비스 기획 · UX/UI 디자인 전 과정, AI 에이전트 기반 프론트엔드 개발 |
 | 진행 형태 | 기획 · 디자인 · 개발을 모두 수행하는 1인 프로젝트 |
-| 사용 도구 | Figma, Figma MCP, Codex, Claude, Notion, Git, GitHub Actions |
+| 사용 도구 | Figma, Figma MCP, Codex, Claude, Notion/Markdown(md), Git, GitHub Actions |
 | 타깃 독자 | 채용담당자, 현직 PM, Product Designer, UX/UI Designer |
 
 AXION은 그동안 수행한 고객사 프로젝트의 문제 해결 과정과 결과물을 효과적으로 전달하기 위해 직접 기획·디자인·개발한 포트폴리오 웹사이트입니다.
@@ -66,10 +66,10 @@ AXION은 그동안 수행한 고객사 프로젝트의 문제 해결 과정과 �
 
 | 카테고리 | 수 | 프로젝트 |
 | --- | :---: | --- |
-| 인턴 프로젝트 | 1 | MoneyGuard |
-| 외주 프로젝트 | 4 | InvestWith, Korea Search Fund, Humblemong, Prior |
-| 회사 프로젝트 | 3 | Vazoom, InvestHive, JCompany |
-| 개인 프로젝트 | 1 | AXION |
+| 인턴 프로젝트 | 1 | 머니가드서비스 |
+| 외주 프로젝트 | 4 | 인베스트위드, 한국서치펀드, 험블몽, 세무법인 프라이어 |
+| 회사 프로젝트 | 3 | 지티엑스(주), 인베스트하이브, 제이컴퍼니 |
+| 개인 AI 프로젝트 | 1 | AXION |
 
 ### 구현 범위
 
