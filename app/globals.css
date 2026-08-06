@@ -951,7 +951,10 @@ html[data-theme="dark"] body:has(.projects-index) .site-footer .button-secondary
   .site-header .wordmark,
   .site-header .wordmark img,
   .menu-top .wordmark,
-  .menu-top .wordmark img { width: 100px; height: 23.333px; }
+  .menu-top .wordmark img { width: 88px; height: 23.4px; }
+
+  .site-header .wordmark img,
+  .menu-top .wordmark img { object-position: left center; }
   .site-footer .wordmark,
   .site-footer .wordmark img { width: 120px; height: 32px; }
 
@@ -1867,6 +1870,12 @@ body:has(.detail-hero-shell) .detail-hero h1 {
   }
 
   /* 연락 섹션 — 본문 2줄에 맞춘 크기 */
+  .contact-inner h2 {
+    font-size: 25px;
+    line-height: 1.35;
+  }
+
+
   .contact-inner > span {
     font-size: 18px;
     line-height: 1.4;
