@@ -207,8 +207,8 @@ html[data-theme="dark"] .partner-logo-grid img { filter: invert(1) hue-rotate(18
 .site-footer { height: 460px; padding: 72px 0; background: var(--brand); color: var(--bg); }
 html[data-theme="dark"] .site-footer { background: #02002c; color: #fff; }
 .site-footer > .container { height: 316px; display: flex; flex-direction: column; justify-content: space-between; }
-.site-footer .wordmark { width: 200px; height: 46px; color: inherit; }
-.site-footer .wordmark img { width: 200px; height: 46px; filter: grayscale(1) brightness(0) invert(1); }
+.site-footer .wordmark { width: 173px; height: 46px; color: inherit; }
+.site-footer .wordmark img { width: 173px; height: 46px; object-position: left center; filter: grayscale(1) brightness(0) invert(1); }
 .site-footer p { margin: 20px 0 0; color: color-mix(in srgb, currentColor 62%, transparent); font-size: 22px; line-height: 1.45; }
 .footer-actions { display: flex; gap: 16px; }
 .footer-actions .button { width: 520px; min-height: 70px; }
