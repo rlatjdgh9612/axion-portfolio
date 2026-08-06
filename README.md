@@ -4,7 +4,7 @@
 ![Next.js](https://img.shields.io/badge/Next.js-15-000000)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6)
-![Version](https://img.shields.io/badge/version-v0.11.0-blue)
+![Version](https://img.shields.io/badge/version-v1.0.0-blue)
 
 > 서비스 기획부터 UX/UI 디자인, AI 기반 제품 개발까지 하나의 흐름으로 연결한 기획자 & 프로덕트 디자이너 포트폴리오 웹사이트 입니다. 금융, 핀테크, 블록체인, 세무·회계, M&A, 안전 인프라, 브랜딩 분야에서 수행한 **9개 프로젝트**를 문제 정의부터 결과까지 한자리에 정리했습니다.
 
@@ -210,7 +210,7 @@ npm run qa      # ESLint → TypeScript → 프로덕션 빌드 → Playwright 9
 
 기획 · 디자인 · 개발 진행 단계를 버전 단위로 기록합니다.
 
-**현재 버전: `v0.11.1` — 모바일(390px) 레이아웃 보정**
+**현재 버전: `v1.0.0` — 채용 제출 버전**
 
 | 버전 | 반영일 | 단계 | 주요 범위 |
 | --- | --- | --- | --- |
