@@ -829,14 +829,14 @@ html[data-theme="dark"] body:has(.projects-index) .site-footer .button-secondary
   .hero-actions { width: 100%; flex-direction: column; }
   .button, .hero-actions .button:first-child, .hero-actions .button:nth-child(2) { width: 100%; min-height: 58px; font-size: 16px; padding-inline: 24px; }
   .hero-bottom > p { font-size: 12px; line-height: 1.6; }
-  .page-hero { height: auto; min-height: 544px; padding: 66px 0 48px; }
+  .page-hero { height: auto; min-height: 0; padding: 66px 0 32px; }
   .page-hero-copy h1 { font-size: 32px; line-height: 1.28; letter-spacing: -.045em; }
   .page-hero-copy > strong { margin-top: 12px; font-size: 24px; }
   .page-hero-bottom { margin-top: 34px; align-items: flex-start; flex-direction: column; gap: 20px; }
   .page-hero-actions { width: 100%; flex-direction: column; gap: 12px; }
   .page-hero-actions .button:first-child, .page-hero-actions .button:last-child { width: 100%; }
   .page-hero-bottom > p { width: auto; font-size: 12px; line-height: 1.6; }
-  .projects-section, .projects-index { padding: 76px 0 110px; }
+  .projects-section, .projects-index { padding: 40px 0 88px; }
   .projects-index.container, .about-profile.container, .about-process.container { width: 100%; padding-inline: 24px; }
   .projects-heading h2 { font-size: 30px; line-height: 38px; }
   .projects-heading p { font-size: 14px; line-height: 22px; }
