@@ -402,6 +402,10 @@ html[data-theme="dark"] body:has(.projects-index) .site-footer .button-secondary
 .about-profile-image img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
 .about-figma-copy ul { margin: 0; padding-left: 22px; color: #7b7b7b; font-size: 20px; line-height: 1.6; }
 .about-figma-copy li + li { margin-top: 8px; }
+.about-figma-copy ul li,
+.process-description ul li { position: relative; list-style: none; }
+.about-figma-copy ul li::before,
+.process-description ul li::before { content: "•"; position: absolute; left: -14px; }
 .about-skill-list { display: flex; flex-wrap: wrap; gap: 14px; }
 .about-skill-list span { min-height: 40px; display: inline-flex; align-items: center; padding: 0 18px; border: 1px solid var(--line); border-radius: 999px; font-size: 16px; }
 .about-process { padding-top: 72px; padding-bottom: 120px; border-top: 1px solid var(--line); }
