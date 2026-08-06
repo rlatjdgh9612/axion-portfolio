@@ -25,7 +25,7 @@
 
 ---
 
-## 이런 분은 여기부터
+## 프로젝트 결과문서
 
 - **채용담당자** — [포트폴리오 PDF](./portfolio/AXION_Portfolio.pdf) → 아래 [핵심 역량](#핵심-역량) → [프로젝트 구성](#프로젝트-구성)
 - **PM · 기획자** — [프로덕트 분석](./docs/01-product-analysis.md) → [기획안](./docs/02-project-plan.md) → [PRD](./docs/03-project-prd.md)
