@@ -11,7 +11,7 @@ function PhoneIcon() {
 }
 
 export function ContactSection() {
-  return <section className="contact-section"><div className="container contact-inner"><span>함께 성장할 기회를 기다립니다</span><h2>채용제안, 협업, 프리랜서 문의까지<br/>언제든 편하게 연락해주세요</h2><p>사용자와 비즈니스에 가치를 만드는 프로젝트를 함께 만들어가고 싶습니다<br/>채용 제안부터 프로젝트 협업까지 언제든 편하게 연락해주세요</p><div className="contact-links"><a href="mailto:rlatjdgh5548@gmail.com"><MailIcon/><span>rlatjdgh5548@gmail.com</span></a><a href="tel:+821057567314"><PhoneIcon/><span>010-5756-7314</span></a></div></div></section>;
+  return <section className="contact-section"><div className="container contact-inner"><span>함께 성장할 기회를 기다립니다</span><h2>채용제안, 협업, 프리랜서 문의까지<br/>언제든 편하게 연락해주세요</h2><p>사용자와 비즈니스에 가치를 만드는 프로젝트를 함께 만들어가고 싶습니다</p><div className="contact-links"><a href="mailto:rlatjdgh5548@gmail.com"><MailIcon/><span>rlatjdgh5548@gmail.com</span></a><a href="tel:+821057567314"><PhoneIcon/><span>010-5756-7314</span></a></div></div></section>;
 }
 
 export function Footer() {
