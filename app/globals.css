@@ -1691,6 +1691,24 @@ body:has(.detail-hero-shell) .detail-hero h1 {
     padding-inline: 16px;
   }
 
+  /* 소개 페이지 — 제목 굵기 복원 (Tailwind preflight가 inherit로 초기화함) */
+  body:has(.about-profile) .page-hero-copy h1,
+  body:has(.about-profile) .page-hero-copy > strong,
+  body:has(.about-profile) .about-figma-heading h1,
+  body:has(.about-profile) .about-figma-copy h2,
+  body:has(.about-profile) .about-process > div:first-child h2,
+  body:has(.about-profile) .process-index strong,
+  body:has(.about-profile) .process-index h3,
+  body:has(.about-profile) .process-description h4,
+  body:has(.about-profile) .contact-inner h2 {
+    font-weight: 700;
+  }
+
+  /* 소개 페이지 — 프로필 이미지를 제목 바로 아래로 */
+  .about-profile-image {
+    order: -1;
+  }
+
   /* 프로젝트 섹션 — 더 보기 버튼을 목록 하단으로 */
   body:has(.home-hero) .projects-more-top {
     display: none;
