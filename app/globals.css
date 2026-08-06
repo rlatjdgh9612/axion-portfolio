@@ -1735,6 +1735,20 @@ body:has(.detail-hero-shell) .detail-hero h1 {
     margin-bottom: 12px;
   }
 
+  /* 소개·프로젝트 페이지 히어로 — 홈과 동일한 여백으로 통일 */
+  .page-hero {
+    padding: 48px 0 32px;
+  }
+
+  .page-hero-copy > strong {
+    margin-top: 10px;
+  }
+
+  .page-hero-bottom {
+    margin-top: 24px;
+    gap: 16px;
+  }
+
   /* 홈 히어로 — 여백 축소 및 버튼 간격을 소개 페이지와 통일 */
   .home-hero {
     height: auto;
