@@ -1735,6 +1735,24 @@ body:has(.detail-hero-shell) .detail-hero h1 {
     margin-bottom: 12px;
   }
 
+  /* 홈 히어로 — 여백 축소 및 버튼 간격을 소개 페이지와 통일 */
+  .home-hero {
+    padding: 48px 0 32px;
+  }
+
+  .hero-greeting {
+    margin-bottom: 10px;
+  }
+
+  .hero-bottom {
+    margin-top: 24px;
+    gap: 16px;
+  }
+
+  .hero-actions {
+    gap: 12px;
+  }
+
   /* 프로젝트 섹션 — 더 보기 버튼을 목록 하단으로 */
   body:has(.home-hero) .projects-more-top {
     display: none;
