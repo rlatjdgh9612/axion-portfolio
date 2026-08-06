@@ -244,7 +244,7 @@ npm run qa      # ESLint → TypeScript → 프로덕션 빌드 → Playwright 9
 채용 · 협업 문의를 환영합니다.
 
 - Email — `rlatjdgh5548@gmail.com`
-- GitHub — [@rlatjdgh9612](https://github.com/rlatjdgh9612)
+- Phone - '010-5756-7314'
 
 ---
 
