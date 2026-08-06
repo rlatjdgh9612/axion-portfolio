@@ -949,7 +949,9 @@ html[data-theme="dark"] body:has(.projects-index) .site-footer .button-secondary
   .menu-top .wordmark,
   .menu-top .wordmark img { width: 100px; height: 23.333px; }
   .site-footer .wordmark,
-  .site-footer .wordmark img { width: 140px; height: 32px; }
+  .site-footer .wordmark img { width: 120px; height: 32px; }
+
+  .site-footer .wordmark img { object-position: left center; }
 
   .site-footer p {
     font-size: 13px;
