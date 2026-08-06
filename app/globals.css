@@ -1737,6 +1737,7 @@ body:has(.detail-hero-shell) .detail-hero h1 {
 
   /* 홈 히어로 — 여백 축소 및 버튼 간격을 소개 페이지와 통일 */
   .home-hero {
+    height: auto;
     padding: 48px 0 32px;
   }
 
