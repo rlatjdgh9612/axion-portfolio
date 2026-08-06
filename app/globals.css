@@ -949,7 +949,12 @@ html[data-theme="dark"] body:has(.projects-index) .site-footer .button-secondary
   .menu-top .wordmark,
   .menu-top .wordmark img { width: 100px; height: 23.333px; }
   .site-footer .wordmark,
-  .site-footer .wordmark img { width: 100px; height: 23px; }
+  .site-footer .wordmark img { width: 140px; height: 32px; }
+
+  .site-footer p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
 }
 
 /* About 전 뷰포트 표면/상태 보정 */
