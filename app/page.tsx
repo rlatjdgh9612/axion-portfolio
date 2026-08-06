@@ -40,7 +40,7 @@ export default function Home() {
       </section>
       <section className="partners-section">
         <Reveal className="partner-grid-image"><Image src="/assets/figma-home/partner-grid.png" alt="프로젝트를 함께한 고객사 로고" width={1200} height={334} sizes="100vw" loading="eager" /></Reveal>
-        <Reveal className="partner-logo-grid">{partnerLogos.map(([file, name]) => <div className="partner-logo-card" key={file}><Image src={`/assets/figma-home/partners/${file}.png`} alt={`${name} 로고`} width={1285} height={455} sizes="(min-width: 641px) and (max-width: 900px) 40vw, 0px" /></div>)}</Reveal>
+        <Reveal className="partner-logo-grid">{partnerLogos.map(([file, name]) => <div className="partner-logo-card" key={file}><Image src={`/assets/figma-home/partners/${file}.png`} alt={`${name} 로고`} width={1285} height={455} sizes="(max-width: 900px) 45vw, 0px" /></div>)}</Reveal>
       </section>
       <ContactSection />
     </>
