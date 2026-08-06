@@ -122,15 +122,50 @@ AXION은 그동안 수행한 고객사 프로젝트의 문제 해결 과정과 �
 
 검증 결과는 다시 프로젝트 데이터와 디자인 규칙에 반영되어, 반복 가능한 제작 환경(AI Harness)을 구성합니다.
 
-```text
-기획안·PRD
-  → 프로젝트 데이터
-    ↘ Figma 화면 ┐
-    ↗ React 구현 ┘
-  → 디자인 정합성 검사
-  → 반응형·접근성·기능 QA
-  → 검증 결과를 프로젝트 데이터와 디자인 규칙에 재반영
+```mermaid
+flowchart TD
+    PRD["기획안 · PRD"] --> DATA["프로젝트 데이터<br/>data/projects.ts"]
+    DATA --> FIGMA["Figma 화면"]
+    DATA --> CODE["React 구현"]
+    FIGMA --> BUILD
+    CODE --> BUILD["로컬 개발<br/>npm run dev"]
+
+    BUILD --> GUARD{"개발 감독<br/>dev-safe.mjs"}
+    GUARD -->|"HTTP 500 · chunk 누락"| RECOVER["캐시 보존 이동 후<br/>최대 2회 자동 재시작"]
+    RECOVER --> GUARD
+    GUARD -->|정상| QA
+
+    QA["품질 검사<br/>npm run qa"] --> STATIC["정적 검사<br/>sanitize · lint · typecheck"]
+    STATIC --> PROD["프로덕션 빌드"]
+    PROD --> E2E["Playwright E2E 90개<br/>16경로 × 3뷰포트"]
+    E2E --> VISUAL["시각 회귀<br/>Figma 기준선 대조"]
+
+    VISUAL --> VER{"버전 4곳 동기화<br/>check-version.mjs"}
+    VER -->|불일치| STOP["차단 후 보고"]
+    VER -->|일치| PUSH["main 푸시"]
+
+    PUSH --> CI["GitHub Actions<br/>품질 검사 재실행"]
+    CI --> DEPLOY["Vercel 자동 배포"]
+    CI -->|실패| KEEP["이전 배포 유지"]
+
+    DEPLOY --> FEEDBACK["검증 결과를<br/>데이터 · 디자인 규칙에 재반영"]
+    FEEDBACK -.-> DATA
 ```
+
+### 자동화 구성 요소
+
+| 계층 | 구현 | 역할 |
+| --- | --- | --- |
+| 개발 감독 | `scripts/dev-safe.mjs` | 주요 경로를 순환 확인하고 런타임 이상 감지 시 캐시 보존 후 최대 2회 자동 재시작 |
+| 복구 | `scripts/recover-dev.mjs` | 락 파일 기준 안전 복구 요청 |
+| 아티팩트 정리 | `scripts/sanitize-next-artifacts.mjs` | 동기화로 생긴 중복 생성 파일만 선별 제거 |
+| 기능 검증 | `tests/e2e/smoke.spec.ts` | 16경로 × 3뷰포트 런타임 오류 · 실패 요청 · 테마 전환 검사 |
+| 시각 회귀 | `tests/visual/figma-baselines/` | Figma 원본을 기준선으로 상세 화면 대조 |
+| 정합성 차단 | `scripts/check-version.mjs` | 버전 4곳 불일치 시 배포 차단 |
+| 원격 동기화 | `scripts/check-git-sync.mjs` | 로컬 · 원격 상태 확인 |
+| CI | `.github/workflows/quality.yml` | 푸시마다 전체 검사 재실행 |
+
+자동 수정은 **최대 2회**까지만 시도합니다. 해결되지 않으면 우회하지 않고 원인 · 영향 범위 · 실패한 검사 · 다음 조치를 보고하도록 `AGENTS.md`에 규정했습니다.
 
 ---
 
