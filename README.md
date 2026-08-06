@@ -14,7 +14,7 @@
 
 | 항목 | 링크 |
 | --- | --- |
-| 웹사이트 | 준비 중 — 2026년 8월 공개 예정 |
+| 웹사이트 | **[axion-portfolio-one.vercel.app](https://axion-portfolio-one.vercel.app)** |
 | Figma 디자인 | [AXION 프로젝트 원본](https://www.figma.com/design/cF038LTfcgHGdUTvFp67li/AXION_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=822-11419&t=qMNXXc6BR0xSKcdG-1) |
 | 포트폴리오 PDF | [AXION_Portfolio.pdf](./portfolio/AXION_Portfolio.pdf) |
 | 기획 문서 | [프로덕트 분석](./docs/01-product-analysis.md) · [기획안](./docs/02-project-plan.md) · [PRD](./docs/03-project-prd.md) |
@@ -241,7 +241,8 @@ npm run qa      # ESLint → TypeScript → 프로덕션 빌드 → Playwright 9
 - [x] 반응형 · 접근성 QA
 - [x] 모바일(390px) 레이아웃 정밀 보정 및 13개 경로 × 3개 뷰포트 회귀 검사
 - [x] Light / Dark 양쪽 최종 QA 및 데스크톱·태블릿 무영향 확인
-- [ ] 배포 및 채용 제출용 최종 검수
+- [x] Vercel 배포 및 HTTPS 적용
+- [ ] 채용 제출용 콘텐츠 최종 검수
 
 ---
 
