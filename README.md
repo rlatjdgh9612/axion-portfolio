@@ -1,4 +1,4 @@
-# AXION — 서비스 기획 · UX/UI 디자인 포트폴리오
+# AXION — AI 서비스 기획 · UX/UI 디자인 · 개발 포트폴리오
 
 [![Quality Gate](https://github.com/rlatjdgh9612/axion-portfolio/actions/workflows/quality.yml/badge.svg?branch=main)](https://github.com/rlatjdgh9612/axion-portfolio/actions/workflows/quality.yml)
 ![Next.js](https://img.shields.io/badge/Next.js-15-000000)
@@ -20,8 +20,6 @@
 | Figma 디자인 | [AXION 프로젝트 원본](https://www.figma.com/design/cF038LTfcgHGdUTvFp67li/AXION_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=822-11419&t=qMNXXc6BR0xSKcdG-1) |
 | 포트폴리오 PDF | [AXION_Portfolio.pdf](./portfolio/AXION_Portfolio.pdf) |
 | 기획 문서 | [프로덕트 분석](./docs/01-product-analysis.md) · [기획안](./docs/02-project-plan.md) · [PRD](./docs/03-project-prd.md) |
-
-![AXION 홈 화면](./public/assets/figma-home/home-desktop.png)
 
 ---
 
