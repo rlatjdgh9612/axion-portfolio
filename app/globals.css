@@ -399,7 +399,7 @@ html[data-theme="dark"] body:has(.projects-index) .site-footer .button-secondary
 .about-figma-copy h2 { margin: 0 0 20px; font-size: 40px; line-height: 48px; letter-spacing: -.02em; }
 .about-figma-copy p { margin: 0; color: #7b7b7b; font-size: 20px; line-height: 1.6; word-break: keep-all; }
 .about-profile-image { width: 428px; height: 656px; overflow: hidden; border-radius: 20px; background: #f8f8f8; }
-.about-profile-image img { width: 100%; height: 100%; object-fit: contain; object-position: center top; }
+.about-profile-image img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
 .about-figma-copy ul { margin: 0; padding-left: 22px; color: #7b7b7b; font-size: 20px; line-height: 1.6; }
 .about-figma-copy li + li { margin-top: 8px; }
 .about-skill-list { display: flex; flex-wrap: wrap; gap: 14px; }
@@ -1682,6 +1682,104 @@ body:has(.detail-hero-shell) .detail-hero h1 {
     min-height: 42px;
     margin-bottom: 38px;
     padding-inline: 16px;
+  }
+
+  /* 홈 하단 — 키워드 2x2, 그 아래 오른쪽 정렬 버튼 */
+  body:has(.home-hero) .home-about-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "keywords"
+      "action";
+    grid-template-rows: auto;
+    gap: 32px;
+    align-items: stretch;
+  }
+
+  body:has(.home-hero) .keyword-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 12px;
+    align-items: start;
+    justify-items: start;
+    padding: 0;
+  }
+
+  body:has(.home-hero) .keyword-list strong {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  body:has(.home-hero) .home-about-action {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  body:has(.home-hero) .home-about .about-link {
+    width: 140px;
+    min-height: 56px;
+    padding-inline: 20px;
+    font-size: 16px;
+  }
+
+  /* 고객사 로고 — 띠 이미지 대신 2열 카드 */
+  body:has(.home-hero) .partners-section {
+    width: min(calc(100% - 48px), 640px);
+    height: auto;
+    margin-inline: auto;
+    padding: 40px 0 64px;
+  }
+
+  body:has(.home-hero) .partner-grid-image {
+    display: none;
+  }
+
+  body:has(.home-hero) .partner-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  body:has(.home-hero) .partner-logo-card {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 2.08;
+    padding: 24px 28px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #f8f8f8;
+  }
+
+  body:has(.home-hero) .partner-logo-card img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  html[data-theme="dark"] body:has(.home-hero) .partner-logo-card {
+    background: #262626;
+  }
+
+  html[data-theme="dark"] body:has(.home-hero) .partner-logo-grid img {
+    filter: invert(1) grayscale(1) contrast(1.1);
+    opacity: .8;
+    mix-blend-mode: screen;
+  }
+
+  /* 연락 섹션 — 본문 2줄에 맞춘 크기 */
+  .contact-inner > span {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .contact-inner p {
+    font-size: 16px;
+    line-height: 1.6;
   }
 }
 
