@@ -1684,6 +1684,17 @@ body:has(.detail-hero-shell) .detail-hero h1 {
     padding-inline: 16px;
   }
 
+  /* 프로젝트 섹션 — 더 보기 버튼을 목록 하단으로 */
+  body:has(.home-hero) .projects-more-top {
+    display: none;
+  }
+
+  body:has(.home-hero) .projects-more-bottom {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 48px;
+  }
+
   /* 홈 하단 — 키워드 2x2, 그 아래 오른쪽 정렬 버튼 */
   body:has(.home-hero) .home-about-grid {
     grid-template-columns: 1fr;
