@@ -27,6 +27,27 @@ AXION Portfolio의 주요 변경 내역을 기록합니다.
 
 - ESLint, TypeScript, 프로덕션 빌드, Desktop·Folded Desktop·Mobile 및 Light / Dark Playwright QA
 
+## [1.0.0] - 2026-08-06
+
+채용 제출 버전입니다.
+
+### 추가
+
+- Vercel 배포 및 HTTPS 적용 (https://axion-portfolio-one.vercel.app)
+- OG · Twitter 카드 메타데이터 추가 (`opengraph-image` 1200×630, 로고 단독 구성)
+- 파비콘 추가 (`app/icon.svg`)
+
+### 변경
+
+- 연락 섹션 제목을 390px에서 2줄로 조정
+- 헤더 로고를 실제 렌더링 폭에 맞춰 좌측 정렬
+
+### 검증
+
+- 12개 경로 × 3개 뷰포트(390 / 768 / 1440) × Light / Dark 렌더링 확인
+- 배포본 기준 링크·이력서 PDF·연락처 동작 확인
+- 데스크톱 · 태블릿 레이아웃 무영향 확인
+
 ## [0.11.1] - 2026-08-06
 
 ### 변경
