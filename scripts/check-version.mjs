@@ -10,6 +10,7 @@ const failures = [];
 if (packageLock.version !== version) failures.push(`package-lock.json version is ${packageLock.version}`);
 if (packageLock.packages?.[""]?.version !== version) failures.push(`package-lock root package version is ${packageLock.packages?.[""]?.version}`);
 if (!readme.includes(`현재 버전: \`v${version}`)) failures.push("README current version is not synchronized");
+if (!readme.includes(`version-v${version}-`)) failures.push("README version badge is not synchronized");
 if (!changelog.includes(`## [${version}]`)) failures.push("CHANGELOG has no matching version section");
 
 if (failures.length) {

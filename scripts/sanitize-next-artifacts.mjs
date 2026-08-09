@@ -3,7 +3,7 @@ import { readdir, readFile, rename, stat, mkdir } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join, relative } from "node:path";
 
-const roots = [".next-dev/types", ".next-build/types", ".next-qa/types"];
+const roots = [".next/types", ".next-dev/types", ".next-build/types", ".next-qa/types"];
 const backupRoot = join(tmpdir(), "axion-next-artifact-duplicates", `${Date.now()}-${process.pid}`);
 let moved = 0;
 

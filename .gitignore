@@ -6,7 +6,7 @@ node_modules/
 .next-dev/
 .next-build/
 .next-qa/
-.axion-dev-server.lock
+.axion-dev-server*.lock
 out/
 
 # production

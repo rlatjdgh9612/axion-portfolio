@@ -19,7 +19,6 @@ export default function OpengraphImage() {
           background: "#ffffff",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={LOGO} alt="AXION" width={600} height={160} />
       </div>
     ),
