@@ -15,5 +15,5 @@ export function ContactSection() {
 }
 
 export function Footer() {
-  return <footer className="site-footer"><div className="container"><div className="footer-brand"><Link className="wordmark" href="/"><Image src="/assets/ui/logo-light.png" alt="AXION" width={200} height={46} loading="eager" /></Link><p>더 나은 서비스를 기획하고, 더 나은 사용자 경험을 디자인합니다.</p></div><div className="footer-actions"><ProjectButton/><ResumeLink/></div><small>©2026 AXION. All Rights Reserved Designed &amp; Developed by Kim Seong Ho</small></div></footer>;
+  return <footer className="site-footer"><div className="container"><div className="footer-brand"><Link className="wordmark" href="/"><Image src="/assets/ui/logo-light.png" alt="AXION" width={173} height={46} loading="eager" /></Link><p>더 나은 서비스를 기획하고, 더 나은 사용자 경험을 디자인합니다.</p></div><div className="footer-actions"><ProjectButton/><ResumeLink/></div><small>©2026 AXION. All Rights Reserved Designed &amp; Developed by Kim Seong Ho</small></div></footer>;
 }
