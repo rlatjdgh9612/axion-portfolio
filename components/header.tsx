@@ -48,7 +48,7 @@ export function Header() {
             <Image src="/assets/ui/logo-light.png" alt="AXION" width={120} height={28} priority />
           </Link>
           <div className="header-actions">
-            <button className="icon-button" type="button" onClick={toggle} aria-label={theme === "light" ? "다크 모드로 전환" : "라이트 모드로 전환"}>
+            <button className="icon-button" type="button" onClick={toggle} aria-label={theme === "light" ? "다크 모드로 전환" : "라이트 모드로 전환"} data-analytics-event="theme_change" data-analytics-theme={theme === "light" ? "dark" : "light"}>
               {theme === "light" ? <Image src="/assets/ui/theme-light.svg" alt="" width={22} height={22} /> : <SunIcon />}
             </button>
             <button className="menu-button" type="button" onClick={() => setOpen(true)} aria-expanded={open} aria-controls="global-menu">
@@ -64,7 +64,7 @@ export function Header() {
             <div className="menu-top">
               <Link className="wordmark" href="/" onClick={() => setOpen(false)}><Image src="/assets/ui/logo-light.png" alt="AXION" width={120} height={28} /></Link>
               <div className="header-actions">
-                <button className="icon-button" type="button" onClick={toggle} aria-label="테마 전환">{theme === "light" ? <Image src="/assets/ui/theme-light.svg" alt="" width={22} height={22} /> : <SunIcon />}</button>
+                <button className="icon-button" type="button" onClick={toggle} aria-label="테마 전환" data-analytics-event="theme_change" data-analytics-theme={theme === "light" ? "dark" : "light"}>{theme === "light" ? <Image src="/assets/ui/theme-light.svg" alt="" width={22} height={22} /> : <SunIcon />}</button>
                 <button ref={closeRef} className="menu-close" type="button" onClick={() => setOpen(false)} aria-label="전체 메뉴 닫기">×</button>
               </div>
             </div>

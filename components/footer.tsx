@@ -11,9 +11,9 @@ function PhoneIcon() {
 }
 
 export function ContactSection() {
-  return <section className="contact-section"><div className="container contact-inner"><span>함께 성장할 기회를 기다립니다</span><h2>채용제안, 협업, 프리랜서 문의까지<br/>언제든 편하게 연락해주세요</h2><p>사용자와 비즈니스에 가치를 만드는 프로젝트를 함께 만들어가고 싶습니다</p><div className="contact-links"><a href="mailto:rlatjdgh5548@gmail.com"><MailIcon/><span>rlatjdgh5548@gmail.com</span></a><a href="tel:+821057567314"><PhoneIcon/><span>010-5756-7314</span></a></div></div></section>;
+  return <section className="contact-section"><div className="container contact-inner"><span>함께 성장할 기회를 기다립니다</span><h2>채용제안, 협업, 프리랜서 문의까지<br/>언제든 편하게 연락해주세요</h2><p>사용자와 비즈니스에 가치를 만드는 프로젝트를 함께 만들어가고 싶습니다</p><div className="contact-links"><a href="mailto:rlatjdgh5548@gmail.com" data-analytics-event="contact_click" data-analytics-contact-method="email" data-analytics-location="contact_section"><MailIcon/><span>rlatjdgh5548@gmail.com</span></a><a href="tel:+821057567314" data-analytics-event="contact_click" data-analytics-contact-method="phone" data-analytics-location="contact_section"><PhoneIcon/><span>010-5756-7314</span></a></div></div></section>;
 }
 
 export function Footer() {
-  return <footer className="site-footer"><div className="container"><div className="footer-brand"><Link className="wordmark" href="/"><Image src="/assets/ui/logo-light.png" alt="AXION" width={173} height={46} loading="eager" /></Link><p>더 나은 서비스를 기획하고, 더 나은 사용자 경험을 디자인합니다.</p></div><div className="footer-actions"><ProjectButton/><ResumeLink/></div><small>©2026 AXION. All Rights Reserved Designed &amp; Developed by Kim Seong Ho</small></div></footer>;
+  return <footer className="site-footer"><div className="container"><div className="footer-brand"><Link className="wordmark" href="/"><Image src="/assets/ui/logo-light.png" alt="AXION" width={173} height={46} loading="eager" /></Link><p>더 나은 서비스를 기획하고, 더 나은 사용자 경험을 디자인합니다.</p></div><div className="footer-actions"><ProjectButton analyticsLocation="footer"/><ResumeLink analyticsLocation="footer"/></div><small>©2026 AXION. All Rights Reserved Designed &amp; Developed by Kim Seong Ho</small></div></footer>;
 }
