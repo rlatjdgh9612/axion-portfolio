@@ -14,7 +14,7 @@
 
 | 항목 | 링크 |
 | --- | --- |
-| 웹사이트 | **[axion-portfolio-one.vercel.app](https://axion-portfolio-one.vercel.app)** |
+| 웹사이트 | **[axion-portfolio-one.vercel.app](https://axion-portfolio-one.vercel.app/?utm_source=github&utm_medium=referral&utm_campaign=axion_portfolio)** |
 | Figma 디자인 | [AXION 프로젝트 원본](https://www.figma.com/design/cF038LTfcgHGdUTvFp67li/AXION_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=822-11419&t=qMNXXc6BR0xSKcdG-1) |
 | 기획 문서 | [프로덕트 분석](./docs/01-product-analysis.md) · [기획안](./docs/02-project-plan.md) · [PRD](./docs/03-project-prd.md) |
 

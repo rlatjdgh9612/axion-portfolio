@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@/components/analytics";
 
 const SITE_URL = "https://axion-portfolio-one.vercel.app";
 const SITE_TITLE = "AXION | Product Designer & Service Planner";
@@ -42,7 +43,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
         <Script id="theme-script" strategy="beforeInteractive">{`try{const t=localStorage.getItem('axion-theme');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme='light'}`}</Script>
       </head>
-      <body><ThemeProvider><Header/><main>{children}</main><Footer/></ThemeProvider></body>
+      <body><ThemeProvider><Header/><main>{children}</main><Footer/></ThemeProvider><Analytics /></body>
     </html>
   );
 }

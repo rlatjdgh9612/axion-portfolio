@@ -33,6 +33,13 @@ async function preparePage(page: Page, theme: "light" | "dark" = "light") {
   const runtimeErrors: string[] = [];
   const failedRequests: string[] = [];
 
+  await page.route(/https:\/\/www\.googletagmanager\.com\/.*/, (route) =>
+    route.fulfill({ status: 200, contentType: "application/javascript", body: "" }),
+  );
+  await page.route(/https:\/\/[^/]*google-analytics\.com\/.*/, (route) =>
+    route.fulfill({ status: 204, body: "" }),
+  );
+
   await page.addInitScript((selectedTheme) => {
     localStorage.setItem("axion-theme", selectedTheme);
   }, theme);
