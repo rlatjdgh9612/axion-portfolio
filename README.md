@@ -24,7 +24,7 @@
 
 ## 프로젝트 결과문서
 
-- **채용담당자** — [포트폴리오 PDF](./portfolio/AXION_Portfolio.pdf) → 아래 [핵심 역량](#핵심-역량) → [프로젝트 구성](#프로젝트-구성)
+- **채용담당자** — [포트폴리오 PDF](./portfolio/AXION_Portfolio.pdf) → 아래 [직무 역량 및 프로젝트 수행 경험](#직무-역량-및-프로젝트-수행-경험) → [프로젝트 구성](#프로젝트-구성)
 - **PM · 기획자** — [프로덕트 분석](./docs/01-product-analysis.md) → [기획안](./docs/02-project-plan.md) → [PRD](./docs/03-project-prd.md)
 - **디자이너** — [Figma 원본](https://www.figma.com/design/cF038LTfcgHGdUTvFp67li/AXION_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=822-11419&t=qMNXXc6BR0xSKcdG-1) → 아래 [디자인 시스템](#디자인-시스템)
 - **개발자** — [코드 리뷰](./docs/05-code-review.md) → [QA 자동화](./docs/04-qa-automation.md) → 아래 [기술 스택](#기술-스택)
@@ -47,14 +47,18 @@ AXION은 그동안 수행한 고객사 프로젝트의 문제 해결 과정과 �
 
 ---
 
-## 핵심 역량
+## 직무 역량 및 프로젝트 수행 경험
 
-- 서비스 분석, 문제 정의, 목표 및 검증 기준 수립
-- PRD, IA, 사용자 흐름과 요구사항 구조화
-- 데스크톱 · 모바일 반응형 UX/UI 디자인
-- 디자인 시스템, 디자인 토큰과 재사용 컴포넌트 설계
-- Figma · Confluence · Slack 기반 PM · 개발 협업
-- AI 에이전트를 활용한 기획 · 디자인 · 개발 · QA 자동화
+| 역량 | 이력서 활용 내용 | 주요 산출물 · 도구 |
+| --- | --- | --- |
+| 서비스 기획 · 문제 정의 | 금융·핀테크·블록체인·세무·M&A 등 **9개 프로젝트**의 문제와 목표를 구조화하고, 개인·인턴·외주·회사 유형별 탐색 경험과 프로젝트 상세 정보 구조를 설계 | PRD, IA, 사용자 흐름, 요구사항·우선순위·검증 기준 |
+| UX/UI · 디자인 시스템 | Light/Dark Theme과 Desktop/Mobile 반응형 화면을 설계하고, 디자인 토큰과 재사용 컴포넌트로 포트폴리오 전반의 시각·사용 경험 일관성을 구축 | Figma, Figma MCP, 디자인 토큰, 공통 컴포넌트 |
+| AI·AX 제품 구축 | Claude·Codex·Figma MCP를 역할별로 연결해 기획 → 디자인 → 개발 → QA 결과가 이어지는 **End-to-End AI Product Workflow**를 설계·운영 | Claude, Codex, Figma MCP, Notion/Markdown |
+| 프론트엔드 구현 | Next.js·React·TypeScript 기반으로 홈·소개·프로젝트 목록·9개 상세 페이지를 구현하고 반응형·테마 전환·CTA 등 주요 상호작용을 제품화 | Next.js 15, React 19, TypeScript, Tailwind CSS |
+| 데이터 측정 · 개선 체계 | GA4 맞춤 이벤트 **6종**과 GitHub 유입 UTM을 설계하고, Google Analytics Data API와 GitHub Actions를 연결해 최근 30일 지표를 README에 반영하는 월간 성과 보고 구조를 구축 | GA4, GA Data API, UTM, GitHub Actions |
+| QA · 배포 자동화 | 16개 경로와 3개 뷰포트를 기준으로 기능·반응형·테마·에셋 상태를 검증하고, 품질 검사를 통과한 변경만 Vercel에 배포되는 자동화 흐름을 구성 | Playwright, GitHub Actions, Vercel, 시각 회귀 테스트 |
+
+> **이력서 요약 문장** — 개인 포트폴리오 AXION의 서비스 기획, UX/UI 디자인, Next.js 기반 개발과 배포를 End-to-End로 수행했으며, GA4 행동 이벤트 설계와 Data API·GitHub Actions 기반 성과 보고 자동화까지 구축했습니다.
 
 ---
 
