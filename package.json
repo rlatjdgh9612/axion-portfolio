@@ -1,6 +1,6 @@
 {
   "name": "axion-portfolio",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "node scripts/dev-safe.mjs",
@@ -18,6 +18,7 @@
     "qa": "npm run qa:static && npm run build:qa && npm run qa:runtime",
     "version:check": "node scripts/check-version.mjs",
     "git:sync-check": "node scripts/check-git-sync.mjs",
+    "analytics:readme": "node scripts/update-ga4-readme.mjs",
     "qa:publish": "npm run qa && npm run version:check",
     "qa:published": "npm run version:check && npm run git:sync-check",
     "visual:project-details": "node scripts/visual-project-details.mjs"
