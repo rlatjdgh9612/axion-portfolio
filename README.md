@@ -4,7 +4,8 @@
 ![Next.js](https://img.shields.io/badge/Next.js-15-000000)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6)
-![Version](https://img.shields.io/badge/version-v1.0.0-blue)
+![Version](https://img.shields.io/badge/version-v1.1.0-blue)
+[![GA4 Report](https://github.com/rlatjdgh9612/axion-portfolio/actions/workflows/ga4-readme-report.yml/badge.svg)](https://github.com/rlatjdgh9612/axion-portfolio/actions/workflows/ga4-readme-report.yml)
 
 > 서비스 기획부터 UX/UI 디자인, AI 기반 제품 개발까지 하나의 흐름으로 연결한 기획자 & 프로덕트 디자이너 포트폴리오 웹사이트 입니다. 금융, 핀테크, 블록체인, 세무·회계, M&A, 안전 인프라, 브랜딩 분야에서 수행한 **9개 프로젝트**를 문제 정의부터 결과까지 한자리에 정리했습니다.
 
@@ -17,6 +18,7 @@
 | 웹사이트 | **[axion-portfolio-one.vercel.app](https://axion-portfolio-one.vercel.app/?utm_source=github&utm_medium=referral&utm_campaign=axion_portfolio)** |
 | Figma 디자인 | [AXION 프로젝트 원본](https://www.figma.com/design/cF038LTfcgHGdUTvFp67li/AXION_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=822-11419&t=qMNXXc6BR0xSKcdG-1) |
 | 기획 문서 | [프로덕트 분석](./docs/01-product-analysis.md) · [기획안](./docs/02-project-plan.md) · [PRD](./docs/03-project-prd.md) |
+| 데이터 측정 | [GA4 측정·성과 자동화 가이드](./docs/06-ga4-measurement.md) |
 
 ---
 
@@ -26,6 +28,7 @@
 - **PM · 기획자** — [프로덕트 분석](./docs/01-product-analysis.md) → [기획안](./docs/02-project-plan.md) → [PRD](./docs/03-project-prd.md)
 - **디자이너** — [Figma 원본](https://www.figma.com/design/cF038LTfcgHGdUTvFp67li/AXION_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=822-11419&t=qMNXXc6BR0xSKcdG-1) → 아래 [디자인 시스템](#디자인-시스템)
 - **개발자** — [코드 리뷰](./docs/05-code-review.md) → [QA 자동화](./docs/04-qa-automation.md) → 아래 [기술 스택](#기술-스택)
+- **성과·데이터 검토** — 아래 [사용자 행동 측정 및 성과](#사용자-행동-측정-및-성과) → [GA4 측정 가이드](./docs/06-ga4-measurement.md)
 
 ---
 
@@ -37,7 +40,7 @@
 | 기간 | 2026.07 ~ 2026.08 (완료) |
 | 담당 범위 | 서비스 기획 · UX/UI 디자인 전 과정, AI 에이전트 기반 프론트엔드 개발 |
 | 진행 형태 | 기획 · 디자인 · 개발을 모두 수행하는 1인 프로젝트 |
-| 사용 도구 | Figma, Figma MCP, Codex, Claude, Notion/Markdown(md), Git, GitHub Actions |
+| 사용 도구 | Figma, Figma MCP, Codex, Claude, Notion/Markdown(md), Google Analytics 4, Google Analytics Data API, Git, GitHub Actions |
 | 타깃 독자 | 채용담당자, 현직 PM, Product Designer, UX/UI Designer |
 
 AXION은 그동안 수행한 고객사 프로젝트의 문제 해결 과정과 결과물을 효과적으로 전달하기 위해 직접 기획·디자인·개발한 포트폴리오 웹사이트입니다.
@@ -104,7 +107,7 @@ AXION은 그동안 수행한 고객사 프로젝트의 문제 해결 과정과 �
 | **Plan** | IA · 사용자 흐름 구조화, 요구사항 · 예외 · 우선순위 정의 | Claude, Notion |
 | **Structure** | 기획 · 화면 · 토큰 연결, 공통 데이터 구조화, 재사용 규칙 정의 | Markdown, Notion |
 | **Design / Build** | 디자인과 구현 병렬 진행, 토큰 · 컴포넌트 연동, 반응형 구현 | Figma, Figma MCP, Codex |
-| **Validate** | 디자인 정합성 · 접근성 · 기능 · 반응형 QA | Playwright, GitHub Actions |
+| **Validate** | 디자인 정합성 · 접근성 · 기능 · 반응형 QA, 사용자 행동 측정 | Playwright, Google Analytics 4, GitHub Actions |
 
 검증 결과는 다시 프로젝트 데이터와 디자인 규칙에 반영되어, 반복 가능한 제작 환경(AI Harness)을 구성합니다.
 
@@ -150,6 +153,7 @@ flowchart TD
 | 정합성 차단 | `scripts/check-version.mjs` | 버전 4곳 불일치 시 배포 차단 |
 | 원격 동기화 | `scripts/check-git-sync.mjs` | 로컬 · 원격 상태 확인 |
 | CI | `.github/workflows/quality.yml` | 푸시마다 전체 검사 재실행 |
+| 성과 리포트 | `.github/workflows/ga4-readme-report.yml` | GA Data API의 최근 30일 익명 집계값을 매월 README에 자동 반영 |
 
 자동 수정은 **최대 2회**까지만 시도합니다. 해결되지 않으면 우회하지 않고 원인 · 영향 범위 · 실패한 검사 · 다음 조치를 보고하도록 `AGENTS.md`에 규정했습니다.
 
@@ -181,12 +185,47 @@ flowchart TD
 | 스타일 | Tailwind CSS 3.4 (base) + CSS 커스텀 프로퍼티 기반 디자인 토큰 |
 | 테스트 | Playwright (E2E 90개) |
 | CI | GitHub Actions — Quality Gate |
+| 분석 | Google Analytics 4, Google Analytics Data API, UTM 캠페인 |
+| 배포 | Vercel |
 
 ```bash
 npm install
 npm run dev     # http://127.0.0.1:3002
 npm run qa      # ESLint → TypeScript → 프로덕션 빌드 → Playwright 90개
 ```
+
+---
+
+## 사용자 행동 측정 및 성과
+
+GA4를 통해 포트폴리오 방문 경로와 채용 관련 핵심 행동을 측정합니다. GitHub README의 배포 링크에는 `utm_source=github`를 적용해 GitHub 유입을 구분하며, 개인 식별 정보는 이벤트나 저장소에 기록하지 않습니다.
+
+| 측정 이벤트 | 의미 | 활용 |
+| --- | --- | --- |
+| `project_card_click` | 프로젝트 카드 선택 | 관심 프로젝트·카테고리 파악 |
+| `project_filter_select` | 프로젝트 분류 탭 선택 | 탐색 방식 파악 |
+| `project_cta_click` | 프로젝트 보기 CTA 선택 | 주요 CTA 전환 확인 |
+| `resume_download` | 이력서 다운로드 선택 | 채용 관심 신호 확인 |
+| `contact_click` | 이메일·전화 연락 선택 | 문의 전환 확인 |
+| `theme_change` | Light / Dark 전환 | 테마 사용성 참고 |
+
+아래 표는 GitHub Actions가 GA Data API에서 가져온 **최근 30일 익명 집계값**으로 매월 1일 오전 9시(KST)에 갱신합니다. 실시간 원본 데이터와 세부 분석은 GA4에서만 확인합니다.
+
+<!-- GA4_METRICS_START -->
+> 자동 갱신 준비 완료 · GitHub Secrets 연결 후 첫 리포트가 표시됩니다.
+
+| 활성 사용자 | 세션 | 페이지 조회 | GitHub 유입 세션 |
+| ---: | ---: | ---: | ---: |
+| — | — | — | — |
+
+| 프로젝트 카드 클릭 | 이력서 다운로드 | 연락 클릭 | 세션 대비 연락 전환율 |
+| ---: | ---: | ---: | ---: |
+| — | — | — | — |
+
+<sub>GA4의 익명 집계값만 표시하며 개인 식별 정보는 수집하거나 저장소에 기록하지 않습니다.</sub>
+<!-- GA4_METRICS_END -->
+
+측정 기준, 이벤트 매개변수와 GitHub 자동 갱신 설정은 [GA4 측정·성과 자동화 가이드](./docs/06-ga4-measurement.md)에 정리했습니다.
 
 ---
 
@@ -231,10 +270,11 @@ npm run qa      # ESLint → TypeScript → 프로덕션 빌드 → Playwright 9
 
 기획 · 디자인 · 개발 진행 단계를 버전 단위로 기록합니다.
 
-**현재 버전: `v1.0.0` — 채용 제출용 완료·안정화 버전**
+**현재 버전: `v1.1.0` — GA4 성과 측정·README 자동 리포트 버전**
 
 | 버전 | 반영일 | 단계 | 주요 범위 |
 | --- | --- | --- | --- |
+| `v1.1.0` | 2026-08-10 | 성과 측정 자동화 | GA4 사용자 행동 이벤트·GitHub UTM 측정 문서화, GA Data API 기반 최근 30일 성과 지표의 README 월간 자동 갱신 구성 |
 | `v1.0.0` | 2026-08-09 | 제출 버전 | Vercel 배포·HTTPS 적용, 콘텐츠 검수, 문서·버전 동기화, 배포 명령 표준화, 상세 페이지 이미지 비율·접근성 보완 및 전체 QA |
 | `v0.11.1` | 2026-08-06 | 모바일 레이아웃 보정 | 390px 기준 전면 재조정. 홈 하단 키워드 2×2 배치와 고객사 로고 2열 카드 전환, 프로젝트 더 보기 버튼 하단 이동, 홈·소개·프로젝트 세 페이지 히어로 여백과 버튼 간격 통일, 연락 섹션 문구·크기 정리, 푸터 로고 확대 및 좌측 정렬(모바일·데스크톱), 소개 페이지 제목 굵기 복원·프로필 이미지 위치 이동·업무 프로세스 간격 축소·목록 불릿 복원. 프로젝트 분류 탭 전환 시 스크롤 위치 유지, 연락 섹션 제목 2줄 조정, 헤더·푸터 로고 좌측 정렬. Vercel 배포와 함께 OG · Twitter 카드 메타데이터와 파비콘 추가. 품질 검사 워크플로 단계명 한글화 |
 | `v0.11.0` | 2026-08-05 | 미사용 코드 · CSS 정리 | Figma 프레임 이미지 전환 이후 남은 구 구현과 대상이 사라진 CSS 113개 규칙을 제거하고 상세 경로 분기를 단순화. 심각도 라벨 기반 코드 리뷰 문서와 CI 상태 배지 추가 |
@@ -265,6 +305,8 @@ npm run qa      # ESLint → TypeScript → 프로덕션 빌드 → Playwright 9
 - [x] Light / Dark 양쪽 최종 QA 및 데스크톱·태블릿 무영향 확인
 - [x] Vercel 배포 및 HTTPS 적용
 - [x] 채용 제출용 콘텐츠 최종 검수 (링크·문구·이미지 점검)
+- [x] GA4 사용자 행동 이벤트 및 GitHub 유입 UTM 적용
+- [x] GA Data API 기반 README 월간 성과 리포트 자동화 구성
 
 ---
 

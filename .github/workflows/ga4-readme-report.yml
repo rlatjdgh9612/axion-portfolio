@@ -1,0 +1,46 @@
+name: GA4 성과 리포트
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 1 * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ga4-readme-report
+  cancel-in-progress: false
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Node.js 설치
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: GA4 최근 30일 지표 갱신
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/update-ga4-readme.mjs
+
+      - name: 변경사항 커밋
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "갱신할 지표 변경이 없습니다."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "docs: update monthly GA4 performance metrics"
+          git push origin main

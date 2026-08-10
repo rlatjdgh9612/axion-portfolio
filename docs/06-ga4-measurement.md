@@ -43,6 +43,27 @@ utm_source=github&utm_medium=referral&utm_campaign=axion_portfolio
 
 GA4의 획득 보고서에서 GitHub 유입과 해당 세션의 이력서 다운로드·연락 행동을 함께 확인할 수 있습니다.
 
+## GitHub README 성과 자동 갱신
+
+`.github/workflows/ga4-readme-report.yml`은 매월 1일 오전 9시(KST)에 GA Data API를 호출해 최근 30일 익명 집계값을 README에 반영합니다. 필요할 때 GitHub의 **Actions → GA4 성과 리포트 → Run workflow**에서 수동 실행할 수도 있습니다.
+
+### 최초 1회 설정
+
+1. Google Cloud 프로젝트에서 **Google Analytics Data API**를 활성화합니다.
+2. 읽기 전용 서비스 계정을 생성하고 JSON 키를 발급합니다.
+3. GA4 **관리 → 속성 액세스 관리**에서 서비스 계정 이메일을 `뷰어` 권한으로 추가합니다.
+4. GA4 관리 화면의 **속성 설정**에서 숫자로 된 속성 ID를 확인합니다. `G-`로 시작하는 측정 ID와는 다른 값입니다.
+5. GitHub 저장소 **Settings → Secrets and variables → Actions**에 아래 Repository secret을 등록합니다.
+
+   | Secret | 값 |
+   | --- | --- |
+   | `GA4_PROPERTY_ID` | 숫자로 된 GA4 속성 ID |
+   | `GA4_SERVICE_ACCOUNT_JSON` | 발급받은 서비스 계정 JSON 전체 내용 |
+
+6. 워크플로를 수동 실행해 README의 성과 표가 갱신되는지 확인합니다.
+
+서비스 계정은 GA4 `뷰어` 권한만 부여하고, JSON 키는 저장소 파일·커밋·로그에 포함하지 않습니다. 워크플로는 활성 사용자, 세션, 페이지 조회, GitHub 유입 세션과 세 가지 행동 이벤트의 합계만 README에 기록합니다.
+
 ## 초기 성과 지표
 
 - GitHub 및 LinkedIn 유입 세션 수
