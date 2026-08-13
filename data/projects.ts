@@ -179,3 +179,13 @@ export const categoryTitle: Record<string, string> = {
   company: "회사 프로젝트",
   personal: "개인 프로젝트",
 };
+
+export function getProjectBySlug(slug: string) {
+  return projects.find((project) => project.slug === slug);
+}
+
+export function getProjectsByCategory(category: string) {
+  return category === "all"
+    ? projects
+    : projects.filter((project) => project.category === category);
+}

@@ -168,8 +168,8 @@ test("project details render the Figma frame image", async ({ page }) => {
 
       await expect(page.locator(".detail-hero-shell")).toBeVisible();
       await expect(page.locator(".detail-figma-frame")).toBeVisible();
-      await expect(page.locator(".detail-figma-image-light")).toHaveCount(1);
-      await expect(page.locator(".detail-figma-image-dark")).toHaveCount(1);
+      await expect(page.locator(".detail-figma-image-light")).toHaveCount(8);
+      await expect(page.locator(".detail-figma-image-dark")).toHaveCount(0);
       await expect(page.locator(".contact-section")).toBeVisible();
       await expect(page.locator(".site-footer")).toBeVisible();
 
@@ -195,6 +195,20 @@ test("project details render the Figma frame image", async ({ page }) => {
     expect(runtimeErrors, `${path} detail errors`).toEqual([]);
     expect(failedRequests, `${path} detail failed requests`).toEqual([]);
   }
+});
+
+test("project detail images load only the selected theme", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await preparePage(page, "dark");
+  await page.goto("/projects/detail/axion", { waitUntil: "networkidle" });
+
+  await expect(page.locator(".detail-figma-images")).toHaveAttribute("data-detail-theme", "dark");
+  await expect(page.locator(".detail-figma-image-dark")).toHaveCount(8);
+  await expect(page.locator(".detail-figma-image-light")).toHaveCount(0);
+  await expect(page.locator(".detail-figma-image-dark").first()).toHaveAttribute(
+    "src",
+    /\/assets\/detail\/optimized\/axion\/dark\/section-01\.webp/,
+  );
 });
 
 test("project CTA matches the shared light and dark visual treatment", async ({ page }) => {

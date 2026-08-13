@@ -12,6 +12,33 @@ const nav = [
   { href: "/projects/all", label: "프로젝트" },
 ];
 
+type ThemeButtonProps = {
+  theme: "light" | "dark";
+  toggle: () => void;
+  label: string;
+};
+
+function ThemeButton({ theme, toggle, label }: ThemeButtonProps) {
+  const nextTheme = theme === "light" ? "dark" : "light";
+
+  return (
+    <button
+      className="icon-button"
+      type="button"
+      onClick={toggle}
+      aria-label={label}
+      data-analytics-event="theme_change"
+      data-analytics-theme={nextTheme}
+    >
+      {theme === "light" ? (
+        <Image src="/assets/ui/theme-light.svg" alt="" width={22} height={22} />
+      ) : (
+        <SunIcon />
+      )}
+    </button>
+  );
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -22,17 +49,29 @@ export function Header() {
     const previous = document.activeElement as HTMLElement | null;
     document.body.style.overflow = "hidden";
     closeRef.current?.focus();
+
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
+
       if (event.key === "Tab") {
         const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-menu] a,[data-menu] button"));
         const first = elements[0];
         const last = elements[elements.length - 1];
-        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-        if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        }
+
+        if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
       }
     };
+
     document.addEventListener("keydown", onKey);
+
     return () => {
       document.body.style.overflow = "";
       document.removeEventListener("keydown", onKey);
@@ -48,10 +87,18 @@ export function Header() {
             <Image src="/assets/ui/logo-light.png" alt="AXION" width={120} height={28} priority />
           </Link>
           <div className="header-actions">
-            <button className="icon-button" type="button" onClick={toggle} aria-label={theme === "light" ? "다크 모드로 전환" : "라이트 모드로 전환"} data-analytics-event="theme_change" data-analytics-theme={theme === "light" ? "dark" : "light"}>
-              {theme === "light" ? <Image src="/assets/ui/theme-light.svg" alt="" width={22} height={22} /> : <SunIcon />}
-            </button>
-            <button className="menu-button" type="button" onClick={() => setOpen(true)} aria-expanded={open} aria-controls="global-menu">
+            <ThemeButton
+              theme={theme}
+              toggle={toggle}
+              label={theme === "light" ? "다크 모드로 전환" : "라이트 모드로 전환"}
+            />
+            <button
+              className="menu-button"
+              type="button"
+              onClick={() => setOpen(true)}
+              aria-expanded={open}
+              aria-controls="global-menu"
+            >
               <span className="sr-only">전체 메뉴 열기</span>
               <Image src="/assets/ui/menu-light.svg" alt="" width={22} height={22} />
             </button>
@@ -62,14 +109,29 @@ export function Header() {
         <div id="global-menu" className="menu-overlay" role="dialog" aria-modal="true" aria-label="전체 메뉴" data-menu>
           <div className="container menu-shell">
             <div className="menu-top">
-              <Link className="wordmark" href="/" onClick={() => setOpen(false)}><Image src="/assets/ui/logo-light.png" alt="AXION" width={120} height={28} /></Link>
+              <Link className="wordmark" href="/" onClick={() => setOpen(false)}>
+                <Image src="/assets/ui/logo-light.png" alt="AXION" width={120} height={28} />
+              </Link>
               <div className="header-actions">
-                <button className="icon-button" type="button" onClick={toggle} aria-label="테마 전환" data-analytics-event="theme_change" data-analytics-theme={theme === "light" ? "dark" : "light"}>{theme === "light" ? <Image src="/assets/ui/theme-light.svg" alt="" width={22} height={22} /> : <SunIcon />}</button>
-                <button ref={closeRef} className="menu-close" type="button" onClick={() => setOpen(false)} aria-label="전체 메뉴 닫기">×</button>
+                <ThemeButton theme={theme} toggle={toggle} label="테마 전환" />
+                <button
+                  ref={closeRef}
+                  className="menu-close"
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label="전체 메뉴 닫기"
+                >
+                  ×
+                </button>
               </div>
             </div>
             <nav className="menu-nav">
-              {nav.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}<ArrowIcon /></Link>)}
+              {nav.map((item) => (
+                <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+                  {item.label}
+                  <ArrowIcon />
+                </Link>
+              ))}
             </nav>
             <p className="menu-copy">©2026 AXION. All Rights Reserved Designed &amp; Developed by Kim Seong Ho</p>
           </div>
