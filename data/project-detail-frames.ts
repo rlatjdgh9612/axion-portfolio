@@ -6,10 +6,11 @@ type FrameSize = {
 type ProjectDetailFrame = {
   light: FrameSize;
   dark: FrameSize;
-  darkImage?: string;
 };
 
 const FRAME_HEIGHT = 32768;
+const SECTION_HEIGHT = 4096;
+const SECTION_COUNT = FRAME_HEIGHT / SECTION_HEIGHT;
 
 export const projectDetailFrames: Record<string, ProjectDetailFrame> = {
   axion: {
@@ -27,22 +28,18 @@ export const projectDetailFrames: Record<string, ProjectDetailFrame> = {
   jcompany: {
     light: { width: 3315, height: FRAME_HEIGHT },
     dark: { width: 3315, height: FRAME_HEIGHT },
-    darkImage: "/assets/detail/jcompany-detail-full-dark2.png",
   },
   investwith: {
     light: { width: 2711, height: FRAME_HEIGHT },
     dark: { width: 2711, height: FRAME_HEIGHT },
-    darkImage: "/assets/detail/investwith-detail-full-dark2.png",
   },
   "korea-search-fund": {
     light: { width: 2628, height: FRAME_HEIGHT },
     dark: { width: 2628, height: FRAME_HEIGHT },
-    darkImage: "/assets/detail/korea-search-fund-detail-full-dark2.png",
   },
   humblemong: {
     light: { width: 2061, height: FRAME_HEIGHT },
     dark: { width: 2059, height: FRAME_HEIGHT },
-    darkImage: "/assets/detail/humblemong-detail-full-dark2.png",
   },
   prior: {
     light: { width: 3422, height: FRAME_HEIGHT },
@@ -54,12 +51,16 @@ export const projectDetailFrames: Record<string, ProjectDetailFrame> = {
   },
 };
 
-export function getProjectDetailFrame(slug: string) {
+export function getProjectDetailFrame(slug: string, theme: "light" | "dark") {
   const frame = projectDetailFrames[slug];
+  const size = frame[theme];
 
   return {
-    ...frame,
-    lightImage: `/assets/detail/${slug}-detail-full.png`,
-    darkImage: frame.darkImage ?? `/assets/detail/${slug}-detail-full-dark.png`,
+    ...size,
+    sections: Array.from({ length: SECTION_COUNT }, (_, index) => ({
+      src: `/assets/detail/optimized/${slug}/${theme}/section-${String(index + 1).padStart(2, "0")}.webp`,
+      width: size.width,
+      height: SECTION_HEIGHT,
+    })),
   };
 }

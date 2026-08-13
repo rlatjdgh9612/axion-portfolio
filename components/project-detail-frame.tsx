@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useTheme } from "@/components/theme-provider";
 import type { Project } from "@/data/projects";
 import { getProjectDetailFrame } from "@/data/project-detail-frames";
 
@@ -34,32 +38,41 @@ function ProjectDetailsText({ project }: ProjectDetailFrameProps) {
 }
 
 export function ProjectDetailFrame({ project }: ProjectDetailFrameProps) {
-  const frame = getProjectDetailFrame(project.slug);
-  const sharedImageProps = {
-    sizes: "(max-width: 640px) calc(100vw - 48px), 1056px",
-    style: { width: "100%", height: "auto" },
-  } as const;
+  const { theme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
+  const frame = getProjectDetailFrame(project.slug, theme);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <section className="detail-figma-frame container" aria-label={`${project.title} 프로젝트 상세 사례 연구`}>
-      <Image
-        {...sharedImageProps}
-        className="detail-figma-image detail-figma-image-light"
-        src={frame.lightImage}
-        alt={`${project.title} 프로젝트 상세 화면`}
-        width={frame.light.width}
-        height={frame.light.height}
-        priority
-      />
-      <Image
-        {...sharedImageProps}
-        className="detail-figma-image detail-figma-image-dark"
-        src={frame.darkImage}
-        alt=""
-        aria-hidden="true"
-        width={frame.dark.width}
-        height={frame.dark.height}
-      />
+      <div
+        className="detail-figma-images"
+        data-detail-theme={isMounted ? theme : undefined}
+        style={{ aspectRatio: `${frame.width} / ${frame.height}` }}
+      >
+        {isMounted
+          ? frame.sections.map((section, index) => (
+              <Image
+                key={section.src}
+                className={`detail-figma-image detail-figma-image-${theme}`}
+                src={section.src}
+                alt={index === 0 ? `${project.title} 프로젝트 상세 화면` : ""}
+                aria-hidden={index === 0 ? undefined : true}
+                width={section.width}
+                height={section.height}
+                sizes="(max-width: 640px) calc(100vw - 48px), 1056px"
+                priority={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "auto"}
+                decoding="async"
+                unoptimized
+              />
+            ))
+          : null}
+      </div>
       <ProjectDetailsText project={project} />
     </section>
   );
