@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowIcon } from "./icons";
 
-export const RESUME_PATH = "/downloads/kim-seongho-resume-2026.pdf";
+export const RESUME_PATH = "/api/resume";
 
 export function ResumeLink({ className = "button button-secondary", analyticsLocation = "unknown" }: { className?: string; analyticsLocation?: string }) {
   return <a className={className} href={RESUME_PATH} download="2026_서비스기획_UXUI디자이너_이력서_김성호.pdf" data-analytics-event="resume_download" data-analytics-location={analyticsLocation}>이력서 다운받기<ArrowIcon /></a>;
