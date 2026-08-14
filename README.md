@@ -39,7 +39,7 @@
 | 기간 | 2026.07 ~ 2026.08 (완료) |
 | 담당 범위 | 서비스 기획 · UX/UI 디자인 전 과정, AI 에이전트 기반 프론트엔드 개발 |
 | 진행 형태 | 기획 · 디자인 · 개발을 모두 수행하는 1인 프로젝트 |
-| 사용 도구 | Figma, Figma MCP, Codex, Claude, Notion/Markdown(md), Google Analytics 4, Google Analytics Data API, Git, GitHub Actions |
+| 사용 도구 | - Figma<br>- Figma MCP<br>- Codex<br>- Claude<br>- Notion · Markdown<br>- Google Analytics 4<br>- Google Analytics Data API<br>- Git<br>- GitHub Actions |
 | 타깃 독자 | 채용담당자, 현직 PM, Product Designer, UX/UI Designer |
 
 AXION은 그동안 수행한 고객사 프로젝트의 문제 해결 과정과 결과물을 효과적으로 전달하기 위해 직접 기획·디자인·개발한 포트폴리오 웹사이트입니다.
